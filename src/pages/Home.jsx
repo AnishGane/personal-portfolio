@@ -78,8 +78,8 @@ const BentoCard = ({ card }) => {
         onMouseMove={handleMouseMove}
         onHoverStart={handleHoverStart}
         onHoverEnd={handleHoverEnd}
-        initial={{ opacity: 0, filter: "blur(10px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, filter: "blur(10px)", y: 40 }}
+        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <img
@@ -134,7 +134,7 @@ const BentoCard = ({ card }) => {
 const Home = () => {
   return (
     <div className="w-full h-full flex items-center justify-center mt-8 p-6">
-      <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-6 gap-6 w-full max-w-6xl h-[80vh]">
+      <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-6 gap-4 w-full max-w-6xl h-[80vh]">
         {bentoCards.map((card) => (
           <BentoCard card={card} key={card.key} />
         ))}
