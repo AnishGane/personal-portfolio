@@ -70,7 +70,11 @@ const BentoCard = ({ card }) => {
     >
       <motion.div
         key={card.key}
-        className={`${card.className} relative rounded-3xl shadow-lg overflow-hidden flex items-center justify-center`}
+        className={`${
+          card.className
+        } relative rounded-3xl shadow-lg overflow-hidden flex items-center justify-center ${
+          card.key === "hero" ? "cursor-default" : "cursor-pointer"
+        }`}
         onMouseMove={handleMouseMove}
         onHoverStart={handleHoverStart}
         onHoverEnd={handleHoverEnd}
@@ -93,7 +97,7 @@ const BentoCard = ({ card }) => {
           </p>
         </div>
         <AnimatePresence>
-          {circle.visible && (
+          {circle.visible && card.key !== "hero" && (
             <motion.div
               className="text-center absolute z-30"
               style={{
