@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap");
+@import "tailwindcss";
+html,
+body {
+  font-family: "Outfit", sans-serif;
+}
+.nav-slide-bg {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.nav-slide-bg::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: #f87171; /* Tailwind's red-400 */
+  border-radius: 9999px;
+  z-index: -1;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-slide-bg.active::before {
+  width: 100%;
+}
+
+.nav-slide-bg:focus::before,
+.nav-slide-bg:active::before {
+  width: 100%;
+}
