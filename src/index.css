@@ -34,3 +34,11 @@ body {
 .nav-slide-bg:active::before {
   width: 100%;
 }
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
