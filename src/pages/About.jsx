@@ -204,6 +204,7 @@ const About = () => {
                 <div className="w-3 h-3 rounded-full bg-white"></div>
                 <span className="w-1 h-20 bg-white"></span>
               </div>
+              <div className="w-3 h-3 rounded-full bg-white"></div>
             </div>
             <div className="flex flex-col">
               <div className="flex flex-col items-start">
