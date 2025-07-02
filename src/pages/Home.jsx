@@ -88,11 +88,11 @@ const BentoCard = ({ card }) => {
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
         />
         <div className="absolute inset-0 bg-black/60 z-10" />
-        <div className="absolute w-full bottom-0 left-0 right-0 z-20 flex flex-col items-start p-6">
-          <h2 className="text-white text-2xl md:text-4xl font-bold mb-2 drop-shadow-lg">
+        <div className="absolute w-full bottom-0 left-0 right-0 z-20 flex flex-col items-start p-4 sm:p-6 md:p-8">
+          <h2 className="text-white text-xl sm:text-2xl md:text-4xl font-bold mb-2 drop-shadow-lg">
             {card.title}
           </h2>
-          <p className="text-slate-200/80 pt-2.5 mb-1 w-3/4 text-base md:text-md font-medium drop-shadow-lg">
+          <p className="text-slate-200/80 pt-2.5 mb-1 w-full sm:w-4/5 md:w-3/4 text-sm sm:text-base md:text-md font-medium drop-shadow-lg">
             {card.text}
           </p>
         </div>
@@ -133,8 +133,8 @@ const BentoCard = ({ card }) => {
 
 const Home = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center mt-8 p-6">
-      <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-6 gap-4 w-full max-w-6xl h-[80vh]">
+    <div className="w-full h-full flex items-center justify-center mt-8 p-4 sm:p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-6 gap-4 w-full max-w-6xl h-[80vh]">
         {bentoCards.map((card) => (
           <BentoCard card={card} key={card.key} />
         ))}
