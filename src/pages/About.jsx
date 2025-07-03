@@ -93,7 +93,7 @@ const About = () => {
           className="w-fit scroll-m-20 pb-2 text-2xl sm:text-3xl font-semibold tracking-tight first:mt-0"
         >
           About Me
-          <hr className="border-gray-200 border-1 mt-1" />
+          <hr className="border-gray-200 border-1 w-1/2 mt-1.5" />
         </motion.h2>
         <div
           ref={scope}
@@ -132,7 +132,7 @@ const About = () => {
             className="w-fit scroll-m-20 pb-2 text-2xl sm:text-3xl font-semibold tracking-tight first:mt-0"
           >
             My Skills
-            <hr className="border-gray-200 border-1 mt-1" />
+            <hr className="border-gray-200 border-1 w-1/2 mt-1.5" />
           </motion.h2>
           <div className=" items-center pl-0 lg:pl-5 flex gap-3 sm:gap-5 flex-wrap">
             {skills.map((skill, idx) => (
@@ -183,7 +183,7 @@ const About = () => {
             className="w-fit scroll-m-20 pb-2 text-2xl sm:text-3xl font-semibold tracking-tight first:mt-0"
           >
             Education
-            <hr className="border-gray-200 border-1 mt-1" />
+            <hr className="border-gray-200 w-1/2 border-1 mt-1.5" />
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)", y: -30 }}
