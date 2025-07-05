@@ -76,6 +76,23 @@ const Project = () => {
       link: "https://doctor-appointment-booking-v5i4.onrender.com/",
       tags: ["React", "Tailwind CSS"],
     },
+    {
+      title: "Softstitch Ecommerce Website",
+      description:
+        "A comprehensive e-commerce platform for Softstitch, featuring product catalog, shopping cart functionality, user authentication, and secure payment processing with a modern, responsive design.",
+      image: assets.project_6,
+      link: "https://softstitch-ecommerce.onrender.com",
+      tags: [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Framer Motion",
+        "Cloudinary",
+        "Multer",
+      ],
+    },
   ];
   return (
     <div className="w-full overflow-auto hide-scrollbar ">
