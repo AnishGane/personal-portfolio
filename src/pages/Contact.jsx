@@ -16,7 +16,7 @@ const Contact = () => {
     }
   };
   return (
-    <div className="dark:bg-black shadow-input mx-auto w-full max-w-lg rounded-none p-4 md:rounded-2xl md:p-8">
+    <div className=" dark:bg-black shadow-input mt-3 mx-auto w-full max-w-lg rounded-none p-4 md:rounded-2xl md:p-8">
       <motion.h2
         initial={{
           opacity: 0,

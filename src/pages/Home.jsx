@@ -72,7 +72,7 @@ const BentoCard = ({ card }) => {
         key={card.key}
         className={`${
           card.className
-        } relative rounded-3xl shadow-lg overflow-hidden flex items-center justify-center ${
+        } relative rounded-3xl shadow-2xl overflow-hidden flex items-center justify-center group ${
           card.key === "hero" ? "cursor-default" : "cursor-pointer"
         }`}
         onMouseMove={handleMouseMove}
@@ -81,20 +81,34 @@ const BentoCard = ({ card }) => {
         initial={{ opacity: 0, filter: "blur(10px)", y: 40 }}
         animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
+        whileHover={{
+          scale: card.key === "hero" ? 1 : 1.02,
+          transition: { duration: 0.3 },
+        }}
       >
         <img
           src={card.img}
           alt={card.title}
-          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0 group-hover:scale-110 transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-black/60 z-10" />
-        <div className="absolute w-full bottom-0 left-0 right-0 z-20 flex flex-col items-start p-4 sm:p-6 md:p-8">
-          <h2 className="text-white text-md sm:text-xl md:text-3xl font-bold mb-2 drop-shadow-lg">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+        <div className="absolute w-full bottom-0 left-0 right-0 z-20 flex flex-col items-start p-6 sm:p-8">
+          <motion.h2
+            className="text-white text-xl sm:text-2xl md:text-4xl font-bold mb-3 drop-shadow-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
             {card.title}
-          </h2>
-          <p className="text-slate-100/90 pt-2.5 mb-1 w-full sm:w-4/5 md:w-3/4 text-xs sm:text-sm md:text-md font-medium drop-shadow-lg">
+          </motion.h2>
+          <motion.p
+            className="text-slate-200/90 pt-1 mb-2 w-full sm:w-4/5 md:w-3/4 text-sm sm:text-base md:text-lg font-medium drop-shadow-xl leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+          >
             {card.text}
-          </p>
+          </motion.p>
         </div>
         <AnimatePresence>
           {circle.visible && card.key !== "hero" && (
@@ -106,16 +120,17 @@ const BentoCard = ({ card }) => {
                 width: 80,
                 height: 80,
                 borderRadius: "50%",
-                background: "rgba(255,255,255)",
-                border: "2px solid #fff",
-                boxShadow: "0 2px 12px 0 rgba(0,0,0,0.10)",
+                background: "rgba(255,255,255,0.95)",
+                border: "2px solid rgba(255,255,255,0.8)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 fontWeight: 700,
-                color: "#222",
+                color: "#1a1a1a",
                 fontSize: 14,
                 cursor: "pointer",
+                backdropFilter: "blur(10px)",
               }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -133,8 +148,8 @@ const BentoCard = ({ card }) => {
 
 const Home = () => {
   return (
-    <div className="w-full  flex items-center justify-center mt-8 p-4 sm:p-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-6 gap-4 w-full max-w-6xl h-[80vh]">
+    <div className="w-full h-screen mt-3 flex items-center justify-center p-4 sm:p-6 lg:p-8 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-6 gap-6 w-full max-w-7xl h-[85vh]">
         {bentoCards.map((card) => (
           <BentoCard card={card} key={card.key} />
         ))}

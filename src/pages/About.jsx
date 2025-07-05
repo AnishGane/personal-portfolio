@@ -52,7 +52,6 @@ const skills = [
 ];
 
 const About = () => {
-  // animating the about me text
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -60,6 +59,8 @@ const About = () => {
   }, []);
 
   const startAnimating = () => {
+    if (!scope.current) return;
+
     animate(
       "span",
       {
@@ -68,9 +69,9 @@ const About = () => {
         y: 0,
       },
       {
-        duration: 0.3,
+        duration: 0.4,
         ease: "easeInOut",
-        delay: stagger(0.035),
+        delay: stagger(0.02),
       }
     );
   };
@@ -89,7 +90,7 @@ const About = () => {
             scrollBehavior: "smooth",
           }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="w-fit scroll-m-20 pb-2 text-2xl sm:text-3xl font-semibold tracking-tight first:mt-0"
         >
           About Me
@@ -109,15 +110,33 @@ const About = () => {
             </motion.span>
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 mt-4">
-          <p className="text-sm flex items-center gap-2 justify-start text-justify">
-            <FaLocationDot /> Bhaktapur, Nepal
-          </p>
-          <p className="text-sm flex items-center gap-2 justify-start text-justify">
-            <MdAttachEmail />
-            <a href="mailto:anishgane10@gmail.com">anishgane10@gmail.com</a>
-          </p>
-        </div>
+        <motion.div
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 mt-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <motion.p
+            className="border border-slate-200 px-5 rounded-sm bg-gray-400/20 py-1.5 text-sm flex items-center gap-2 justify-start text-justify hover:bg-gray-400/30 transition-all duration-300 cursor-pointer"
+            whileHover={{ scale: 1.05, x: 5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaLocationDot className="text-blue-400" /> Bhaktapur, Nepal
+          </motion.p>
+          <motion.p
+            className="border border-slate-200 px-5 rounded-sm bg-gray-400/20 py-1.5 text-sm flex items-center gap-2 justify-start text-justify hover:bg-gray-400/30 transition-all duration-300 cursor-pointer"
+            whileHover={{ scale: 1.05, x: 5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MdAttachEmail className="text-green-400" />
+            <a
+              href="mailto:anishgane10@gmail.com"
+              className="hover:text-green-400 transition-colors"
+            >
+              anishgane10@gmail.com
+            </a>
+          </motion.p>
+        </motion.div>
 
         <div className="flex flex-col gap-5 w-full mt-12 pt-2">
           <motion.h2
@@ -128,24 +147,35 @@ const About = () => {
               scrollBehavior: "smooth",
             }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
             className="w-fit scroll-m-20 pb-2 text-2xl sm:text-3xl font-semibold tracking-tight first:mt-0"
           >
             My Skills
             <hr className="border-gray-200 border-1 w-1/2 mt-1.5" />
           </motion.h2>
-          <div className=" items-center pl-0 lg:pl-5 flex gap-3 sm:gap-5 flex-wrap">
+          <div className="items-center pl-0 lg:pl-5 flex gap-3 sm:gap-5 flex-wrap">
             {skills.map((skill, idx) => (
               <motion.div
                 key={skill.name}
-                className="flex items-center max-w-fit gap-0 bg-gray-800/40 rounded-lg p-2 sm:py-3 cursor-pointer overflow-hidden"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
+                className="flex items-center max-w-fit gap-0 bg-gray-800/40 rounded-lg p-2 sm:py-3 cursor-pointer overflow-hidden hover:bg-gray-800/60 transition-all duration-300"
+                initial={{ opacity: 0, x: -30, rotateY: -90 }}
+                animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ delay: idx * 0.1, type: "spring", stiffness: 60 }}
-                whileHover="hovered"
+                whileHover={{
+                  scale: 1.1,
+                  rotateY: 4,
+                  transition: { duration: 0.2 },
+                }}
+                whileTap={{ scale: 0.95 }}
               >
-                <p className="pl-2">{skill.icon}</p>
-                <motion.span
+                <motion.p
+                  className="pl-2"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {skill.icon}
+                </motion.p>
+                {/* <motion.span
                   className="ml-2 text-base sm:text-lg border-l-2 border-gray-200 overflow-hidden whitespace-nowrap"
                   initial={{ opacity: 0, x: -10, maxWidth: 0 }}
                   animate={{ opacity: 0, x: -10, maxWidth: 0 }}
@@ -164,7 +194,7 @@ const About = () => {
                   style={{ display: "inline-block" }}
                 >
                   <p className="mx-2">{skill.name}</p>
-                </motion.span>
+                </motion.span> */}
               </motion.div>
             ))}
           </div>
@@ -179,7 +209,7 @@ const About = () => {
               scrollBehavior: "smooth",
             }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
             className="w-fit scroll-m-20 pb-2 text-2xl sm:text-3xl font-semibold tracking-tight first:mt-0"
           >
             Education
@@ -188,59 +218,163 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)", y: -30 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
             className="flex flex-row gap-10 items-start"
           >
-            <div className="flex flex-col">
-              <div className="flex mt-1 flex-col items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-white"></div>
-                <span className="w-1 h-28 bg-white"></span>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-white"></div>
-                <span className="w-1 h-28 bg-white"></span>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-white"></div>
-                <span className="w-1 h-20 bg-white"></span>
-              </div>
-              <div className="w-3 h-3 rounded-full bg-white"></div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex flex-col items-start">
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaSchool /> Primary Schooling
-                </p>
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaSchool /> Sooryodaya Secondary School
-                </p>
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaCalendar /> 2062 - 2077 B.S.
-                </p>
-              </div>
-              <div className="flex flex-col mt-13 items-start">
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaSchool /> +2 (Science)
-                </p>
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaSchool /> Khwopa Higher Secondary College
-                </p>
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaCalendar /> 2077 - 2079 B.S.
-                </p>
-              </div>
-              <div className="flex flex-col mt-13 items-start">
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaGraduationCap /> Bachelor in Computer Application
-                </p>
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaUniversity /> Bhaktapur Multiple Campus
-                </p>
-                <p className="text-base sm:text-md flex items-center gap-2 justify-start text-justify">
-                  <FaCalendar /> 2079 B.S. - Present
-                </p>
-              </div>
-            </div>
+            <motion.div
+              className="flex flex-col"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+            >
+              <motion.div
+                className="flex mt-1 flex-col items-center justify-center"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.8 }}
+              >
+                <motion.div
+                  className="w-3 h-3 rounded-full bg-white"
+                  whileHover={{ scale: 1.5, backgroundColor: "#3b82f6" }}
+                  transition={{ duration: 0.3 }}
+                ></motion.div>
+                <motion.span
+                  className="w-1 h-28 bg-white"
+                  initial={{ scaleY: 0 }}
+                  animate={{ scaleY: 1 }}
+                  transition={{ duration: 0.8, delay: 2.0 }}
+                ></motion.span>
+              </motion.div>
+              <motion.div
+                className="flex flex-col items-center justify-center"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 2.2 }}
+              >
+                <motion.div
+                  className="w-3 h-3 rounded-full bg-white"
+                  whileHover={{ scale: 1.5, backgroundColor: "#10b981" }}
+                  transition={{ duration: 0.3 }}
+                ></motion.div>
+                <motion.span
+                  className="w-1 h-28 bg-white"
+                  initial={{ scaleY: 0 }}
+                  animate={{ scaleY: 1 }}
+                  transition={{ duration: 0.8, delay: 2.4 }}
+                ></motion.span>
+              </motion.div>
+              <motion.div
+                className="flex flex-col items-center justify-center"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 2.6 }}
+              >
+                <motion.div
+                  className="w-3 h-3 rounded-full bg-white"
+                  whileHover={{ scale: 1.5, backgroundColor: "#f59e0b" }}
+                  transition={{ duration: 0.3 }}
+                ></motion.div>
+                <motion.span
+                  className="w-1 h-20 bg-white"
+                  initial={{ scaleY: 0 }}
+                  animate={{ scaleY: 1 }}
+                  transition={{ duration: 0.8, delay: 2.8 }}
+                ></motion.span>
+              </motion.div>
+              <motion.div
+                className="w-3 h-3 rounded-full bg-white"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 3.0 }}
+                whileHover={{ scale: 1.5, backgroundColor: "#ef4444" }}
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              className="flex flex-col"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+            >
+              <motion.div
+                className="flex flex-col items-start"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 2.0 }}
+              >
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-blue-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaSchool className="text-blue-400" /> Primary Schooling
+                </motion.p>
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-blue-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaSchool className="text-blue-400" /> Sooryodaya Secondary
+                  School
+                </motion.p>
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-blue-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaCalendar className="text-blue-400" /> 2062 - 2077 B.S.
+                </motion.p>
+              </motion.div>
+              <motion.div
+                className="flex flex-col mt-13 items-start"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 2.4 }}
+              >
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-green-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaSchool className="text-green-400" /> +2 (Science)
+                </motion.p>
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-green-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaSchool className="text-green-400" /> Khwopa Higher
+                  Secondary College
+                </motion.p>
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-green-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaCalendar className="text-green-400" /> 2077 - 2079 B.S.
+                </motion.p>
+              </motion.div>
+              <motion.div
+                className="flex flex-col mt-13 items-start"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 2.8 }}
+              >
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-yellow-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaGraduationCap className="text-yellow-400" /> Bachelor in
+                  Computer Application
+                </motion.p>
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-yellow-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaUniversity className="text-yellow-400" /> Bhaktapur
+                  Multiple Campus
+                </motion.p>
+                <motion.p
+                  className="text-base sm:text-md flex items-center gap-2 justify-start text-justify hover:text-yellow-400 transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <FaCalendar className="text-yellow-400" /> 2079 B.S. - Present
+                </motion.p>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
