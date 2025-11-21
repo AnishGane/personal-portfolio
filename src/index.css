@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Define your CSS variables / theme values */
+@theme {
+  --color-bgBase: #fdfdfd;
+
+  /* text-neutral-800 */
+  --color-neutral-8: #262626;
+  /* other light-theme vars */
+}
+
+@layer theme {
+  /* When .dark is applied, override the vars */
+  .dark {
+    --color-bgBase: #111111;
+
+    /* text-neutral-800 opposite */
+    --color-neutral-8: #d9d9d9;
+    /* other dark-theme var overrides */
+  }
+}
+
+@font-face {
+  font-family: "Ownfont";
+  src: url("./assets/fonts/99e609270109b47d-s.p.64b9304e.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OwnfontBold";
+  src: url("./assets/fonts/effe91970fc4db64-s.p.19510058.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@layer utilities {
+  .main-container {
+    @apply min-h-screen bg-bgBase transition-colors flex justify-center;
+  }
+
+  .font-own {
+    font-family: "Ownfont", sans-serif;
+  }
+
+  .font-ownBold {
+    font-family: "OwnfontBold", sans-serif;
+  }
+}
