@@ -1,11 +1,12 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "*" }));
-
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 
 let lastSeen = null;
 
@@ -14,12 +15,11 @@ const dailyTotals = {};
 
 app.post("/heartbeat", (req, res) => {
   const now = Date.now();
-  const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+  const today = new Date().toISOString().split("T")[0];
 
-  // If lastSeen exists and was online recently, add to previous interval
-  if (lastSeen && now - lastSeen < 10000) {
-    // 10s considered active
-    if (!dailyTotals[today]) dailyTotals[today] = 0;
+  if (!dailyTotals[today]) dailyTotals[today] = 0;
+
+  if (lastSeen !== null && now - lastSeen < 10000) {
     dailyTotals[today] += now - lastSeen;
   }
 
@@ -42,5 +42,4 @@ app.get("/status", (req, res) => {
     yesterdayWorked: dailyTotals[yesterday] || 0,
   });
 });
-
 app.listen(PORT, () => console.log("Status server running on port: " + PORT));

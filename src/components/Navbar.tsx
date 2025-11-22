@@ -47,13 +47,25 @@ const Navbar = () => {
 
           {/* Theme Toggle Button */}
           <button
+            style={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0.05) 0px 2px 4px 0px inset",
+            }}
             onClick={toggleTheme}
-            className="ml-2 p-2 hover:ring-1 hover:bg-hover-shadow ring-neutral-6 rounded-lg cursor-pointer transition-all"
+            className="group ml-2 p-2 hover:ring-2 hover:bg-theme-hover hover:ring-neutral-6 rounded-lg cursor-pointer transition-all"
           >
             {theme === "dark" ? (
-              <Sun size={18} />
+              <Sun
+                color="#ffffff"
+                size={18}
+                className="transition-transform duration-300 group-hover:rotate-8"
+              />
             ) : (
-              <Moon size={18} className="text-neutral-8" />
+              <Moon
+                color="#000000"
+                size={18}
+                className="transition-transform duration-300 group-hover:rotate-8"
+              />
             )}
           </button>
         </ul>

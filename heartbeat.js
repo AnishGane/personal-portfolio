@@ -6,4 +6,4 @@ setInterval(async () => {
       timestamp: Date.now(),
     });
   } catch (e) {}
-}, 5000);
+}, 3000);

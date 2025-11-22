@@ -4,7 +4,7 @@
 
 /* Define your CSS variables / theme values */
 @theme {
-  --color-bgBase: #fdfdfd;
+  --color-bgBase: #ffffff;
 
   /* text-neutral-800 */
   --color-neutral-8: #262626;
@@ -12,18 +12,22 @@
   /* text-neutral-600 */
   --color-neutral-6: #525252;
 
-  --color-hover-shadow: #f5f5f5;
+  --color-hover-shadow: #dadada;
+
+  --color-theme-hover: #16161608;
 }
 
 @layer theme {
   .dark {
-    --color-bgBase: #111111;
+    --color-bgBase: #000000;
 
     /* text-neutral-800 opposite */
     --color-neutral-8: #fff;
 
     /* text-neutral-600 opposite */
     --color-neutral-6: #c7c6c6;
+
+    --color-theme-hover: #2b2828c7;
   }
 }
 
@@ -44,7 +48,7 @@
 @font-face {
   font-family: "OwnfontBold";
   src: url("./assets/fonts/effe91970fc4db64-s.p.19510058.woff2") format("woff2");
-  font-weight: 100 900;
+  font-weight: 800;
   font-style: normal;
 }
 

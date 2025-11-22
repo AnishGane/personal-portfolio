@@ -42,7 +42,11 @@ const ToolTip = ({
       </p>
 
       <p className="ml-4 text-[11px] text-neutral-500 tracking-wide dark:text-neutral-400 mt-0.5">
-        {totalTimeToday > 0 ? (
+        {status === "online" ? (
+          <>
+            Today worked: <strong>{formatTime(totalTimeToday)}</strong>
+          </>
+        ) : totalTimeToday > 0 ? (
           <>
             Today worked: <strong>{formatTime(totalTimeToday)}</strong>
           </>
