@@ -7,7 +7,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-neutral-900 font-own py-4 px-3 backdrop-blur-sm transition-colors duration-300">
+    <header className="sticky top-0 z-50 font-own mt-4 py-4 px-3 backdrop-blur-sm transition-colors duration-300">
       <nav className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         {theme === "dark" ? (
           <Link to="/">
@@ -27,7 +27,7 @@ const Navbar = () => {
           </Link>
         )}
 
-        <ul className="flex flex-wrap items-center gap-4 text-[15px] font-semibold capitalize tracking-wide text-neutral-700 dark:text-neutral-300">
+        <ul className="flex flex-wrap items-center gap-4 text-[15px] font-semibold capitalize tracking-wide">
           {navList.map((item) => (
             <li key={item.id}>
               <NavLink
@@ -48,9 +48,13 @@ const Navbar = () => {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="ml-2 p-2 rounded-lg border cursor-pointer border-neutral-300 dark:border-neutral-700 hover:shadow-[inset_0_0_8px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_0_8px_rgba(255,255,255,0.2)] transition-all"
+            className="ml-2 p-2 hover:ring-1 hover:bg-hover-shadow ring-neutral-6 rounded-lg cursor-pointer transition-all"
           >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            {theme === "dark" ? (
+              <Sun size={18} />
+            ) : (
+              <Moon size={18} className="text-neutral-8" />
+            )}
           </button>
         </ul>
       </nav>

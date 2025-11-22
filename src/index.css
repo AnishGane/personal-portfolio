@@ -8,18 +8,30 @@
 
   /* text-neutral-800 */
   --color-neutral-8: #262626;
-  /* other light-theme vars */
+
+  /* text-neutral-600 */
+  --color-neutral-6: #525252;
+
+  --color-hover-shadow: #f5f5f5;
 }
 
 @layer theme {
-  /* When .dark is applied, override the vars */
   .dark {
     --color-bgBase: #111111;
 
     /* text-neutral-800 opposite */
-    --color-neutral-8: #d9d9d9;
-    /* other dark-theme var overrides */
+    --color-neutral-8: #fff;
+
+    /* text-neutral-600 opposite */
+    --color-neutral-6: #c7c6c6;
   }
+}
+
+@font-face {
+  font-family: "tooltip";
+  src: url("./assets/fonts/03fc1b4a8d284b5e-s.p.af4fcd24.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
 }
 
 @font-face {
@@ -47,5 +59,9 @@
 
   .font-ownBold {
     font-family: "OwnfontBold", sans-serif;
+  }
+
+  .font-tooltip {
+    font-family: "tooltip", sans-serif;
   }
 }
