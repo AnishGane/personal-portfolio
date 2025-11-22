@@ -5,6 +5,8 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 
+const PORT = process.env.PORT || 4000;
+
 let lastSeen = null;
 
 // Store total worked per day
@@ -41,4 +43,4 @@ app.get("/status", (req, res) => {
   });
 });
 
-app.listen(4000, () => console.log("Status server running on port 4000"));
+app.listen(PORT, () => console.log("Status server running on port: " + PORT));
