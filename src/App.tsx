@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import Projects from "./pages/Projects";
-import Footer from "./components/Footer";
+
 import NotFound from "./components/NotFound";
 
 const App = () => {

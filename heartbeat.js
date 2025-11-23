@@ -2,7 +2,7 @@ import axios from "axios";
 
 setInterval(async () => {
   try {
-    await axios.post(`${import.meta.env.VITE_SERVER}/heartbeat`, {
+    await axios.post("http://localhost:4000/heartbeat", {
       timestamp: Date.now(),
     });
   } catch (e) {}

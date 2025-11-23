@@ -15,6 +15,8 @@
   --color-hover-shadow: #dadada;
 
   --color-theme-hover: #16161608;
+
+  --color-btn-border: #e5e5e5;
 }
 
 @layer theme {
@@ -28,6 +30,8 @@
     --color-neutral-6: #c7c6c6;
 
     --color-theme-hover: #2b2828c7;
+
+    --color-btn-border: #262626;
   }
 }
 
@@ -48,7 +52,7 @@
 @font-face {
   font-family: "OwnfontBold";
   src: url("./assets/fonts/effe91970fc4db64-s.p.19510058.woff2") format("woff2");
-  font-weight: 800;
+  font-weight: 100 900;
   font-style: normal;
 }
 

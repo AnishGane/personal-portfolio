@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import type { LanguageType, SocialLinkProp } from "@/types";
 
-import ToolTip from "@/components/ToolTip";
-import LanguageDiv from "@/components/LanguageDiv";
+// react-icons
+import { FaInstagram } from "react-icons/fa6";
+import { FiGithub } from "react-icons/fi";
+import { RiTwitterXFill } from "react-icons/ri";
+import { PiLinkedinLogo } from "react-icons/pi";
+import { IoMailOutline } from "react-icons/io5";
 
-import type { LanguageType } from "@/types";
+import { FileUser, Send } from "lucide-react";
 
 import TSLogo from "@/components/icons/TSLogo";
 import ReactLogo from "@/components/icons/ReactLogo";
 import NextLogo from "@/components/icons/NextLogo";
 import Bun from "@/components/icons/Bun";
 import Postgress from "@/components/icons/Postgress";
+import ProfileImage from "@/components/Portfolio/ProfileImage";
+import MyDescription from "@/components/Portfolio/MyDescription";
+import Button from "@/components/Button";
+import SocialLinks from "@/components/SocialLinks";
 
 export const LanguageItem: LanguageType[] = [
   {
@@ -45,82 +52,92 @@ export const LanguageItem: LanguageType[] = [
   },
 ];
 
+const SocialLinkItem: SocialLinkProp[] = [
+  {
+    id: 1,
+    icon: <RiTwitterXFill />,
+    label: "X",
+    href: "https://www.google.com",
+  },
+  {
+    id: 2,
+    icon: <FaInstagram />,
+    label: "instagram",
+    href: "https://www.google.com",
+  },
+  {
+    id: 3,
+    icon: <FiGithub />,
+    label: "Github",
+    href: "https://www.google.com",
+  },
+  {
+    id: 4,
+    icon: <PiLinkedinLogo />,
+    label: "Linkedin",
+    href: "https://www.google.com",
+  },
+  {
+    id: 5,
+    icon: <IoMailOutline />,
+    label: "Email",
+    href: "https://www.google.com",
+  },
+];
+
 const Portfolio = () => {
-  const [cursorStatus, setCursorStatus] = useState<string>("offline");
-  const [totalTimeToday, setTotalTimeToday] = useState<number>(0);
-  const [totalTimeYesterday, setTotalTimeYesterday] = useState<number>(0);
-
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      try {
-        const res = await axios.get(`${import.meta.env.VITE_SERVER}/status`);
-        setCursorStatus(res.data.online ? "online" : "offline");
-        setTotalTimeToday(res.data.todayWorked);
-        setTotalTimeYesterday(res.data.yesterdayWorked);
-      } catch {
-        setCursorStatus("offline");
-        setTotalTimeToday(0);
-        setTotalTimeYesterday(0);
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="mt-10">
-      <div>
-        {/* Profile Image */}
-        <div className="relative size-24 rounded-full p-[1.5px]">
-          <img
-            src="/Images/GhibliImage.png"
-            alt="My Image"
-            className="object-cover w-full h-full rounded-full"
-            title="Anish Gane"
-          />
+      {/* Profile Image */}
+      <ProfileImage />
 
-          <div className="absolute z-90 group bottom-px hover:scale-110 transition-scale duration-200 flex items-center justify-center right-[3px] shadow-md drop-shadow-neutral-100 size-5 rounded-full bg-white dark:bg-black dark:ring-1 dark:ring-neutral-500">
-            <span
-              className={`size-[7px] rounded-full ${
-                cursorStatus === "online" ? "bg-green-500" : "bg-[#737373]"
-              }`}
-            ></span>
+      {/* Description about me */}
+      <MyDescription />
 
-            <ToolTip
-              status={cursorStatus}
-              totalTimeToday={totalTimeToday}
-              totalTimeYesterday={totalTimeYesterday}
+      {/* Button Component */}
+      <div className="flex items-center gap-4 mt-8">
+        <Button
+          icon={
+            <FileUser
+              size={18}
+              className="rotate-15 hover:rotate-0 transform-all duration-200"
             />
-          </div>
-        </div>
+          }
+          href="/resume.pdf"
+          text="Resume / CV"
+          variant="secondary"
+        />
 
-        {/* Details */}
-        <div className="flex font-tooltip flex-col gap-3 mt-8 tracking-wide ">
-          <h1 className="text-3xl sm:text-4xl font-semibold text-transparent bg-linear-to-b from-gray-600 via-gray-700 to-gray-800 dark:from-gray-300 dark:via-gray-200 dark:to-gray-100 bg-clip-text">
-            Hi, I'm Anish —
-            <span className="text-neutral-400/80"> MERN Stack Developer.</span>
-          </h1>
+        <Button
+          icon={
+            <Send
+              size={16}
+              className="rotate-15 hover:rotate-0 transform-all duration-200"
+            />
+          }
+          text="Get in touch"
+          variant="primary"
+        />
+      </div>
 
-          <div className="flex flex-wrap mt-4 whitespace-pre-wrap items-center gap-2 text-neutral-6">
-            <span>I build interactive web apps using</span>
-            {LanguageItem.map((item, idx) => (
-              <LanguageDiv
-                key={item.id + item.languageName}
-                item={item}
-                idx={idx}
-                totalCount={LanguageItem.length}
-              />
-            ))}
-            <span>. With a focus on</span>
-            <strong>UI</strong>
-            <span>design. Enthusiastic about </span>
-            <span>
-              {" "}
-              <strong>Three.js </strong>, driven by a
-            </span>
-            <span>eye for design.</span>
-          </div>
-        </div>
+      {/* Social Links with tooltip */}
+      <div className="flex items-center gap-3 mt-8">
+        {SocialLinkItem.map((item) => (
+          <SocialLinks
+            id={item.id}
+            icon={item.icon}
+            label={item.label}
+            href={item.href}
+          />
+        ))}
+      </div>
+
+      {/* Projects */}
+      <div className="mt-16">
+        <p className="text-gray-500 text-sm tracking-tighter">Featured</p>
+        <h2 className="text-2xl font-bold text-neutral-8 font-tooltip">
+          Projects
+        </h2>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import type { LanguageType } from "@/types";
 import { Link } from "react-router-dom";
 
-const LanguageDiv = ({
+const LanguageSpanItem = ({
   item,
   idx,
   totalCount,
@@ -40,4 +40,4 @@ const LanguageDiv = ({
   );
 };
 
-export default LanguageDiv;
+export default LanguageSpanItem;
