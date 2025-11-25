@@ -1,5 +1,6 @@
-const NextLogo = () => (
-  <svg viewBox="0 0 128 128" className="size-3.5">
+import type { SVGProps } from "react";
+const NextLogo = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 128 128" {...props}>
     <circle cx="64" cy="64" r="64"></circle>
     <path
       fill="url(#a)"

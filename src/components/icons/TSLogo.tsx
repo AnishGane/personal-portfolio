@@ -1,6 +1,6 @@
-// TSLogo.tsx
-const TSLogo = () => (
-  <svg viewBox="0 0 128 128" className="size-3.5">
+import type { SVGProps } from "react";
+const TSLogo = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 128 128" {...props}>
     <path fill="#fff" d="M22.67 47h99.67v73.67H22.67z" />
     <path
       fill="#007acc"

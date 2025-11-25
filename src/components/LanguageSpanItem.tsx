@@ -1,5 +1,6 @@
 import type { LanguageType } from "@/types";
 import { Link } from "react-router-dom";
+import { cloneElement } from "react";
 
 const LanguageSpanItem = ({
   item,
@@ -27,7 +28,10 @@ const LanguageSpanItem = ({
         }}
         className="flex items-center justify-center gap-1 border border-dashed bg-gray-200/55 dark:bg-white/15 border-neutral-600 dark:border-neutral-300 rounded-md px-2 py-1"
       >
-        {item.icon}
+        <span className="w-5 h-5 flex items-center justify-center">
+          {cloneElement(item.icon, { width: 18, height: 18 })}
+        </span>
+
         <span className="text-xs font-bold">{item.languageName}</span>
       </span>
       {!isLast && !isSecondLast && (

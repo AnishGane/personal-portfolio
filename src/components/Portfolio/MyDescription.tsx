@@ -1,15 +1,14 @@
-import { LanguageItem } from "@/pages/Portfolio";
-import LanguageSpanItem from "../LanguageSpanItem";
+import { LanguageItem } from '@/pages/Portfolio';
+import LanguageSpanItem from '../LanguageSpanItem';
 
 const MyDescription = () => {
   return (
-    <div className="flex font-tooltip flex-col  gap-3 mt-8 tracking-wider font-medium">
-      <h1 className="text-3xl sm:text-4xl font-semibold text-transparent bg-linear-to-b from-gray-600 via-gray-700 to-gray-800 dark:from-gray-300 dark:via-gray-200 dark:to-gray-100 bg-clip-text">
-        Hi, I'm Anish —
-        <span className="text-neutral-400/80"> A MERN Stack Developer.</span>
+    <div className="font-tooltip mt-6 flex flex-col gap-3 font-medium tracking-wider">
+      <h1 className="bg-linear-to-b from-gray-600 via-gray-700 to-gray-800 bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl dark:from-gray-300 dark:via-gray-200 dark:to-gray-100">
+        Hi, I'm Anish —<span className="text-neutral-400/80"> A MERN Stack Developer.</span>
       </h1>
 
-      <div className="flex flex-wrap mt-4 whitespace-pre-wrap items-center gap-2 text-neutral-6">
+      <div className="text-neutral-6 mt-2 flex flex-wrap items-center gap-2 whitespace-pre-wrap">
         <span>I build interactive web apps using</span>
         {LanguageItem.map((item, idx) => (
           <LanguageSpanItem
