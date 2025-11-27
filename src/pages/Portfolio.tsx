@@ -21,6 +21,9 @@ import SocialLinks from '@/components/SocialLinks';
 import Heading from '@/components/Portfolio/Heading';
 import Project from '@/components/Projects/Project';
 import About from '@/components/About';
+import GitHubActivity from '@/components/Portfolio/GitHubActivity';
+import BookaCall from '@/components/Portfolio/BookaCall';
+import Quote from '@/components/Quote';
 
 export const LanguageItem: LanguageType[] = [
   {
@@ -130,6 +133,15 @@ const Portfolio = () => {
 
         <About />
       </div>
+
+      <div className="mt-14">
+        <Heading subHeading="Featured" heading="Github Activity" />
+        <GitHubActivity username={'AnishGane'} />
+      </div>
+
+      <BookaCall />
+
+      <Quote quote='"The best way to predict the future is to create it."' source='Abraham Lincoln'/>
     </section>
   );
 };

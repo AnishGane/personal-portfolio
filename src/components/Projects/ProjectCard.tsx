@@ -3,7 +3,6 @@ import type { ProjectItemProps } from '@/types';
 import { FiGithub } from 'react-icons/fi';
 import WebsiteDemo from '../icons/WebsiteDemo';
 import LinkToolTip from '../LinkToolTip';
-import { cloneElement } from 'react';
 import { ArrowRight } from 'lucide-react';
 import TechnologyList from '../TechnologyList';
 
@@ -14,7 +13,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       className="ring-neutral-6/10 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
       <img src={item.image} alt={item.name} className="w-full rounded-t-xl" />
-      <div className="project_content rounded-b-xl p-[17px] pt-8 hover:bg-neutral-100/45 dark:hover:bg-neutral-900/40">
+      <div className="project_content rounded-b-xl p-[17px] pt-8 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between">
           <h3 className="font-tooltip text-lg font-bold text-neutral-900 dark:text-neutral-100">
             {item.name}
@@ -67,7 +66,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
               item.status === 'Building'
                 ? 'bg-[#FEE9EA] dark:bg-[#2E191A]'
                 : 'bg-[#E5FAEE] dark:bg-[#15291D]'
-            } text-neutral-8 font-tooltip flex items-center justify-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-bold`}
+            } text-neutral-8 font-tooltip flex items-center justify-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold`}
           >
             <span
               className={`size-[7px] rounded-full ${

@@ -1,10 +1,11 @@
-import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
-import Projects from "./pages/Projects";
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Portfolio from './pages/Portfolio';
+import Blog from './pages/Blog';
+import Projects from './pages/Projects';
 
-import NotFound from "./components/NotFound";
+import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -20,7 +21,7 @@ const App = () => {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </main>
   );

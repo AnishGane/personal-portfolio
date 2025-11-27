@@ -1,9 +1,9 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import ToolTip from "../ToolTip";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import ToolTip from '../ToolTip';
 
 const ProfileImage = () => {
-  const [cursorStatus, setCursorStatus] = useState<string>("offline");
+  const [cursorStatus, setCursorStatus] = useState<string>('offline');
 
   const [totalTimeToday, setTotalTimeToday] = useState<number>(0);
   const [totalTimeYesterday, setTotalTimeYesterday] = useState<number>(0);
@@ -11,12 +11,12 @@ const ProfileImage = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const res = await axios.get("http://localhost:4000/status");
-        setCursorStatus(res.data.online ? "online" : "offline");
+        const res = await axios.get('http://localhost:4000/status');
+        setCursorStatus(res.data.online ? 'online' : 'offline');
         setTotalTimeToday(res.data.todayWorked);
         setTotalTimeYesterday(res.data.yesterdayWorked);
       } catch {
-        setCursorStatus("offline");
+        setCursorStatus('offline');
         setTotalTimeToday(0);
         setTotalTimeYesterday(0);
       }
@@ -29,14 +29,14 @@ const ProfileImage = () => {
       <img
         src="/Images/GhibliImage.png"
         alt="My Image"
-        className="object-cover w-full h-full rounded-full"
+        className="h-full w-full rounded-full object-cover"
         title="Anish Gane"
       />
 
-      <div className="absolute z-90 group bottom-px hover:scale-110 transition-scale duration-200 flex items-center justify-center right-[3px] shadow-md drop-shadow-neutral-100 size-5 rounded-full bg-white dark:bg-black dark:ring-1 dark:ring-neutral-500">
+      <div className="group transition-scale absolute right-[3px] bottom-px z-90 flex size-5 items-center justify-center rounded-full bg-white shadow-md drop-shadow-neutral-100 duration-200 hover:scale-105 dark:bg-black dark:ring-1 dark:ring-neutral-500">
         <span
-          className={`size-[7px] rounded-full ${
-            cursorStatus === "online" ? "bg-green-500" : "bg-[#737373]"
+          className={`size-[6.5px] rounded-full ${
+            cursorStatus === 'online' ? 'bg-green-500' : 'bg-[#737373]'
           }`}
         ></span>
 

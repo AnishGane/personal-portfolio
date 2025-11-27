@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -19,6 +19,29 @@
   --color-btn-border: #e5e5e5;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05); /* Light mode */
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Dark mode */
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease;
+}
+
 @layer theme {
   .dark {
     --color-bgBase: #000000;
@@ -36,40 +59,69 @@
 }
 
 @font-face {
-  font-family: "tooltip";
-  src: url("./assets/fonts/03fc1b4a8d284b5e-s.p.af4fcd24.woff2") format("woff2");
+  font-family: 'tooltip';
+  src: url('./assets/fonts/03fc1b4a8d284b5e-s.p.af4fcd24.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Ownfont";
-  src: url("./assets/fonts/99e609270109b47d-s.p.64b9304e.woff2") format("woff2");
+  font-family: 'Ownfont';
+  src: url('./assets/fonts/99e609270109b47d-s.p.64b9304e.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "OwnfontBold";
-  src: url("./assets/fonts/effe91970fc4db64-s.p.19510058.woff2") format("woff2");
+  font-family: 'OwnfontBold';
+  src: url('./assets/fonts/effe91970fc4db64-s.p.19510058.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @layer utilities {
   .main-container {
-    @apply min-h-screen bg-bgBase transition-colors flex justify-center;
+    @apply bg-bgBase flex min-h-screen justify-center transition-colors;
   }
 
   .font-own {
-    font-family: "Ownfont", sans-serif;
+    font-family: 'Ownfont', sans-serif;
   }
 
   .font-ownBold {
-    font-family: "OwnfontBold", sans-serif;
+    font-family: 'OwnfontBold', sans-serif;
   }
 
   .font-tooltip {
-    font-family: "tooltip", sans-serif;
+    font-family: 'tooltip', sans-serif;
+  }
+
+  .github-grid {
+    display: grid;
+    /* 53 weeks (columns) + 1 extra col for padding if you like */
+    grid-template-columns: repeat(53, minmax(0, 1fr));
+    /* 1 row for months + 7 for days */
+    grid-template-rows: auto repeat(7, 1fr);
+    gap: 3px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .month-cell {
+    font-size: 11px;
+    color: #a0a0a0;
+    text-align: left;
+  }
+
+  /* First row: month labels */
+  .month-cell:nth-child(-n + 53) {
+    align-self: end;
+  }
+
+  /* Day squares start from row 2 */
+  .day-cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 2px;
   }
 }

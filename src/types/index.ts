@@ -50,3 +50,26 @@ export type Skills = {
   icon: JSX.Element;
   label: string;
 };
+
+export type ContributionDay = {
+  contributionCount: number;
+  date: string;
+  color: string;
+};
+
+export type Week = {
+  contributionDays: ContributionDay[];
+};
+
+export type GitHubResponse = {
+  user: {
+    contributionsCollection: {
+      contributionCalendar: {
+        weeks: Week[];
+        totalContributions: number;
+      };
+    };
+  };
+};
+
+export type MonthLabel = { month: number; label: string; date: string } | null;

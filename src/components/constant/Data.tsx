@@ -7,15 +7,14 @@ import TailwindCSS from '../icons/TaiwindCSS';
 import ExpessJS from '../icons/ExpressJS';
 import MotionLogo from '../icons/MotionLogo';
 import ReactRouter from '../icons/ReactRouter';
-import Postgress from '../icons/Postgress';
-import Bun from '../icons/Bun';
-import NextLogo from '../icons/NextLogo';
+import TSLogo from '../icons/TSLogo';
+import JavaScript from '../icons/JavaScript';
 
 export const ProjectItem: ProjectItemProps[] = [
   {
     id: 1,
     name: 'Expense Tracker',
-    image: '/Images/dashboard_preview.png',
+    image: '/Images/Project1_Image.png',
     url: 'https://expense-tracker-frontend-sigma-eight.vercel.app/login',
     repoLink: 'https://github.com/AnishGane/expense-tracker',
     description:
@@ -51,7 +50,7 @@ export const ProjectItem: ProjectItemProps[] = [
   {
     id: 2,
     name: 'Himalayan Institute Website',
-    image: '/Images/dashboard_preview.png',
+    image: '/Images/Project1_Image.png',
     url: 'https://himalayan-edu-pvt-ltd.vercel.app/',
     repoLink: 'https://github.com/AnishGane/Himalayan-Edu-Pvt.-Ltd',
     description:
@@ -84,7 +83,7 @@ export const ProjectItem: ProjectItemProps[] = [
   {
     id: 3,
     name: 'SoftStitch Ecommerce',
-    image: '/Images/dashboard_preview.png',
+    image: '/Images/Project1_Image.png',
     url: 'https://himalayan-edu-pvt-ltd.vercel.app/',
     repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
     description:
@@ -120,7 +119,7 @@ export const ProjectItem: ProjectItemProps[] = [
   {
     id: 4,
     name: 'AI Background Removal',
-    image: '/Images/dashboard_preview.png',
+    image: '/Images/Project1_Image.png',
     url: 'https://ai-background-removal.onrender.com/',
     repoLink: 'https://github.com/AnishGane/AI-Background-Removal',
     description:
@@ -140,7 +139,7 @@ export const ProjectItem: ProjectItemProps[] = [
   {
     id: 5,
     name: 'AI Image Enhancer',
-    image: '/Images/dashboard_preview.png',
+    image: '/Images/Project1_Image.png',
     url: 'https://ai-image-enhancer-1oli.onrender.com/',
     repoLink: 'https://github.com/AnishGane/AI-Image-Enhancer',
     description:
@@ -160,25 +159,35 @@ export const ProjectItem: ProjectItemProps[] = [
 ];
 
 export const MySkills: Skills[] = [
-  { id: 1, icon: <ReactLogo />, label: 'React' },
+  { id: 1, icon: <ReactLogo />, label: 'react' },
   {
     id: 2,
-    icon: <NextLogo />,
-    label: 'Next.js',
+    icon: <MongoDB />,
+    label: 'mongodb',
   },
   {
     id: 3,
-    icon: <Bun />,
-    label: 'Bun',
+    icon: <JavaScript />,
+    label: 'javascript',
   },
   {
     id: 4,
-    icon: <Postgress />,
-    label: 'PostgreSQL',
+    icon: <TSLogo />,
+    label: 'typescript',
   },
   {
     id: 5,
     icon: <TailwindCSS />,
     label: 'TailwindCSS',
+  },
+  {
+    id: 6,
+    icon: <NodeJS />,
+    label: 'nodejs',
+  },
+  {
+    id: 7,
+    icon: <ExpessJS />,
+    label: 'express.js',
   },
 ];
