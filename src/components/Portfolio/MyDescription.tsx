@@ -1,10 +1,10 @@
-import { LanguageItem } from '@/pages/Portfolio';
 import LanguageSpanItem from '../LanguageSpanItem';
+import { LanguageItem } from '../constant/Data';
 
 const MyDescription = () => {
   return (
     <div className="font-tooltip mt-6 flex flex-col gap-3 font-medium tracking-wider">
-      <h1 className="bg-linear-to-b from-gray-600 via-gray-700 to-gray-800 bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl dark:from-gray-300 dark:via-gray-200 dark:to-gray-100">
+      <h1 className="bg-linear-to-b from-gray-600 via-gray-700 to-gray-800 bg-clip-text text-3xl font-medium text-transparent sm:text-4xl dark:from-gray-300 dark:via-gray-200 dark:to-gray-100">
         Hi, I'm Anish —<span className="text-neutral-400/80"> A MERN Stack Developer.</span>
       </h1>
 

@@ -1,4 +1,4 @@
-import type { ProjectItemProps, Skills } from '@/types';
+import type { LanguageType, NavItem, ProjectItemProps, Skills, SocialLinkProp } from '@/types';
 import ReactLogo from '../icons/ReactLogo';
 import MongoDB from '../icons/MongoDB';
 import Vercel from '../icons/Vercel';
@@ -7,8 +7,90 @@ import TailwindCSS from '../icons/TaiwindCSS';
 import ExpessJS from '../icons/ExpressJS';
 import MotionLogo from '../icons/MotionLogo';
 import ReactRouter from '../icons/ReactRouter';
-import TSLogo from '../icons/TSLogo';
 import JavaScript from '../icons/JavaScript';
+
+import TSLogo from '@/components/icons/TSLogo';
+import NextLogo from '@/components/icons/NextLogo';
+import Bun from '@/components/icons/Bun';
+import Postgress from '@/components/icons/Postgress';
+
+// react-icons
+import { FaInstagram } from 'react-icons/fa6';
+import { FiGithub } from 'react-icons/fi';
+import { RiTwitterXFill } from 'react-icons/ri';
+import { PiLinkedinLogo } from 'react-icons/pi';
+import { IoMailOutline } from 'react-icons/io5';
+
+export const navList: NavItem[] = [
+  { id: 1, label: 'Portfolio', path: '/' },
+  { id: 2, label: 'Projects', path: '/projects' },
+];
+
+export const LanguageItem: LanguageType[] = [
+  {
+    id: 1,
+    icon: <TSLogo />,
+    languageName: 'TypeScript',
+    href: 'https://www.typescriptlang.org/',
+  },
+  {
+    id: 2,
+    icon: <ReactLogo />,
+    languageName: 'React',
+    href: 'https://react.dev/',
+  },
+  {
+    id: 3,
+    icon: <NextLogo />,
+    languageName: 'Next.js',
+    href: 'https://nextjs.org/',
+  },
+  {
+    id: 4,
+    icon: <Bun />,
+    languageName: 'Bun',
+    href: 'https://bun.com/',
+  },
+  {
+    id: 5,
+    icon: <Postgress />,
+    languageName: 'PostgreSQL',
+    href: 'https://www.postgresql.org/',
+  },
+];
+
+export const SocialLinkItem: SocialLinkProp[] = [
+  {
+    id: 1,
+    icon: <RiTwitterXFill />,
+    label: 'X',
+    href: 'https://www.google.com',
+  },
+  {
+    id: 2,
+    icon: <FaInstagram />,
+    label: 'Instagram',
+    href: 'https://www.google.com',
+  },
+  {
+    id: 3,
+    icon: <FiGithub />,
+    label: 'Github',
+    href: 'https://www.google.com',
+  },
+  {
+    id: 4,
+    icon: <PiLinkedinLogo />,
+    label: 'Linkedin',
+    href: 'https://www.google.com',
+  },
+  {
+    id: 5,
+    icon: <IoMailOutline />,
+    label: 'Email',
+    href: 'https://www.google.com',
+  },
+];
 
 export const ProjectItem: ProjectItemProps[] = [
   {
@@ -19,7 +101,7 @@ export const ProjectItem: ProjectItemProps[] = [
     repoLink: 'https://github.com/AnishGane/expense-tracker',
     description:
       'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
-    status: 'Fully Functional',
+    status: 'Working',
     techonologies: [
       {
         icon: <ReactLogo />,
@@ -88,7 +170,7 @@ export const ProjectItem: ProjectItemProps[] = [
     repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
     description:
       'A full-stack e-commerce platform built with React, Node.js,express, and MongoDB, featuring user authentication, product management, shopping cart functionality, and integrated payment gateways.',
-    status: 'Fully Functional',
+    status: 'Working',
     techonologies: [
       {
         icon: <ReactLogo />,
@@ -124,7 +206,7 @@ export const ProjectItem: ProjectItemProps[] = [
     repoLink: 'https://github.com/AnishGane/AI-Background-Removal',
     description:
       'This web application allows users to easily remove backgrounds from images using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for background removal tasks.',
-    status: 'Completed',
+    status: 'Working',
     techonologies: [
       {
         icon: <ReactLogo />,
@@ -144,7 +226,27 @@ export const ProjectItem: ProjectItemProps[] = [
     repoLink: 'https://github.com/AnishGane/AI-Image-Enhancer',
     description:
       'This web application allows users to easily enhance image using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for enhancing images related tasks.',
-    status: 'Completed',
+    status: 'Working',
+    techonologies: [
+      {
+        icon: <ReactLogo />,
+        label: 'React',
+      },
+      {
+        icon: <TailwindCSS />,
+        label: 'TailwindCSS',
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: 'Smart Inventory & Sales Management System',
+    image: '/Images/Project1_Image.png',
+    url: 'https://ai-image-enhancer-1oli.onrender.com/',
+    repoLink: 'https://github.com/AnishGane/AI-Image-Enhancer',
+    description:
+      'This web application allows users to easily enhance image using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for enhancing images related tasks.',
+    status: 'Building',
     techonologies: [
       {
         icon: <ReactLogo />,

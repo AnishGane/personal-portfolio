@@ -1,7 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
-import { navList } from '@/types';
 import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun } from 'lucide-react';
+import { navList } from './constant/Data';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -18,7 +18,7 @@ const Navbar = () => {
             />
           </Link>
         ) : (
-          <Link to="/">
+          <Link to="/" onClick={() => window.scrollTo(0, 0)}>
             <img
               src="/Images/AG.svg"
               alt="svg white Logo"
@@ -32,6 +32,7 @@ const Navbar = () => {
             <li key={item.id}>
               <NavLink
                 to={item.path}
+                onClick={() => window.scrollTo(0, 0)}
                 className={({ isActive }) =>
                   `${
                     isActive

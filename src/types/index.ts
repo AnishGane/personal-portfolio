@@ -20,11 +20,7 @@ export type NavItem = {
   path: string;
 };
 
-export const navList: NavItem[] = [
-  { id: 1, label: 'Portfolio', path: '/' },
-  { id: 2, label: 'Projects', path: '/projects' },
-  { id: 3, label: 'Blog', path: '/blog' },
-];
+
 
 export type HeadingProps = {
   subHeading: string;

@@ -25,17 +25,17 @@ const GitHubActivity = ({ username }: { username: string }) => {
   const [error, setError] = useState<string | null>(null);
 
   const [cursorStatus, setCursorStatus] = useState<string>('offline');
-  const [totalTimeYesterday, setTotalTimeYesterday] = useState<number>(0);
+  const [totalTimeToday, setTotalTimeToday] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
         const res = await axios.get('http://localhost:4000/status');
         setCursorStatus(res.data.online ? 'online' : 'offline');
-        setTotalTimeYesterday(res.data.yesterdayWorked);
+        setTotalTimeToday(res.data.todayWorked);
       } catch {
         setCursorStatus('offline');
-        setTotalTimeYesterday(0);
+        setTotalTimeToday(0);
       }
     }, 3000);
 
@@ -88,11 +88,13 @@ const GitHubActivity = ({ username }: { username: string }) => {
           Total contributions: <strong className="font-bold">{totalContributions}</strong>
         </p>
         <p className="flex gap-1 font-normal capitalize">
-          <span>{cursorStatus}</span>
+          <span className={`font-semibold ${cursorStatus === 'online' ? 'text-green-400' : 'text-gray-700'}`}>
+            {cursorStatus}
+          </span>
           <span>
             <img src="/Images/cursor.png" alt="cursor image" className="size-5" />
           </span>
-          <span>Yesterday Worked {formatTime(totalTimeYesterday)}</span>
+          <span>Today Worked {formatTime(totalTimeToday)}</span>
         </p>
       </div>
 

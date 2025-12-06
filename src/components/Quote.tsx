@@ -1,6 +1,6 @@
 const Quote = ({ quote, source }: { quote: string; source: string }) => {
   return (
-    <div className="border-neutral-6/50 relative mt-14 mb-8 overflow-hidden rounded-xl border px-2 py-14 text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
+    <div className="relative mt-14 mb-8 overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900 px-2 py-14 text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
       {/* SVG Background */}
       <div className="absolute top-2 left-5 size-10 -translate-x-1/2 opacity-25">
         <svg

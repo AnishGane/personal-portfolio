@@ -13,9 +13,9 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       className="ring-neutral-6/10 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
       <img src={item.image} alt={item.name} className="w-full rounded-t-xl" />
-      <div className="project_content rounded-b-xl p-[17px] pt-8 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
+      <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between">
-          <h3 className="font-tooltip text-lg font-bold text-neutral-900 dark:text-neutral-100">
+          <h3 className="font-tooltip line-clamp-1 text-lg font-bold text-neutral-900 dark:text-neutral-100">
             {item.name}
           </h3>
           <div className="flex items-center gap-2.5">
@@ -53,7 +53,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
           </div>
         </div>
         <p className="text-neutral-6 mt-3 line-clamp-3 text-sm text-balance">{item.description}</p>
-        <p className="text-neutral-6 mt-3 text-sm tracking-[0.01em]">Technologies</p>
+        <p className="text-neutral-6 mt-3 font-medium text-sm tracking-[0.01em]">Technologies</p>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
           {item.techonologies.map((tech) => (
             <TechnologyList key={tech.label} tech={tech} />
@@ -73,7 +73,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
                 item.status === 'Building' ? 'bg-red-700' : 'bg-green-700'
               }`}
             ></span>
-            <p>{item.status}</p>
+            <p>{item.status === 'Building' ? 'Building' : 'Fully Functional'}</p>
           </div>
           <p className="group hover:text-neutral-6 flex cursor-pointer items-center justify-center gap-1 text-[13px] font-semibold text-neutral-400">
             <div>

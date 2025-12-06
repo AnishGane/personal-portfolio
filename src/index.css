@@ -4,8 +4,7 @@
 
 /* Define your CSS variables / theme values */
 @theme {
-  --color-bgBase: #ffffff;
-
+  --color-background: #ffffff;
   /* text-neutral-800 */
   --color-neutral-8: #262626;
 
@@ -17,6 +16,10 @@
   --color-theme-hover: #16161608;
 
   --color-btn-border: #e5e5e5;
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -44,7 +47,7 @@
 
 @layer theme {
   .dark {
-    --color-bgBase: #000000;
+    --color-background: #000000;
 
     /* text-neutral-800 opposite */
     --color-neutral-8: #fff;
@@ -81,7 +84,7 @@
 
 @layer utilities {
   .main-container {
-    @apply bg-bgBase flex min-h-screen justify-center transition-colors;
+    @apply bg-background flex min-h-screen justify-center transition-colors;
   }
 
   .font-own {
