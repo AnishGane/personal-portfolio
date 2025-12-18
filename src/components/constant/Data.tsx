@@ -8,18 +8,12 @@ import ExpessJS from '../icons/ExpressJS';
 import MotionLogo from '../icons/MotionLogo';
 import ReactRouter from '../icons/ReactRouter';
 import JavaScript from '../icons/JavaScript';
-
 import TSLogo from '@/components/icons/TSLogo';
-import NextLogo from '@/components/icons/NextLogo';
-import Bun from '@/components/icons/Bun';
-import Postgress from '@/components/icons/Postgress';
+import { Github, Instagram, Mail } from 'lucide-react';
 
 // react-icons
-import { FaInstagram } from 'react-icons/fa6';
-import { FiGithub } from 'react-icons/fi';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { PiLinkedinLogo } from 'react-icons/pi';
-import { IoMailOutline } from 'react-icons/io5';
 
 export const navList: NavItem[] = [
   { id: 1, label: 'Portfolio', path: '/' },
@@ -41,21 +35,21 @@ export const LanguageItem: LanguageType[] = [
   },
   {
     id: 3,
-    icon: <NextLogo />,
-    languageName: 'Next.js',
-    href: 'https://nextjs.org/',
+    icon: <TailwindCSS />,
+    languageName: 'Tailwind CSS',
+    href: 'https://tailwindcss.com/',
   },
   {
     id: 4,
-    icon: <Bun />,
-    languageName: 'Bun',
-    href: 'https://bun.com/',
+    icon: <MongoDB />,
+    languageName: 'MongoDB',
+    href: 'https://www.mongodb.com/',
   },
   {
     id: 5,
-    icon: <Postgress />,
-    languageName: 'PostgreSQL',
-    href: 'https://www.postgresql.org/',
+    icon: <ExpessJS />,
+    languageName: 'Express.js',
+    href: 'https://expressjs.com/',
   },
 ];
 
@@ -68,13 +62,13 @@ export const SocialLinkItem: SocialLinkProp[] = [
   },
   {
     id: 2,
-    icon: <FaInstagram />,
+    icon: <Instagram />,
     label: 'Instagram',
     href: 'https://www.google.com',
   },
   {
     id: 3,
-    icon: <FiGithub />,
+    icon: <Github />,
     label: 'Github',
     href: 'https://www.google.com',
   },
@@ -86,7 +80,7 @@ export const SocialLinkItem: SocialLinkProp[] = [
   },
   {
     id: 5,
-    icon: <IoMailOutline />,
+    icon: <Mail />,
     label: 'Email',
     href: 'https://www.google.com',
   },
@@ -96,11 +90,157 @@ export const ProjectItem: ProjectItemProps[] = [
   {
     id: 1,
     name: 'Expense Tracker',
+    subName: 'Expense Tracker: Track Your Expenses Effortlessly',
     image: '/Images/Project1_Image.png',
     url: 'https://expense-tracker-frontend-sigma-eight.vercel.app/login',
     repoLink: 'https://github.com/AnishGane/expense-tracker',
     description:
       'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+    status: 'Working',
+    techonologies: [
+      {
+        icon: <ReactLogo />,
+        label: 'React',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <TailwindCSS />,
+        label: 'TailwindCSS',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        label: 'Hot Toast',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <MongoDB />,
+        label: 'MongoDB',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <NodeJS />,
+        label: 'Node.js',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <ExpessJS />,
+        label: 'Express.js',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <Vercel />,
+        label: 'Vercel',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+    ],
+    timeline: '2 months',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'Search and access notes by year or semester (1st–4th year)',
+        'Share notes and study resources with friends',
+        'Practice with interactive flashcards for active recall',
+        'Attempt quizzes to test conceptual understanding',
+        'Access previous year questions (PYQs) with answers',
+        'One-shot revision material for last-minute preparation',
+        'Handwritten topper notes from high-performing students',
+        'AI-powered study assistant (coming soon)',
+        'Video-based learning materials for better clarity',
+      ],
+      ProblemStatement: [
+        'Professors often do not share structured notes with students',
+        'Topper notes are usually inaccessible to the majority of students',
+        'Study materials are scattered across multiple platforms and formats',
+        'Switching between different notes breaks consistency in examples and explanations',
+        'PDF-based notes limit customization and reading comfort',
+      ],
+      FuturePlan: [
+        'Improve the CMS system to make it more efficient and scalable.',
+        'Add AI Study Assistant',
+        'Scale it to enterprise level.',
+      ],
+    },
+  },
+  {
+    id: 2,
+    name: 'Himalayan Institute Website',
+    subName: 'Himalayan Institute Website: Himalayan Educational Group Service Pvt. Ltd.',
+    image: '/Images/Project1_Image.png',
+    url: 'https://himalayan-edu-pvt-ltd.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/Himalayan-Edu-Pvt.-Ltd',
+    description:
+      'Himalayan Educational Group Service Pvt. Ltd. is a premier Japanese language learning institute based in Nepal, dedicated to providing high-quality education, cultural exchange, and skill development for students aspiring to study, work, or build their careers in Japan.',
+    status: 'Building',
+    techonologies: [
+      {
+        icon: <ReactLogo />,
+        label: 'React',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <TailwindCSS />,
+        label: 'TailwindCSS',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <ReactRouter />,
+        label: 'React-router',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <MotionLogo />,
+        label: 'Motion',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+      {
+        icon: <Vercel />,
+        label: 'Vercel',
+        techDescription: 'A Popular JavaScript library for building user interfaces.',
+      },
+    ],
+    timeline: '2 months',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'Search and access notes by year or semester (1st–4th year)',
+        'Share notes and study resources with friends',
+        'Practice with interactive flashcards for active recall',
+        'Attempt quizzes to test conceptual understanding',
+        'Access previous year questions (PYQs) with answers',
+        'One-shot revision material for last-minute preparation',
+        'Handwritten topper notes from high-performing students',
+        'AI-powered study assistant (coming soon)',
+        'Video-based learning materials for better clarity',
+      ],
+      ProblemStatement: [
+        'Professors often do not share structured notes with students',
+        'Topper notes are usually inaccessible to the majority of students',
+        'Study materials are scattered across multiple platforms and formats',
+        'Switching between different notes breaks consistency in examples and explanations',
+        'PDF-based notes limit customization and reading comfort',
+      ],
+      FuturePlan: [
+        ' Improve the CMS system to make it more efficient and scalable.',
+        'Add AI Study Assistant',
+        'Scale it to enterprise level.',
+      ],
+    },
+  },
+  {
+    id: 3,
+    name: 'SoftStitch Ecommerce',
+    subName: 'SoftStitch Ecommerce: A full-stack e-commerce platform',
+    image: '/Images/Project1_Image.png',
+    url: 'https://himalayan-edu-pvt-ltd.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
+    description:
+      'A full-stack e-commerce platform built with React, Node.js,express, and MongoDB, featuring user authentication, product management, shopping cart functionality, and integrated payment gateways.',
     status: 'Working',
     techonologies: [
       {
@@ -120,75 +260,6 @@ export const ProjectItem: ProjectItemProps[] = [
         label: 'Node.js',
       },
       {
-        icon: <TailwindCSS />,
-        label: 'TailwindCSS',
-      },
-      {
-        icon: <ExpessJS />,
-        label: 'Express.js',
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: 'Himalayan Institute Website',
-    image: '/Images/Project1_Image.png',
-    url: 'https://himalayan-edu-pvt-ltd.vercel.app/',
-    repoLink: 'https://github.com/AnishGane/Himalayan-Edu-Pvt.-Ltd',
-    description:
-      'Himalayan Educational Group Service Pvt. Ltd. is a premier Japanese language learning institute based in Nepal, dedicated to providing high-quality education, cultural exchange, and skill development for students aspiring to study, work, or build their careers in Japan.',
-    status: 'Building',
-    techonologies: [
-      {
-        icon: <ReactLogo />,
-        label: 'React',
-      },
-
-      {
-        icon: <Vercel />,
-        label: 'Vercel',
-      },
-      {
-        icon: <TailwindCSS />,
-        label: 'TailwindCSS',
-      },
-      {
-        icon: <ReactRouter />,
-        label: 'react-router',
-      },
-      {
-        icon: <MotionLogo />,
-        label: 'Motion',
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: 'SoftStitch Ecommerce',
-    image: '/Images/Project1_Image.png',
-    url: 'https://himalayan-edu-pvt-ltd.vercel.app/',
-    repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
-    description:
-      'A full-stack e-commerce platform built with React, Node.js,express, and MongoDB, featuring user authentication, product management, shopping cart functionality, and integrated payment gateways.',
-    status: 'Working',
-    techonologies: [
-      {
-        icon: <ReactLogo />,
-        label: 'React',
-      },
-      {
-        icon: <MongoDB />,
-        label: 'React',
-      },
-      {
-        icon: <Vercel />,
-        label: 'Vercel',
-      },
-      {
-        icon: <NodeJS />,
-        label: 'NodeJS',
-      },
-      {
         icon: <ExpessJS />,
         label: 'Express.js',
       },
@@ -197,10 +268,41 @@ export const ProjectItem: ProjectItemProps[] = [
         label: 'Motion',
       },
     ],
+    timeline: '2 months',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'Search and access notes by year or semester (1st–4th year)',
+        'Share notes and study resources with friends',
+        'Practice with interactive flashcards for active recall',
+        'Attempt quizzes to test conceptual understanding',
+        'Access previous year questions (PYQs) with answers',
+        'One-shot revision material for last-minute preparation',
+        'Handwritten topper notes from high-performing students',
+        'AI-powered study assistant (coming soon)',
+        'Video-based learning materials for better clarity',
+      ],
+      ProblemStatement: [
+        'Professors often do not share structured notes with students',
+        'Topper notes are usually inaccessible to the majority of students',
+        'Study materials are scattered across multiple platforms and formats',
+        'Switching between different notes breaks consistency in examples and explanations',
+        'PDF-based notes limit customization and reading comfort',
+      ],
+      FuturePlan: [
+        ' Improve the CMS system to make it more efficient and scalable.',
+        'Add AI Study Assistant',
+        'Scale it to enterprise level.',
+      ],
+    },
   },
   {
     id: 4,
     name: 'AI Background Removal',
+    subName: 'AI Background Removal: Remove Background from Image using AI',
     image: '/Images/Project1_Image.png',
     url: 'https://ai-background-removal.onrender.com/',
     repoLink: 'https://github.com/AnishGane/AI-Background-Removal',
@@ -217,10 +319,41 @@ export const ProjectItem: ProjectItemProps[] = [
         label: 'TailwindCSS',
       },
     ],
+    timeline: '2 months',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'Search and access notes by year or semester (1st–4th year)',
+        'Share notes and study resources with friends',
+        'Practice with interactive flashcards for active recall',
+        'Attempt quizzes to test conceptual understanding',
+        'Access previous year questions (PYQs) with answers',
+        'One-shot revision material for last-minute preparation',
+        'Handwritten topper notes from high-performing students',
+        'AI-powered study assistant (coming soon)',
+        'Video-based learning materials for better clarity',
+      ],
+      ProblemStatement: [
+        'Professors often do not share structured notes with students',
+        'Topper notes are usually inaccessible to the majority of students',
+        'Study materials are scattered across multiple platforms and formats',
+        'Switching between different notes breaks consistency in examples and explanations',
+        'PDF-based notes limit customization and reading comfort',
+      ],
+      FuturePlan: [
+        ' Improve the CMS system to make it more efficient and scalable.',
+        'Add AI Study Assistant',
+        'Scale it to enterprise level.',
+      ],
+    },
   },
   {
     id: 5,
     name: 'AI Image Enhancer',
+    subName: 'AI Image Enhancer: Enhance Image using AI',
     image: '/Images/Project1_Image.png',
     url: 'https://ai-image-enhancer-1oli.onrender.com/',
     repoLink: 'https://github.com/AnishGane/AI-Image-Enhancer',
@@ -237,10 +370,41 @@ export const ProjectItem: ProjectItemProps[] = [
         label: 'TailwindCSS',
       },
     ],
+    timeline: '2 months',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'Search and access notes by year or semester (1st–4th year)',
+        'Share notes and study resources with friends',
+        'Practice with interactive flashcards for active recall',
+        'Attempt quizzes to test conceptual understanding',
+        'Access previous year questions (PYQs) with answers',
+        'One-shot revision material for last-minute preparation',
+        'Handwritten topper notes from high-performing students',
+        'AI-powered study assistant (coming soon)',
+        'Video-based learning materials for better clarity',
+      ],
+      ProblemStatement: [
+        'Professors often do not share structured notes with students',
+        'Topper notes are usually inaccessible to the majority of students',
+        'Study materials are scattered across multiple platforms and formats',
+        'Switching between different notes breaks consistency in examples and explanations',
+        'PDF-based notes limit customization and reading comfort',
+      ],
+      FuturePlan: [
+        ' Improve the CMS system to make it more efficient and scalable.',
+        'Add AI Study Assistant',
+        'Scale it to enterprise level.',
+      ],
+    },
   },
   {
     id: 6,
     name: 'Smart Inventory & Sales Management System',
+    subName: 'SISMS: Manage Inventory and Sales',
     image: '/Images/Project1_Image.png',
     url: 'https://ai-image-enhancer-1oli.onrender.com/',
     repoLink: 'https://github.com/AnishGane/AI-Image-Enhancer',
@@ -257,6 +421,36 @@ export const ProjectItem: ProjectItemProps[] = [
         label: 'TailwindCSS',
       },
     ],
+    timeline: '2 months',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'Search and access notes by year or semester (1st–4th year)',
+        'Share notes and study resources with friends',
+        'Practice with interactive flashcards for active recall',
+        'Attempt quizzes to test conceptual understanding',
+        'Access previous year questions (PYQs) with answers',
+        'One-shot revision material for last-minute preparation',
+        'Handwritten topper notes from high-performing students',
+        'AI-powered study assistant (coming soon)',
+        'Video-based learning materials for better clarity',
+      ],
+      ProblemStatement: [
+        'Professors often do not share structured notes with students',
+        'Topper notes are usually inaccessible to the majority of students',
+        'Study materials are scattered across multiple platforms and formats',
+        'Switching between different notes breaks consistency in examples and explanations',
+        'PDF-based notes limit customization and reading comfort',
+      ],
+      FuturePlan: [
+        ' Improve the CMS system to make it more efficient and scalable.',
+        'Add AI Study Assistant',
+        'Scale it to enterprise level.',
+      ],
+    },
   },
 ];
 

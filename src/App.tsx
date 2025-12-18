@@ -5,6 +5,7 @@ import Projects from './pages/Projects';
 
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
+import ProjectDetails from './pages/ProjectDetails';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Portfolio />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:name" element={<ProjectDetails />} />
 
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

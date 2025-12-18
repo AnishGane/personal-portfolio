@@ -5,12 +5,15 @@ import WebsiteDemo from '../icons/WebsiteDemo';
 import LinkToolTip from '../LinkToolTip';
 import { ArrowRight } from 'lucide-react';
 import TechnologyList from '../TechnologyList';
+import { Link } from 'react-router-dom';
+import { slugify } from '@/utils/helper';
 
 const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
+  const nameSlug = slugify(item.name);
   return (
     <div
       key={item.id}
-      className="ring-neutral-6/10 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
+      className="ring-neutral-6/30 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
       <img src={item.image} alt={item.name} className="w-full rounded-t-xl" />
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
@@ -20,7 +23,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
           </h3>
           <div className="flex items-center gap-2.5">
             {/* Live Demo of Website */}
-            {item.status != 'Building' && (
+            {item.status === 'Working' && (
               <div className="group relative flex items-center justify-center">
                 <a
                   href={item.url}
@@ -29,7 +32,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
                   className="pointer-events-auto"
                 >
                   <span>
-                    <WebsiteDemo />
+                    <WebsiteDemo className="text-neutral-6 size-6" />
                   </span>
                 </a>
 
@@ -53,10 +56,10 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
           </div>
         </div>
         <p className="text-neutral-6 mt-3 line-clamp-3 text-sm text-balance">{item.description}</p>
-        <p className="text-neutral-6 mt-3 font-medium text-sm tracking-[0.01em]">Technologies</p>
+        <p className="text-neutral-6 mt-3 text-sm font-medium tracking-[0.01em]">Technologies</p>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
           {item.techonologies.map((tech) => (
-            <TechnologyList key={tech.label} tech={tech} />
+            <TechnologyList key={tech.label} icon={tech.icon} label={tech.label} />
           ))}
         </div>
 
@@ -76,10 +79,10 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
             <p>{item.status === 'Building' ? 'Building' : 'Fully Functional'}</p>
           </div>
           <p className="group hover:text-neutral-6 flex cursor-pointer items-center justify-center gap-1 text-[13px] font-semibold text-neutral-400">
-            <div>
+            <Link to={`/projects/${nameSlug}`}>
               View Details
               <hr className="h-px w-0 transition-all duration-200 ease-in-out group-hover:w-full" />
-            </div>
+            </Link>
             <div>
               <ArrowRight size={18} />
             </div>

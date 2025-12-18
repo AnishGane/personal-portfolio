@@ -20,8 +20,6 @@ export type NavItem = {
   path: string;
 };
 
-
-
 export type HeadingProps = {
   subHeading: string;
   heading: string;
@@ -32,13 +30,24 @@ export type ProjectItemProps = {
   image: string;
   name: string;
   url: string;
+  subName: string;
   repoLink: string;
   description: string;
   status: string;
   techonologies: {
-    icon: JSX.Element;
+    icon?: JSX.Element;
     label: string;
+    techDescription?: string;
   }[];
+  timeline: string;
+  Role: string;
+  Team: string;
+  itemData : {
+    Overview: string;
+    Features: string[];
+    ProblemStatement: string[];
+    FuturePlan: string[]
+  }
 };
 
 export type Skills = {

@@ -1,17 +1,23 @@
 import type { JSX } from 'react/jsx-dev-runtime';
 import LinkToolTip from './LinkToolTip';
 import { cloneElement } from 'react';
+type TechnologyListProps = {
+  label: string;
+  icon?: JSX.Element;
+};
 
-const TechnologyList = ({ tech }: { tech: { icon: JSX.Element; label: string } }) => {
+const TechnologyList = ({ icon, label }: TechnologyListProps) => {
   return (
-    <div key={tech.label} className="group relative flex size-6 items-center justify-center">
+    <div key={label} className="group relative flex size-6 items-center justify-center bg-red-400">
       {/* Tooltip */}
-      <LinkToolTip label={tech.label} />
+      <LinkToolTip label={label} />
 
       {/* Icon */}
-      <button className="cursor-pointer transition-transform duration-200 group-hover:scale-120">
-        {cloneElement(tech.icon, { width: 22, height: 22 })}
-      </button>
+      {icon && (
+        <button className="cursor-pointer transition-transform duration-200 group-hover:scale-120">
+          {icon && cloneElement(icon, { width: 22, height: 22 })}
+        </button>
+      )}
     </div>
   );
 };

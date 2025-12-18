@@ -24,14 +24,28 @@ const Portfolio = () => {
       {/* Button Component */}
       <div className="mt-6 flex items-center gap-4">
         <Button
-          icon={<FileUser size={18} />}
+          icon={
+            <FileUser
+              size={18}
+              className="transform-all rotate-15 duration-200 group-hover:rotate-0"
+            />
+          }
           href="/resume.pdf"
           text="Resume / CV"
           variant="secondary"
           download={true}
+          className="group"
         />
 
-        <Button icon={<Send size={16} />} text="Get in touch" href="/contact" variant="primary" />
+        <Button
+          icon={
+            <Send size={16} className="transform-all rotate-15 duration-200 group-hover:rotate-0" />
+          }
+          text="Get in touch"
+          href="/contact"
+          variant="primary"
+          className="group"
+        />
       </div>
 
       {/* Social Links with tooltip */}
