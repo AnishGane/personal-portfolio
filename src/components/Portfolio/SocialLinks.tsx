@@ -1,6 +1,6 @@
-import { cloneElement } from "react";
-import type { SocialLinkProp } from "@/types";
-import LinkToolTip from "./LinkToolTip";
+import { cloneElement } from 'react';
+import type { SocialLinkProp } from '@/types';
+import LinkToolTip from '../ToolTips/LinkToolTip';
 
 const SocialLinks = ({ icon, label, href }: SocialLinkProp) => {
   const sizedIcon = cloneElement(icon, { size: 25 });
@@ -10,12 +10,10 @@ const SocialLinks = ({ icon, label, href }: SocialLinkProp) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative group font-tooltip"
+      className="group font-tooltip relative"
     >
       {/* Icon */}
-      <div className="cursor-pointer text-neutral-6 hover:text-neutral-8">
-        {sizedIcon}
-      </div>
+      <div className="text-neutral-6 hover:text-neutral-8 cursor-pointer">{sizedIcon}</div>
 
       {/* Tooltip */}
       <LinkToolTip label={label} />

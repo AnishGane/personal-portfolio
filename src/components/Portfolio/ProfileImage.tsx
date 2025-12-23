@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import ToolTip from '../ToolTip';
+import ToolTip from '../ToolTips/ToolTip';
 
 const ProfileImage = () => {
   const [cursorStatus, setCursorStatus] = useState<string>('offline');

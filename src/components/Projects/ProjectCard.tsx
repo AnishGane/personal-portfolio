@@ -2,7 +2,7 @@ import type { ProjectItemProps } from '@/types';
 
 import { FiGithub } from 'react-icons/fi';
 import WebsiteDemo from '../icons/WebsiteDemo';
-import LinkToolTip from '../LinkToolTip';
+import LinkToolTip from '../ToolTips/LinkToolTip';
 import { ArrowRight } from 'lucide-react';
 import TechnologyList from '../TechnologyList';
 import { Link } from 'react-router-dom';
@@ -58,9 +58,11 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
         <p className="text-neutral-6 mt-3 line-clamp-3 text-sm text-balance">{item.description}</p>
         <p className="text-neutral-6 mt-3 text-sm font-medium tracking-[0.01em]">Technologies</p>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-          {item.techonologies.map((tech) => (
-            <TechnologyList key={tech.label} icon={tech.icon} label={tech.label} />
-          ))}
+          {item.techonologies
+            .filter((tech) => tech.icon)
+            .map((tech) => (
+              <TechnologyList key={tech.label} icon={tech.icon} label={tech.label} />
+            ))}
         </div>
 
         <div className="mt-4 mb-2 flex items-center justify-between tracking-tight">

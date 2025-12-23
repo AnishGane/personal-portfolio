@@ -1,5 +1,5 @@
-import TechnologyList from './TechnologyList';
-import { MySkills } from './constant/Data';
+import TechnologyList from '../TechnologyList';
+import { MySkills } from '../constant/Data';
 
 const About = () => {
   return (
@@ -17,7 +17,7 @@ const About = () => {
         <span className="mt-8 mb-2 inline-block font-bold text-gray-500/80">Skills</span>
         <div className="flex flex-wrap gap-2">
           {MySkills.map((item) => (
-            <TechnologyList key={item.id} tech={item} />
+            <TechnologyList key={item.id} icon={item.icon} label={item.label} />
           ))}
         </div>
       </div>

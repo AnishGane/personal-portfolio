@@ -48,8 +48,8 @@ const Button = ({
       {icon && <span>{icon}</span>}
       {label ? (
         <div className="flex flex-col gap-[2px]">
-          <span className='text-neutral-6 text-xs'>{label}</span>
-          <span className='font-medium text-base'>{text}</span>
+          <span className='text-neutral-6 text-[10px] tracking-wider md:text-xs'>{label}</span>
+          <span className='font-medium text-sm md:text-base'>{text}</span>
         </div>
       ) : (
         <span className="font-normal">{text}</span>

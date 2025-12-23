@@ -1,4 +1,4 @@
-import LanguageSpanItem from '../LanguageSpanItem';
+import LanguageSpanItem from './LanguageSpanItem';
 import { LanguageItem } from '../constant/Data';
 
 const MyDescription = () => {

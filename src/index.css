@@ -99,6 +99,10 @@
     font-family: 'tooltip', sans-serif;
   }
 
+  ul li{
+    @apply text-neutral-6 text-sm md:text-[15px] leading-6 md:leading-8 font-light;
+  }
+
   .github-grid {
     display: grid;
     /* 53 weeks (columns) + 1 extra col for padding if you like */
