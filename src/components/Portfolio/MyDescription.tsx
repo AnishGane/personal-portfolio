@@ -8,7 +8,7 @@ const MyDescription = () => {
         Hi, I'm Anish —<span className="text-neutral-400/80"> A MERN Stack Developer.</span>
       </h1>
 
-      <div className="text-neutral-6 mt-2 flex flex-wrap items-center gap-2 whitespace-pre-wrap">
+      <div className="text-neutral-6 mt-2 flex flex-wrap items-center gap-1 whitespace-pre-wrap">
         <span>I build interactive web apps using</span>
         {LanguageItem.map((item, idx) => (
           <LanguageSpanItem
@@ -20,10 +20,8 @@ const MyDescription = () => {
         ))}
         <span>. With a focus on</span>
         <strong>UI</strong>
-        <span>design. Enthusiastic about</span>
-        <span>
-          <strong>Three.js </strong>, driven by a
-        </span>
+        <span>design, clean and modern looking website</span>
+        <span>, driven by a</span>
         <span>eye for design.</span>
       </div>
     </div>

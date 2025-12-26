@@ -82,13 +82,15 @@ const GitHubActivity = ({ username }: { username: string }) => {
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
   return (
-    <div className="mb-8">
+    <div className="relative mb-8">
       <div className="font-tooltip text-neutral-8 mb-4 flex items-center justify-between text-sm font-medium">
         <p>
           Total contributions: <strong className="font-bold">{totalContributions}</strong>
         </p>
         <p className="flex gap-1 font-normal capitalize">
-          <span className={`font-semibold ${cursorStatus === 'online' ? 'text-green-400' : 'text-gray-700'}`}>
+          <span
+            className={`font-semibold ${cursorStatus === 'online' ? 'text-green-400' : 'text-gray-700'}`}
+          >
             {cursorStatus}
           </span>
           <span>
@@ -117,6 +119,18 @@ const GitHubActivity = ({ username }: { username: string }) => {
             />
           ))
         )}
+      </div>
+      <div className="font-tooltip bg-neutral-6/10 text-neutral-6 absolute right-0 -bottom-9 flex w-fit items-center justify-end-safe gap-2 rounded-md px-2 py-1.5 text-right text-xs">
+        <p>Less</p>
+        <div className="flex items-center gap-[2px]">
+          <div className="size-2.5 rounded-xs bg-[#216E39]"></div>
+          <div className="size-2.5 rounded-xs bg-[#30A14E]"></div>
+          <div className="size-2.5 rounded-xs bg-[#40C463]"></div>
+          <div className="size-2.5 rounded-xs bg-[#9BE9A8]"></div>
+          <div className="size-2.5 rounded-xs bg-[#c9cccf]"></div>
+        </div>
+
+        <p>More</p>
       </div>
     </div>
   );

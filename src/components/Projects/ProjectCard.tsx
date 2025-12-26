@@ -13,11 +13,13 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
   return (
     <div
       key={item.id}
-      className="ring-neutral-6/30 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
+      className="ring-neutral-6/15 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
-      <img src={item.image} alt={item.name} className="w-full rounded-t-xl" />
+      <img src="/Images/demo3.png" alt={item.name} className="w-full rounded-t-xl" />
+      
+
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <h3 className="font-tooltip line-clamp-1 text-lg font-bold text-neutral-900 dark:text-neutral-100">
             {item.name}
           </h3>

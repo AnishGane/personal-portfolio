@@ -10,7 +10,7 @@ import ProjectDetails from './pages/ProjectDetails';
 const App = () => {
   return (
     <main className="font-own main-container">
-      <div className="mx-auto w-full max-w-3xl px-6">
+      <div className="mx-auto w-full max-w-212 px-6">
         <Navbar />
 
         <Routes>

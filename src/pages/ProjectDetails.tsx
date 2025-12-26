@@ -50,9 +50,9 @@ const ProjectDetails = () => {
 
       <div className="text-neutral-8 font-tooltip mt-8 md:mt-14">
         <img
-          src={projectContent.image}
+          src="/Images/demo3.png"
           alt={projectContent.name}
-          className="h-[420px] w-full rounded-xl object-cover"
+          className="h-[460px] w-full rounded-lg object-cover border-b border-r border-neutral-300"
         />
 
         <div className="mt-4 flex items-center gap-4 md:mt-8">
