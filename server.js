@@ -13,20 +13,70 @@ const PORT = process.env.PORT || 8080;
 
 // HEARTBEAT SYSTEM
 
+// HELPER FUNCTIONS
+const getDayKey = (date) => date.toISOString().split('T')[0];
+const finalizeLastSession = () => {
+  if (!lastSeen) return;
+
+  const now = Date.now();
+  const nowDate = new Date(now);
+  const today = getDayKey(nowDate);
+
+  // If still online, do nothing
+  if (now - lastSeen < 10_000) return;
+
+  const elapsed = now - lastSeen;
+
+  if (lastSeenDay !== today) {
+    const midnight = new Date(nowDate);
+    midnight.setHours(0, 0, 0, 0);
+
+    const yesterdayTime = midnight.getTime() - lastSeen;
+    const todayTime = now - midnight.getTime();
+
+    dailyTotals[lastSeenDay] = (dailyTotals[lastSeenDay] || 0) + Math.max(0, yesterdayTime);
+
+    dailyTotals[today] = (dailyTotals[today] || 0) + Math.max(0, todayTime);
+  } else {
+    dailyTotals[today] = (dailyTotals[today] || 0) + elapsed;
+  }
+
+  // prevent double counting
+  lastSeen = null;
+  lastSeenDay = null;
+};
+
 let lastSeen = null;
 let lastSeenDay = null;
 const dailyTotals = {};
 
 app.post('/heartbeat', (req, res) => {
   const now = Date.now();
-  const today = new Date().toISOString().split('T')[0];
+  const nowDate = new Date(now);
+  const today = getDayKey(nowDate);
 
-  // Initialize today's total if not exists
-  if (!dailyTotals[today]) dailyTotals[today] = 0;
+  if (!lastSeen) {
+    lastSeen = now;
+    lastSeenDay = today;
+    dailyTotals[today] ??= 0;
+    return res.sendStatus(200);
+  }
 
-  // Only add time if lastSeen exists AND it was on the same day
-  if (lastSeen !== null && lastSeenDay === today) {
-    dailyTotals[today] += now - lastSeen;
+  const elapsed = now - lastSeen;
+
+  // If day changed, split time correctly
+  if (lastSeenDay !== today) {
+    const midnight = new Date(nowDate);
+    midnight.setHours(0, 0, 0, 0);
+
+    const yesterdayTime = midnight.getTime() - lastSeen;
+    const todayTime = now - midnight.getTime();
+
+    dailyTotals[lastSeenDay] = (dailyTotals[lastSeenDay] || 0) + Math.max(0, yesterdayTime);
+
+    dailyTotals[today] = (dailyTotals[today] || 0) + Math.max(0, todayTime);
+  } else {
+    dailyTotals[today] = (dailyTotals[today] || 0) + elapsed;
   }
 
   lastSeen = now;
@@ -36,16 +86,18 @@ app.post('/heartbeat', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
+  finalizeLastSession();
+
   const now = Date.now();
-  const today = new Date().toISOString().split('T')[0];
+  const today = getDayKey(new Date());
   const yesterdayDate = new Date();
   yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-  const yesterday = yesterdayDate.toISOString().split('T')[0];
+  const yesterday = getDayKey(yesterdayDate);
 
-  const isOnline = lastSeen && now - lastSeen < 10000;
+  const isOnline = lastSeen && now - lastSeen < 10_000;
 
   res.json({
-    online: isOnline,
+    online: Boolean(isOnline),
     todayWorked: dailyTotals[today] || 0,
     yesterdayWorked: dailyTotals[yesterday] || 0,
   });

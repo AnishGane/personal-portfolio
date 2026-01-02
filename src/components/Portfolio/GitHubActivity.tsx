@@ -26,6 +26,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
 
   const [cursorStatus, setCursorStatus] = useState<string>('offline');
   const [totalTimeToday, setTotalTimeToday] = useState<number>(0);
+  const [totalTimeYesterday, setTotalTimeYesterday] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -33,9 +34,11 @@ const GitHubActivity = ({ username }: { username: string }) => {
         const res = await axios.get('http://localhost:4000/status');
         setCursorStatus(res.data.online ? 'online' : 'offline');
         setTotalTimeToday(res.data.todayWorked);
+        setTotalTimeYesterday(res.data.yesterdayWorked);
       } catch {
         setCursorStatus('offline');
         setTotalTimeToday(0);
+        setTotalTimeYesterday(0);
       }
     }, 3000);
 
@@ -63,19 +66,33 @@ const GitHubActivity = ({ username }: { username: string }) => {
   }, [username]);
 
   // Extract month labels aligned with weeks
-  const monthLabels: MonthLabel[] = [];
-  let lastMonth: number | null = null;
+  const monthLabels: (MonthLabel | null)[] = [];
+  let lastRenderedMonth: number | null = null;
+
   weeks.forEach((week) => {
-    if (week.contributionDays.length > 0) {
-      const firstDay = new Date(week.contributionDays[0].date);
-      const month = firstDay.getMonth();
-      if (month !== lastMonth) {
-        monthLabels.push({ month, label: monthNames[month], date: week.contributionDays[0].date });
-        lastMonth = month;
-      } else {
-        monthLabels.push(null);
+    let label: MonthLabel | null = null;
+
+    for (const day of week.contributionDays) {
+      const date = new Date(day.date);
+
+      if (date.getDate() === 1) {
+        const month = date.getMonth();
+
+        // prevent duplicate month labels (Jan … Jan case)
+        if (month !== lastRenderedMonth) {
+          label = {
+            month,
+            label: monthNames[month],
+            date: day.date,
+          };
+          lastRenderedMonth = month;
+        }
+
+        break;
       }
     }
+
+    monthLabels.push(label);
   });
 
   if (loading) return <p className="text-neutral-500">Loading GitHub activity…</p>;
@@ -96,7 +113,11 @@ const GitHubActivity = ({ username }: { username: string }) => {
           <span>
             <img src="/Images/cursor.png" alt="cursor image" className="size-5" />
           </span>
-          <span>Today Worked {formatTime(totalTimeToday)}</span>
+          {cursorStatus === 'online' ? (
+            <span>Today Worked {formatTime(totalTimeToday)}</span>
+          ) : (
+            <span>Yesterday Worked {formatTime(totalTimeYesterday)}</span>
+          )}
         </p>
       </div>
 

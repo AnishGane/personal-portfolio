@@ -1,6 +1,6 @@
 const Quote = ({ quote, source }: { quote: string; source: string }) => {
   return (
-    <div className="relative mt-14 mb-8 overflow-hidden rounded-xl border border-neutral-300 dark:border-neutral-900 px-2 py-14 text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
+    <div className="relative mt-14 mb-8 overflow-hidden rounded-xl border border-neutral-300 px-2 py-14 text-2xl font-semibold text-neutral-900 dark:border-neutral-900 dark:text-neutral-100">
       {/* SVG Background */}
       <div className="absolute top-2 left-5 size-10 -translate-x-1/2 opacity-25">
         <svg
@@ -15,7 +15,7 @@ const Quote = ({ quote, source }: { quote: string; source: string }) => {
 
       {/* Text Content */}
       <div className="relative z-10 bg-transparent px-4 text-sm italic">
-        <p className="text-neutral-6 tracking-tight">{quote}</p>
+        <p className="text-neutral-6 w-full  md:max-w-2xl tracking-tight">{quote}</p>
         <p className="text-neutral-8 font-tooltip text-right font-semibold">— {source}</p>
       </div>
     </div>

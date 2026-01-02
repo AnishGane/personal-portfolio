@@ -14,6 +14,7 @@ import { Github, Instagram, Mail } from 'lucide-react';
 // react-icons
 import { RiTwitterXFill } from 'react-icons/ri';
 import { PiLinkedinLogo } from 'react-icons/pi';
+import NextLogo from '../icons/NextLogo';
 
 export const navList: NavItem[] = [
   { id: 1, label: 'Portfolio', path: '/' },
@@ -47,9 +48,9 @@ export const LanguageItem: LanguageType[] = [
   },
   {
     id: 5,
-    icon: <ExpessJS />,
-    languageName: 'Express.js',
-    href: 'https://expressjs.com/',
+    icon: <NextLogo />,
+    languageName: 'Next.js',
+    href: 'https://nextjs.org/',
   },
 ];
 

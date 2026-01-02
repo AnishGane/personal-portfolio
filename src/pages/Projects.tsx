@@ -43,7 +43,13 @@ const Projects = () => {
   }, []);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -25 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="min-h-screen"
+    >
       <div className="font-tooltip relative">
         <div className="my-10 text-center">
           <h1 className="text-neutral-8 text-[2.6rem] font-medium tracking-tight">Projects</h1>
@@ -113,11 +119,11 @@ const Projects = () => {
         </div>
 
         <Quote
-          quote='"Success is not final, failure is not fatal: it is the courage to continue that counts."'
-          source="Winston Churchill"
+          quote='"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."'
+          source="Martin Fowler"
         />
       </div>
-    </>
+    </motion.div>
   );
 };
 

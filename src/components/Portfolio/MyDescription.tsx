@@ -16,11 +16,11 @@ const MyDescription = () => {
             item={item}
             idx={idx}
             totalCount={LanguageItem.length}
-          />
+        />
         ))}
         <span>. With a focus on</span>
         <strong>UI</strong>
-        <span>design, clean and modern looking website</span>
+        <span>design, <strong>clean</strong> and <strong>modern</strong> looking website</span>
         <span>, driven by a</span>
         <span>eye for design.</span>
       </div>
