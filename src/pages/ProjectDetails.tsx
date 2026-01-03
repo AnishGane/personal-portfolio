@@ -19,7 +19,7 @@ const ProjectDetails = () => {
     setProjectContent(project ?? null);
 
     const related = ProjectItem.filter(
-      (item) => item.status === project?.status && item.name !== project?.name
+      (item) => item.Role === project?.Role && item.name !== project?.name
     );
     setRelatedProjects(related);
   }, [name]);
@@ -28,10 +28,9 @@ const ProjectDetails = () => {
     return <div className="mt-14">Project not found</div>;
   }
 
-  const visibleTech = projectContent?.techonologies?.slice(0, 3) ?? [];
-  const remainingCount = projectContent?.techonologies?.length
-    ? projectContent.techonologies.length - visibleTech.length
-    : 0;
+  const allTechStack = projectContent?.technologies?.flatMap((category) => category.stack) ?? [];
+  const visibleTech = allTechStack.slice(0, 3);
+  const remainingTechCount = allTechStack.length - visibleTech.length;
 
   const currentIndex = ProjectItem.findIndex((item) => item.name === projectContent.name);
 
@@ -52,7 +51,7 @@ const ProjectDetails = () => {
         <img
           src="/Images/demo3.png"
           alt={projectContent.name}
-          className="h-[460px] w-full rounded-lg object-cover border-b border-r border-neutral-300"
+          className="h-[460px] w-full rounded-lg border-r border-b border-neutral-300 object-cover"
         />
 
         <div className="mt-4 flex items-center gap-4 md:mt-8">
@@ -61,13 +60,11 @@ const ProjectDetails = () => {
           </span>
 
           <div className="flex items-center gap-2">
-            {visibleTech.map((item) => (
-              <TechSpan key={item.label} item={item.label} />
+            {visibleTech.map((tech, index) => (
+              <TechSpan key={index + 1} item={tech.label} />
             ))}
 
-            {remainingCount > 0 && (
-              <TechSpan key={remainingCount} item={`+${remainingCount} more`} />
-            )}
+            {remainingTechCount > 0 && <TechSpan item={`+${remainingTechCount} more`} />}
           </div>
         </div>
 
@@ -162,14 +159,27 @@ const ProjectDetails = () => {
           </div>
 
           <div className="mb-8">
-            <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
+            <AppendHashtag NoOfHash={2} className="mb-1 text-2xl font-medium md:mb-3 md:text-3xl">
               <h3>Tech Stack</h3>
             </AppendHashtag>
-            <ul className="mx-10 list-disc">
-              {projectContent.techonologies.map((item, index) => (
-                <li key={index}>{item.label}</li>
-              ))}
-            </ul>
+
+            {projectContent.technologies.map((category, index) => (
+              <div key={index} className="mb-4 ml-4">
+                {/* Category title */}
+                <AppendHashtag NoOfHash={3} leftOffset={34}>
+                  <h4 className="text-lg font-medium">{category.category}</h4>
+                </AppendHashtag>
+
+                {/* Stack items */}
+                <ul className="mx-10 list-inside list-disc">
+                  {category.stack.map((tech, techIndex) => (
+                    <li key={techIndex}>
+                      <span>{tech.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
           <div className="mb-8">
@@ -243,8 +253,8 @@ const ProjectDetails = () => {
                       {visibleTech.map((item) => (
                         <TechSpan key={item.label} item={item.label} />
                       ))}
-                      {remainingCount > 0 && (
-                        <TechSpan key={remainingCount} item={`+${remainingCount} more`} />
+                      {remainingTechCount > 0 && (
+                        <TechSpan key={remainingTechCount} item={`+${remainingTechCount} more`} />
                       )}
                     </div>
                   </Link>

@@ -67,7 +67,7 @@ const Portfolio = () => {
         {/* Social Links with tooltip */}
         <div className="mt-8 flex items-center gap-3">
           {SocialLinkItem.map((item) => (
-            <SocialLinks id={item.id} icon={item.icon} label={item.label} href={item.href} />
+            <SocialLinks key={item.id} id={item.id} icon={item.icon} label={item.label} href={item.href} />
           ))}
         </div>
 

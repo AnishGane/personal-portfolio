@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 const NextLogo = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 128 128" {...props}>
     <circle cx="64" cy="64" r="64"></circle>
@@ -17,8 +17,8 @@ const NextLogo = (props: SVGProps<SVGSVGElement>) => (
         gradientTransform="scale(.71111)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff"></stop>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+        <stop stopColor="#fff"></stop>
+        <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
       </linearGradient>
       <linearGradient
         id="b"
@@ -29,8 +29,8 @@ const NextLogo = (props: SVGProps<SVGSVGElement>) => (
         gradientTransform="scale(.71111)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff"></stop>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+        <stop stopColor="#fff"></stop>
+        <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
       </linearGradient>
     </defs>
   </svg>

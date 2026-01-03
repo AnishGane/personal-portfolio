@@ -25,6 +25,24 @@ export type HeadingProps = {
   heading: string;
 };
 
+type TechnologyStackItem = {
+  icon?: JSX.Element;
+  label: string;
+  techDescription?: string;
+};
+
+type TechnologyCategory = {
+  category: 'Frontend' | 'Backend' | 'Deployment';
+  stack: TechnologyStackItem[];
+};
+
+type ProjectItemData = {
+  Overview: string;
+  Features: string[];
+  ProblemStatement: string[];
+  FuturePlan: string[];
+};
+
 export type ProjectItemProps = {
   id: number;
   image: string;
@@ -34,20 +52,11 @@ export type ProjectItemProps = {
   repoLink: string;
   description: string;
   status: string;
-  techonologies: {
-    icon?: JSX.Element;
-    label: string;
-    techDescription?: string;
-  }[];
+  technologies: TechnologyCategory[];
   timeline: string;
   Role: string;
   Team: string;
-  itemData : {
-    Overview: string;
-    Features: string[];
-    ProblemStatement: string[];
-    FuturePlan: string[]
-  }
+  itemData: ProjectItemData;
 };
 
 export type Skills = {

@@ -96,72 +96,102 @@ export const ProjectItem: ProjectItemProps[] = [
     url: 'https://expense-tracker-frontend-sigma-eight.vercel.app/login',
     repoLink: 'https://github.com/AnishGane/expense-tracker',
     description:
-      'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly.',
     status: 'Working',
-    techonologies: [
+    technologies: [
       {
-        icon: <ReactLogo />,
-        label: 'React',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+            techDescription:
+              'A popular JavaScript library for building component-based user interfaces.',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+            techDescription:
+              'A utility-first CSS framework for rapidly building custom user interfaces.',
+          },
+          {
+            label: 'React Hot Toast',
+            techDescription:
+              'A lightweight React notification library for displaying toast messages.',
+          },
+          {
+            label: 'Recharts',
+            techDescription: 'A composable charting library built on React for data visualization.',
+          },
+          {
+            label: 'Emoji React Picker',
+            techDescription:
+              'A reusable React component that allows users to select and insert emojis.',
+          },
+        ],
       },
       {
-        icon: <TailwindCSS />,
-        label: 'TailwindCSS',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+            techDescription:
+              'A JavaScript runtime environment that executes code outside the browser.',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+            techDescription:
+              'A NoSQL document-oriented database for storing and managing application data.',
+          },
+          {
+            label: 'Cloudinary & Multer',
+            techDescription:
+              'A cloud-based media management service for storing and serving images and files.',
+          },
+        ],
       },
       {
-        label: 'Hot Toast',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
-      },
-      {
-        icon: <MongoDB />,
-        label: 'MongoDB',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
-      },
-      {
-        icon: <NodeJS />,
-        label: 'Node.js',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
-      },
-      {
-        icon: <ExpessJS />,
-        label: 'Express.js',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
-      },
-      {
-        icon: <Vercel />,
-        label: 'Vercel',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+            techDescription:
+              'A cloud platform for deploying and hosting frontend and full-stack applications.',
+          },
+        ],
       },
     ],
-    timeline: '2 months',
+    timeline: '1 month',
     Role: 'Full Stack',
     Team: 'Solo',
     itemData: {
-      Overview:
-        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Overview: 'Expense Tracker helps users manage expenses with charts, reports, and insights.',
       Features: [
-        'Search and access notes by year or semester (1st–4th year)',
-        'Share notes and study resources with friends',
-        'Practice with interactive flashcards for active recall',
-        'Attempt quizzes to test conceptual understanding',
-        'Access previous year questions (PYQs) with answers',
-        'One-shot revision material for last-minute preparation',
-        'Handwritten topper notes from high-performing students',
-        'AI-powered study assistant (coming soon)',
-        'Video-based learning materials for better clarity',
+        'User Authentication (Register/Login)',
+        'Categorized Expense Tracking',
+        'Monthly and Category-wise Analysis',
+        'Expense Forecast using Simple Linear Regression',
+        'Download reports in Excel and PDF',
+        'User Profile',
+        'Insight Overview of Expense',
       ],
       ProblemStatement: [
-        'Professors often do not share structured notes with students',
-        'Topper notes are usually inaccessible to the majority of students',
-        'Study materials are scattered across multiple platforms and formats',
-        'Switching between different notes breaks consistency in examples and explanations',
-        'PDF-based notes limit customization and reading comfort',
+        'Managing expenses manually is difficult and time-consuming',
+        'Tracking income and expenses consistently is challenging',
+        'Users need a simple and intuitive solution',
       ],
       FuturePlan: [
-        'Improve the CMS system to make it more efficient and scalable.',
-        'Add AI Study Assistant',
-        'Scale it to enterprise level.',
+        'Improve the CMS system',
+        'Add AI-powered financial insights',
+        'Scale to enterprise level',
       ],
     },
   },
@@ -175,31 +205,69 @@ export const ProjectItem: ProjectItemProps[] = [
     description:
       'Himalayan Educational Group Service Pvt. Ltd. is a premier Japanese language learning institute based in Nepal, dedicated to providing high-quality education, cultural exchange, and skill development for students aspiring to study, work, or build their careers in Japan.',
     status: 'Working',
-    techonologies: [
+    technologies: [
       {
-        icon: <ReactLogo />,
-        label: 'React',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+            techDescription:
+              'A utility-first CSS framework for rapidly building custom user interfaces.',
+          },
+          {
+            label: 'React Hot Toast',
+            techDescription:
+              'A lightweight React notification library for displaying toast messages.',
+          },
+          {
+            label: 'Recharts',
+            techDescription: 'A composable charting library built on React for data visualization.',
+          },
+          {
+            label: 'Emoji React Picker',
+            techDescription:
+              'A reusable React component that allows users to select and insert emojis.',
+          },
+        ],
       },
       {
-        icon: <TailwindCSS />,
-        label: 'TailwindCSS',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+            techDescription:
+              'A JavaScript runtime environment that executes code outside the browser.',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+            techDescription:
+              'A NoSQL document-oriented database for storing and managing application data.',
+          },
+          {
+            label: 'Cloudinary & Multer',
+            techDescription:
+              'A cloud-based media management service for storing and serving images and files.',
+          },
+        ],
       },
       {
-        icon: <ReactRouter />,
-        label: 'React-router',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
-      },
-      {
-        icon: <MotionLogo />,
-        label: 'Motion',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
-      },
-      {
-        icon: <Vercel />,
-        label: 'Vercel',
-        techDescription: 'A Popular JavaScript library for building user interfaces.',
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+            techDescription:
+              'A cloud platform for deploying and hosting frontend and full-stack applications.',
+          },
+        ],
       },
     ],
     timeline: '2 months',
@@ -243,30 +311,75 @@ export const ProjectItem: ProjectItemProps[] = [
     description:
       'A full-stack e-commerce platform built with React, Node.js,express, and MongoDB, featuring user authentication, product management, shopping cart functionality, and integrated payment gateways.',
     status: 'Working',
-    techonologies: [
+    technologies: [
       {
-        icon: <ReactLogo />,
-        label: 'React',
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+            techDescription:
+              'A popular JavaScript library for building component-based user interfaces.',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+            techDescription:
+              'A utility-first CSS framework for rapidly building custom user interfaces.',
+          },
+          {
+            label: 'React Hot Toast',
+            techDescription:
+              'A lightweight React notification library for displaying toast messages.',
+          },
+          {
+            label: 'Recharts',
+            techDescription: 'A composable charting library built on React for data visualization.',
+          },
+          {
+            label: 'Emoji React Picker',
+            techDescription:
+              'A reusable React component that allows users to select and insert emojis.',
+          },
+        ],
       },
       {
-        icon: <MongoDB />,
-        label: 'MongoDB',
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+            techDescription:
+              'A JavaScript runtime environment that executes code outside the browser.',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+            techDescription:
+              'A NoSQL document-oriented database for storing and managing application data.',
+          },
+          {
+            label: 'Cloudinary & Multer',
+            techDescription:
+              'A cloud-based media management service for storing and serving images and files.',
+          },
+        ],
       },
       {
-        icon: <Vercel />,
-        label: 'Vercel',
-      },
-      {
-        icon: <NodeJS />,
-        label: 'Node.js',
-      },
-      {
-        icon: <ExpessJS />,
-        label: 'Express.js',
-      },
-      {
-        icon: <MotionLogo />,
-        label: 'Motion',
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+            techDescription:
+              'A cloud platform for deploying and hosting frontend and full-stack applications.',
+          },
+        ],
       },
     ],
     timeline: '2 months',
@@ -310,14 +423,75 @@ export const ProjectItem: ProjectItemProps[] = [
     description:
       'This web application allows users to easily remove backgrounds from images using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for background removal tasks.',
     status: 'Working',
-    techonologies: [
+    technologies: [
       {
-        icon: <ReactLogo />,
-        label: 'React',
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+            techDescription:
+              'A popular JavaScript library for building component-based user interfaces.',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+            techDescription:
+              'A utility-first CSS framework for rapidly building custom user interfaces.',
+          },
+          {
+            label: 'React Hot Toast',
+            techDescription:
+              'A lightweight React notification library for displaying toast messages.',
+          },
+          {
+            label: 'Recharts',
+            techDescription: 'A composable charting library built on React for data visualization.',
+          },
+          {
+            label: 'Emoji React Picker',
+            techDescription:
+              'A reusable React component that allows users to select and insert emojis.',
+          },
+        ],
       },
       {
-        icon: <TailwindCSS />,
-        label: 'TailwindCSS',
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+            techDescription:
+              'A JavaScript runtime environment that executes code outside the browser.',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+            techDescription:
+              'A NoSQL document-oriented database for storing and managing application data.',
+          },
+          {
+            label: 'Cloudinary & Multer',
+            techDescription:
+              'A cloud-based media management service for storing and serving images and files.',
+          },
+        ],
+      },
+      {
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+            techDescription:
+              'A cloud platform for deploying and hosting frontend and full-stack applications.',
+          },
+        ],
       },
     ],
     timeline: '2 months',
@@ -361,14 +535,75 @@ export const ProjectItem: ProjectItemProps[] = [
     description:
       'This web application allows users to easily enhance image using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for enhancing images related tasks.',
     status: 'Working',
-    techonologies: [
+    technologies: [
       {
-        icon: <ReactLogo />,
-        label: 'React',
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+            techDescription:
+              'A popular JavaScript library for building component-based user interfaces.',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+            techDescription:
+              'A utility-first CSS framework for rapidly building custom user interfaces.',
+          },
+          {
+            label: 'React Hot Toast',
+            techDescription:
+              'A lightweight React notification library for displaying toast messages.',
+          },
+          {
+            label: 'Recharts',
+            techDescription: 'A composable charting library built on React for data visualization.',
+          },
+          {
+            label: 'Emoji React Picker',
+            techDescription:
+              'A reusable React component that allows users to select and insert emojis.',
+          },
+        ],
       },
       {
-        icon: <TailwindCSS />,
-        label: 'TailwindCSS',
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+            techDescription:
+              'A JavaScript runtime environment that executes code outside the browser.',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+            techDescription:
+              'A NoSQL document-oriented database for storing and managing application data.',
+          },
+          {
+            label: 'Cloudinary & Multer',
+            techDescription:
+              'A cloud-based media management service for storing and serving images and files.',
+          },
+        ],
+      },
+      {
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+            techDescription:
+              'A cloud platform for deploying and hosting frontend and full-stack applications.',
+          },
+        ],
       },
     ],
     timeline: '2 months',
@@ -412,14 +647,75 @@ export const ProjectItem: ProjectItemProps[] = [
     description:
       'This web application allows users to easily enhance image using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for enhancing images related tasks.',
     status: 'Building',
-    techonologies: [
+    technologies: [
       {
-        icon: <ReactLogo />,
-        label: 'React',
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+            techDescription:
+              'A popular JavaScript library for building component-based user interfaces.',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+            techDescription:
+              'A utility-first CSS framework for rapidly building custom user interfaces.',
+          },
+          {
+            label: 'React Hot Toast',
+            techDescription:
+              'A lightweight React notification library for displaying toast messages.',
+          },
+          {
+            label: 'Recharts',
+            techDescription: 'A composable charting library built on React for data visualization.',
+          },
+          {
+            label: 'Emoji React Picker',
+            techDescription:
+              'A reusable React component that allows users to select and insert emojis.',
+          },
+        ],
       },
       {
-        icon: <TailwindCSS />,
-        label: 'TailwindCSS',
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+            techDescription:
+              'A JavaScript runtime environment that executes code outside the browser.',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+            techDescription:
+              'A NoSQL document-oriented database for storing and managing application data.',
+          },
+          {
+            label: 'Cloudinary & Multer',
+            techDescription:
+              'A cloud-based media management service for storing and serving images and files.',
+          },
+        ],
+      },
+      {
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+            techDescription:
+              'A cloud platform for deploying and hosting frontend and full-stack applications.',
+          },
+        ],
       },
     ],
     timeline: '2 months',

@@ -9,6 +9,11 @@ import { Link } from 'react-router-dom';
 import { slugify } from '@/utils/helper';
 
 const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
+  const allIcons = item.technologies.flatMap((category) =>
+    category.stack.map((tech) => tech?.icon)
+  );
+  console.log(allIcons);
+
   const nameSlug = slugify(item.name);
   return (
     <div
@@ -16,7 +21,6 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       className="ring-neutral-6/15 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
       <img src="/Images/demo3.png" alt={item.name} className="w-full rounded-t-xl" />
-      
 
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between gap-3">
@@ -60,11 +64,17 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
         <p className="text-neutral-6 mt-3 line-clamp-3 text-sm text-balance">{item.description}</p>
         <p className="text-neutral-6 mt-3 text-sm font-medium tracking-[0.01em]">Technologies</p>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-          {item.techonologies
-            .filter((tech) => tech.icon)
-            .map((tech) => (
-              <TechnologyList key={tech.label} icon={tech.icon} label={tech.label} />
-            ))}
+          {item.technologies.map((category) =>
+            category.stack
+              .filter((tech) => tech.icon)
+              .map((tech, index) => (
+                <TechnologyList
+                  key={`${category.category}-${index}`}
+                  label={tech.label}
+                  icon={tech.icon}
+                />
+              ))
+          )}
         </div>
 
         <div className="mt-4 mb-2 flex items-center justify-between tracking-tight">
