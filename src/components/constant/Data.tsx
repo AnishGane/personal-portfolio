@@ -59,31 +59,31 @@ export const SocialLinkItem: SocialLinkProp[] = [
     id: 1,
     icon: <RiTwitterXFill />,
     label: 'X',
-    href: 'https://www.google.com',
+    href: 'https://x.com/TDE_6Ani9',
   },
   {
     id: 2,
     icon: <Instagram />,
     label: 'Instagram',
-    href: 'https://www.google.com',
+    href: 'https://www.instagram.com/anish.gane/',
   },
   {
     id: 3,
     icon: <Github />,
     label: 'Github',
-    href: 'https://www.google.com',
+    href: 'https://github.com/AnishGane',
   },
   {
     id: 4,
     icon: <PiLinkedinLogo />,
     label: 'Linkedin',
-    href: 'https://www.google.com',
+    href: 'https://www.linkedin.com/in/anish-gane-1b5644253/',
   },
   {
     id: 5,
     icon: <Mail />,
     label: 'Email',
-    href: 'https://www.google.com',
+    href: 'mailto:anishgane10@gmail.com',
   },
 ];
 
@@ -174,7 +174,7 @@ export const ProjectItem: ProjectItemProps[] = [
     repoLink: 'https://github.com/AnishGane/Himalayan-Edu-Pvt.-Ltd',
     description:
       'Himalayan Educational Group Service Pvt. Ltd. is a premier Japanese language learning institute based in Nepal, dedicated to providing high-quality education, cultural exchange, and skill development for students aspiring to study, work, or build their careers in Japan.',
-    status: 'Building',
+    status: 'Working',
     techonologies: [
       {
         icon: <ReactLogo />,
@@ -459,8 +459,8 @@ export const MySkills: Skills[] = [
   { id: 1, icon: <ReactLogo />, label: 'react' },
   {
     id: 2,
-    icon: <MongoDB />,
-    label: 'mongodb',
+    icon: <TailwindCSS />,
+    label: 'TailwindCSS',
   },
   {
     id: 3,
@@ -474,16 +474,21 @@ export const MySkills: Skills[] = [
   },
   {
     id: 5,
-    icon: <TailwindCSS />,
-    label: 'TailwindCSS',
+    icon: <NextLogo />,
+    label: 'next.js',
   },
   {
     id: 6,
+    icon: <MongoDB />,
+    label: 'mongodb',
+  },
+  {
+    id: 7,
     icon: <NodeJS />,
     label: 'nodejs',
   },
   {
-    id: 7,
+    id: 8,
     icon: <ExpessJS />,
     label: 'express.js',
   },

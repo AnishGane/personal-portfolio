@@ -67,6 +67,8 @@ const GitHubActivity = ({ username }: { username: string }) => {
 
   // Extract month labels aligned with weeks
   const monthLabels: (MonthLabel | null)[] = [];
+
+  let primaryYear: number | null = null;
   let lastRenderedMonth: number | null = null;
 
   weeks.forEach((week) => {
@@ -77,9 +79,15 @@ const GitHubActivity = ({ username }: { username: string }) => {
 
       if (date.getDate() === 1) {
         const month = date.getMonth();
+        const year = date.getFullYear();
 
-        // prevent duplicate month labels (Jan … Jan case)
-        if (month !== lastRenderedMonth) {
+        // Lock primary year on first January
+        if (primaryYear === null && month === 0) {
+          primaryYear = year;
+        }
+
+        // Only render months belonging to primary year
+        if (year === primaryYear && month !== lastRenderedMonth) {
           label = {
             month,
             label: monthNames[month],
@@ -121,27 +129,30 @@ const GitHubActivity = ({ username }: { username: string }) => {
         </p>
       </div>
 
-      <div className="github-grid border-neutral-6/40 rounded-xl border border-dashed p-4 shadow-sm">
-        {/* Month labels row */}
-        {monthLabels.map((item, i) => (
-          <div key={`m-${i}`} className="month-cell">
-            {item ? item.label : ''}
-          </div>
-        ))}
+      <div className="overflow-x-auto overflow-y-hidden lg:overflow-x-hidden">
+        <div className="github-grid">
+          {/* Month labels */}
+          {monthLabels.map((item, i) => (
+            <div key={`m-${i}`} className="month-cell text-neutral-8">
+              {item?.label ?? ''}
+            </div>
+          ))}
 
-        {/* Days (7 rows) */}
-        {weeks.map((week, wi) =>
-          week.contributionDays.map((day, di) => (
-            <div
-              key={`d-${wi}-${di}`}
-              className="day-cell"
-              style={{ backgroundColor: day.color }}
-              title={`${day.date} — ${day.contributionCount} contributions`}
-            />
-          ))
-        )}
+          {/* Days */}
+          {weeks.map((week, wi) =>
+            week.contributionDays.map((day, di) => (
+              <div
+                key={`d-${wi}-${di}`}
+                className="day-cell"
+                style={{ backgroundColor: day.color }}
+                title={`${day.date} — ${day.contributionCount} contributions`}
+              />
+            ))
+          )}
+        </div>
       </div>
-      <div className="font-tooltip bg-neutral-6/10 text-neutral-6 absolute right-0 -bottom-9 flex w-fit items-center justify-end-safe gap-2 rounded-md px-2 py-1.5 text-right text-xs">
+
+      <div className="font-tooltip bg-neutral-6/10 text-neutral-6 absolute right-0 -bottom-10 flex w-fit items-center justify-end-safe gap-2 rounded-md px-2 py-1.5 text-right text-xs">
         <p>Less</p>
         <div className="flex items-center gap-[2px]">
           <div className="size-2.5 rounded-xs bg-[#216E39]"></div>

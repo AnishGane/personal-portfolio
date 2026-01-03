@@ -99,25 +99,31 @@
     font-family: 'tooltip', sans-serif;
   }
 
-  ul li{
-    @apply text-neutral-6 text-sm md:text-[15px] leading-6 md:leading-8 font-light;
+  ul li {
+    @apply text-neutral-6 text-sm leading-6 font-light md:text-[15px] md:leading-8;
   }
 
   .github-grid {
     display: grid;
-    /* 53 weeks (columns) + 1 extra col for padding if you like */
-    grid-template-columns: repeat(53, minmax(0, 1fr));
-    /* 1 row for months + 7 for days */
-    grid-template-rows: auto repeat(7, 1fr);
+    grid-template-columns: repeat(53, minmax(12px, 1fr));
     gap: 3px;
     width: 100%;
-    max-width: 100%;
+  }
+
+  /* Mobile only */
+  @media (max-width: 1023px) {
+    .github-grid {
+      grid-template-columns: repeat(53, 12px);
+      width: max-content;
+      /* this enables scrolling */
+    }
   }
 
   .month-cell {
-    font-size: 11px;
-    color: #a0a0a0;
-    text-align: left;
+    grid-row: 1;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
   }
 
   /* First row: month labels */
@@ -125,10 +131,10 @@
     align-self: end;
   }
 
-  /* Day squares start from row 2 */
   .day-cell {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+    grid-row: auto;
+    width: 11px;
+    height: 11px;
     border-radius: 2px;
   }
 }
