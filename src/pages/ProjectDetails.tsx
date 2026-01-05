@@ -99,6 +99,7 @@ const ProjectDetails = () => {
             icon={<WebsiteDemo className="size-[18px] text-white/80 dark:text-black/80" />}
             text="Live Demo"
             variant="primary"
+            target="_blank"
             href={projectContent.url}
           />
           <Button
@@ -128,16 +129,23 @@ const ProjectDetails = () => {
             </p>
           </div>
 
-          <div className="mb-8">
-            <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
-              <h3>Features</h3>
-            </AppendHashtag>
-            <ul className="mx-10 list-disc">
-              {projectContent.itemData.Features.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
+          {projectContent.itemData.Features && projectContent?.itemData?.Features.length > 0 && (
+            <>
+              <div className="mb-8">
+                <AppendHashtag
+                  NoOfHash={2}
+                  className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl"
+                >
+                  <h3>Features</h3>
+                </AppendHashtag>
+                <ul className="mx-10 list-disc">
+                  {projectContent.itemData.Features.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
 
           <div className="mb-8">
             <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
@@ -152,7 +160,7 @@ const ProjectDetails = () => {
                 ))}
               </ul>
             ) : (
-              <p className="text-neutral-6 text-[15px] leading-8 font-light">
+              <p className="text-neutral-6 text-[15px] leading-6 font-light">
                 {projectContent.itemData.ProblemStatement}
               </p>
             )}

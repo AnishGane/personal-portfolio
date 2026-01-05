@@ -38,8 +38,8 @@ type TechnologyCategory = {
 
 type ProjectItemData = {
   Overview: string;
-  Features: string[];
-  ProblemStatement: string[];
+  Features?: string[];
+  ProblemStatement: string | string[];
   FuturePlan: string[];
 };
 
