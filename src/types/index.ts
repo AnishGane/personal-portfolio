@@ -28,7 +28,6 @@ export type HeadingProps = {
 type TechnologyStackItem = {
   icon?: JSX.Element;
   label: string;
-  techDescription?: string;
 };
 
 type TechnologyCategory = {

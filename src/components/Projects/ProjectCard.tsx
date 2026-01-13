@@ -9,11 +9,6 @@ import { Link } from 'react-router-dom';
 import { slugify } from '@/utils/helper';
 
 const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
-  const allIcons = item.technologies.flatMap((category) =>
-    category.stack.map((tech) => tech?.icon)
-  );
-  console.log(allIcons);
-
   const nameSlug = slugify(item.name);
   return (
     <div
@@ -67,6 +62,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
           {item.technologies.map((category) =>
             category.stack
               .filter((tech) => tech.icon)
+              .slice(0, 3) // Every category's 3 technologies
               .map((tech, index) => (
                 <TechnologyList
                   key={`${category.category}-${index}`}

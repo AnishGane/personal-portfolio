@@ -15,6 +15,13 @@ import { Github, Instagram, Mail } from 'lucide-react';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { PiLinkedinLogo } from 'react-icons/pi';
 import NextLogo from '../icons/NextLogo';
+import ShadcnLogo from '../icons/Shadcn';
+import NuqsLogo from '../icons/NuqsLogo';
+import BetterAuthLogo from '../icons/BetterAuth';
+import ZodLogo from '../icons/ZodLogo';
+import ResendLogo from '../icons/ResendLogo';
+import { SiTypescript } from 'react-icons/si';
+import TypeScriptLogo from '../icons/TypeScript';
 
 export const navList: NavItem[] = [
   { id: 1, label: 'Portfolio', path: '/' },
@@ -90,6 +97,108 @@ export const SocialLinkItem: SocialLinkProp[] = [
 export const ProjectItem: ProjectItemProps[] = [
   {
     id: 1,
+    name: 'NoteForge',
+    subName: 'NoteForge: Your Personal Notebook App',
+    image: '/Images/Project1_Image.png',
+    url: 'https://noteforge-chi.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/Noteforge',
+    description:
+      'NoteForge is a web application that allows users to create, organize their notes and notebooks. It provides a simple and intuitive interface for personal note-taking and task management.',
+    status: 'Working',
+    technologies: [
+      {
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+          },
+          {
+            icon: <NextLogo />,
+            label: 'Next.js',
+          },
+          {
+            icon: <TypeScriptLogo />,
+            label: 'TypeScript',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+          },
+          {
+            label: 'Sooner',
+          },
+          {
+            icon: <ShadcnLogo />,
+            label: 'Shadcn (UI Library)',
+          },
+          {
+            icon: <NuqsLogo />,
+            label: 'Nuqs (URL query state management)',
+          },
+          {
+            icon: <MotionLogo />,
+            label: 'Motion',
+          },
+          {
+            label: 'Tiptap (Rich Text Editor)',
+          },
+        ],
+      },
+      {
+        category: 'Backend',
+        stack: [
+          {
+            icon: <BetterAuthLogo />,
+            label: 'BetterAuth',
+          },
+          {
+            icon: <ZodLogo />,
+            label: 'Zod',
+          },
+          {
+            icon: <ResendLogo />,
+            label: 'Resend',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+          },
+        ],
+      },
+      {
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+          },
+        ],
+      },
+    ],
+    timeline: '12 days',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'NoteForge is a web application that allows users to create, organize their notes and notebooks. It provides a simple and intuitive interface for personal note-taking and task management.',
+      Features: [
+        'Secure User Authentication using Better Auth',
+        'User can add notebooks and the notes inside them using Tiptap',
+        'User can create, update, and delete notebooks and notes',
+        'Search the Notebook and Notes with the help of Nuqs',
+      ],
+      ProblemStatement:
+        'As a desired of learning Next.js 16 and Better Auth, I have created this project for better implementation of Better Auth Session and email verification and much more features with the help of Next.js 16.',
+      FuturePlan: [
+        'Improve the UI/UX and add more features',
+        'Add SSO and social login',
+        'Implement and fix more features of TipTap',
+      ],
+    },
+  },
+  {
+    id: 2,
     name: 'Expense Tracker',
     subName: 'Expense Tracker: Track Your Expenses Effortlessly',
     image: '/Images/Project1_Image.png',
@@ -105,28 +214,19 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <ReactLogo />,
             label: 'React',
-            techDescription:
-              'A popular JavaScript library for building component-based user interfaces.',
           },
           {
             icon: <TailwindCSS />,
             label: 'Tailwind CSS',
-            techDescription:
-              'A utility-first CSS framework for rapidly building custom user interfaces.',
           },
           {
             label: 'React Hot Toast',
-            techDescription:
-              'A lightweight React notification library for displaying toast messages.',
           },
           {
             label: 'Recharts',
-            techDescription: 'A composable charting library built on React for data visualization.',
           },
           {
             label: 'Emoji React Picker',
-            techDescription:
-              'A reusable React component that allows users to select and insert emojis.',
           },
         ],
       },
@@ -136,24 +236,17 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <NodeJS />,
             label: 'Node.js',
-            techDescription:
-              'A JavaScript runtime environment that executes code outside the browser.',
           },
           {
             icon: <ExpessJS />,
             label: 'Express.js',
-            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
           },
           {
             icon: <MongoDB />,
             label: 'MongoDB',
-            techDescription:
-              'A NoSQL document-oriented database for storing and managing application data.',
           },
           {
             label: 'Cloudinary & Multer',
-            techDescription:
-              'A cloud-based media management service for storing and serving images and files.',
           },
         ],
       },
@@ -163,8 +256,6 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <Vercel />,
             label: 'Vercel',
-            techDescription:
-              'A cloud platform for deploying and hosting frontend and full-stack applications.',
           },
         ],
       },
@@ -196,7 +287,7 @@ export const ProjectItem: ProjectItemProps[] = [
     },
   },
   {
-    id: 2,
+    id: 3,
     name: 'Himalayan Institute Website',
     subName: 'Himalayan Institute Website: Himalayan Educational Group Service Pvt. Ltd.',
     image: '/Images/Project1_Image.png',
@@ -212,33 +303,24 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <ReactLogo />,
             label: 'React',
-            techDescription:
-              'A popular JavaScript library for building component-based user interfaces.',
           },
           {
             icon: <TailwindCSS />,
             label: 'Tailwind CSS',
-            techDescription:
-              'A utility-first CSS framework for rapidly building custom user interfaces.',
           },
           {
             icon: <MotionLogo />,
             label: 'Motion',
-            techDescription: 'A motion library for React that provides animation capabilities.',
           },
           {
             icon: <ReactRouter />,
             label: 'React Router',
-            techDescription: 'A library for declarative routing in React.',
           },
           {
             label: 'Imgix',
-            techDescription:
-              'A cloud-based media management service for storing and serving images and files.',
           },
           {
             label: 'EmailJS',
-            techDescription: 'A JavaScript library for sending emails using SMTP.',
           },
         ],
       },
@@ -248,8 +330,6 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <Vercel />,
             label: 'Vercel',
-            techDescription:
-              'A cloud platform for deploying and hosting frontend and full-stack applications.',
           },
         ],
       },
@@ -271,7 +351,7 @@ export const ProjectItem: ProjectItemProps[] = [
     },
   },
   {
-    id: 3,
+    id: 4,
     name: 'SoftStitch Ecommerce',
     subName: 'SoftStitch Ecommerce: A full-stack e-commerce platform',
     image: '/Images/Project1_Image.png',
@@ -287,32 +367,23 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <ReactLogo />,
             label: 'React',
-            techDescription:
-              'A popular JavaScript library for building component-based user interfaces.',
           },
           {
             icon: <TailwindCSS />,
             label: 'Tailwind CSS',
-            techDescription:
-              'A utility-first CSS framework for rapidly building custom user interfaces.',
           },
           {
             label: 'React Hot Toast',
-            techDescription:
-              'A lightweight React notification library for displaying toast messages.',
           },
           {
             icon: <ReactRouter />,
             label: 'React Router',
-            techDescription: 'A library for declarative routing in React.',
           },
           {
             label: 'Motion',
-            techDescription: 'A motion library for React that provides animation capabilities.',
           },
           {
             label: 'Axios',
-            techDescription: 'A promise-based HTTP client for making HTTP requests in JavaScript.',
           },
         ],
       },
@@ -322,29 +393,20 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <NodeJS />,
             label: 'Node.js',
-            techDescription:
-              'A JavaScript runtime environment that executes code outside the browser.',
           },
           {
             icon: <ExpessJS />,
             label: 'Express.js',
-            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
           },
           {
             icon: <MongoDB />,
             label: 'MongoDB',
-            techDescription:
-              'A NoSQL document-oriented database for storing and managing application data.',
           },
           {
             label: 'Cloudinary & Multer',
-            techDescription:
-              'A cloud-based media management service for storing and serving images and files.',
           },
           {
             label: 'Bcrypt',
-            techDescription:
-              'A library for securely hashing passwords and salts in Node.js applications.',
           },
         ],
       },
@@ -354,8 +416,6 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <Vercel />,
             label: 'Vercel',
-            techDescription:
-              'A cloud platform for deploying and hosting frontend and full-stack applications.',
           },
         ],
       },
@@ -392,7 +452,7 @@ export const ProjectItem: ProjectItemProps[] = [
     },
   },
   {
-    id: 4,
+    id: 5,
     name: 'AI Background Removal',
     subName: 'AI Background Removal: Remove Background from Image using AI',
     image: '/Images/Project1_Image.png',
@@ -408,23 +468,16 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <ReactLogo />,
             label: 'React',
-            techDescription:
-              'A popular JavaScript library for building component-based user interfaces.',
           },
           {
             icon: <TailwindCSS />,
             label: 'Tailwind CSS',
-            techDescription:
-              'A utility-first CSS framework for rapidly building custom user interfaces.',
           },
           {
             label: 'Axios',
-            techDescription: 'A promise-based HTTP client for making HTTP requests in JavaScript.',
           },
           {
             label: 'PicWish API',
-            techDescription:
-              'An image processing API that allows users to remove backgrounds from images.',
           },
         ],
       },
@@ -433,8 +486,6 @@ export const ProjectItem: ProjectItemProps[] = [
         stack: [
           {
             label: 'Render',
-            techDescription:
-              'A cloud platform for deploying and hosting frontend and full-stack applications.',
           },
         ],
       },
@@ -461,7 +512,7 @@ export const ProjectItem: ProjectItemProps[] = [
     },
   },
   {
-    id: 5,
+    id: 6,
     name: 'Smart Inventory & Sales Management System',
     subName: 'SISMS: Manage Inventory and Sales',
     image: '/Images/Project1_Image.png',
@@ -477,28 +528,19 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <ReactLogo />,
             label: 'React',
-            techDescription:
-              'A popular JavaScript library for building component-based user interfaces.',
           },
           {
             icon: <TailwindCSS />,
             label: 'Tailwind CSS',
-            techDescription:
-              'A utility-first CSS framework for rapidly building custom user interfaces.',
           },
           {
             label: 'React Hot Toast',
-            techDescription:
-              'A lightweight React notification library for displaying toast messages.',
           },
           {
             label: 'Recharts',
-            techDescription: 'A composable charting library built on React for data visualization.',
           },
           {
             label: 'Emoji React Picker',
-            techDescription:
-              'A reusable React component that allows users to select and insert emojis.',
           },
         ],
       },
@@ -508,24 +550,17 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <NodeJS />,
             label: 'Node.js',
-            techDescription:
-              'A JavaScript runtime environment that executes code outside the browser.',
           },
           {
             icon: <ExpessJS />,
             label: 'Express.js',
-            techDescription: 'A fast, minimalist web framework for building APIs with Node.js.',
           },
           {
             icon: <MongoDB />,
             label: 'MongoDB',
-            techDescription:
-              'A NoSQL document-oriented database for storing and managing application data.',
           },
           {
             label: 'Cloudinary & Multer',
-            techDescription:
-              'A cloud-based media management service for storing and serving images and files.',
           },
         ],
       },
@@ -535,8 +570,6 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <Vercel />,
             label: 'Vercel',
-            techDescription:
-              'A cloud platform for deploying and hosting frontend and full-stack applications.',
           },
         ],
       },
