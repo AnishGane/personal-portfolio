@@ -18,6 +18,8 @@ const monthNames = [
   'Dec',
 ];
 
+const dayLabels = ['Mon', 'Wed', 'Fri'];
+
 const GitHubActivity = ({ username }: { username: string }) => {
   const [weeks, setWeeks] = useState<Week[]>([]);
   const [totalContributions, setTotalContributions] = useState(0);
@@ -65,52 +67,45 @@ const GitHubActivity = ({ username }: { username: string }) => {
       .finally(() => setLoading(false));
   }, [username]);
 
-  // Extract month labels aligned with weeks
-  const monthLabels: (MonthLabel | null)[] = [];
+  // Calculate month labels with proper positioning like GitHub
+  const getMonthLabels = () => {
+    const labels: { month: string; weekIndex: number }[] = [];
+    let lastMonth = -1;
 
-  let primaryYear: number | null = null;
-  let lastRenderedMonth: number | null = null;
-
-  weeks.forEach((week) => {
-    let label: MonthLabel | null = null;
-
-    for (const day of week.contributionDays) {
-      const date = new Date(day.date);
-
-      if (date.getDate() === 1) {
+    weeks.forEach((week, weekIndex) => {
+      // Check the first day of the week
+      const firstDay = week.contributionDays[0];
+      if (firstDay) {
+        const date = new Date(firstDay.date);
         const month = date.getMonth();
-        const year = date.getFullYear();
 
-        // Lock primary year on first January
-        if (primaryYear === null && month === 0) {
-          primaryYear = year;
+        // Add label when month changes
+        if (month !== lastMonth) {
+          labels.push({
+            month: monthNames[month],
+            weekIndex: weekIndex,
+          });
+          lastMonth = month;
         }
-
-        // Only render months belonging to primary year
-        if (year === primaryYear && month !== lastRenderedMonth) {
-          label = {
-            month,
-            label: monthNames[month],
-            date: day.date,
-          };
-          lastRenderedMonth = month;
-        }
-
-        break;
       }
-    }
+    });
 
-    monthLabels.push(label);
-  });
+    return labels;
+  };
+
+  const monthLabels = getMonthLabels();
 
   if (loading) return <p className="text-neutral-500">Loading GitHub activity…</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
+  const cellSize = 11; // Size of each square
+  const cellGap = 3; // Gap between squares
+
   return (
     <div className="relative mb-8">
-      <div className="font-tooltip text-neutral-8 mb-4 flex items-center justify-between text-sm font-medium">
+      <div className="font-tooltip text-neutral-8 mb-4 flex items-center justify-between text-sm">
         <p>
-          Total contributions: <strong className="font-bold">{totalContributions}</strong>
+          <strong className="font-bold">{totalContributions}</strong> Contributions till now
         </p>
         <p className="flex gap-1 font-normal capitalize">
           <span
@@ -129,37 +124,81 @@ const GitHubActivity = ({ username }: { username: string }) => {
         </p>
       </div>
 
-      <div className="overflow-x-auto overflow-y-hidden lg:overflow-x-hidden">
-        <div className="github-grid">
-          {/* Month labels */}
-          {monthLabels.map((item, i) => (
-            <div key={`m-${i}`} className="month-cell text-neutral-8">
-              {item?.label ?? ''}
+      <div className="overflow-x-auto overflow-y-hidden">
+        <div className="inline-block" style={{ minWidth: 'fit-content' }}>
+          {/* Container with day labels and graph */}
+          <div className="flex gap-2">
+            {/* Day labels column */}
+            <div
+              className="flex flex-col justify-between pt-6"
+              style={{ height: `${7 * (cellSize + cellGap) - cellGap}px` }}
+            >
+              {dayLabels.map((day, index) => (
+                <span
+                  key={index}
+                  className="text-xs text-neutral-500"
+                  style={{ lineHeight: `${cellSize}px` }}
+                >
+                  {day}
+                </span>
+              ))}
             </div>
-          ))}
 
-          {/* Days */}
-          {weeks.map((week, wi) =>
-            week.contributionDays.map((day, di) => (
+            {/* Graph section */}
+            <div>
+              {/* Month labels row */}
+              <div className="relative mb-1" style={{ height: '20px' }}>
+                {monthLabels.map((label, index) => (
+                  <span
+                    key={index}
+                    className="absolute text-xs text-neutral-400"
+                    style={{
+                      left: `${label.weekIndex * (cellSize + cellGap)}px`,
+                    }}
+                  >
+                    {label.month}
+                  </span>
+                ))}
+              </div>
+
+              {/* Contribution grid */}
               <div
-                key={`d-${wi}-${di}`}
-                className="day-cell"
-                style={{ backgroundColor: day.color }}
-                title={`${day.date} — ${day.contributionCount} contributions`}
-              />
-            ))
-          )}
+                className="grid"
+                style={{
+                  gridTemplateRows: 'repeat(7, 1fr)',
+                  gridAutoFlow: 'column',
+                  gap: `${cellGap}px`,
+                }}
+              >
+                {weeks.map((week, weekIndex) =>
+                  week.contributionDays.map((day, dayIndex) => (
+                    <div
+                      key={`${weekIndex}-${dayIndex}`}
+                      className="rounded-xs transition-all hover:ring-1 hover:ring-white/50"
+                      style={{
+                        width: `${cellSize}px`,
+                        height: `${cellSize}px`,
+                        backgroundColor: day.color || '#161b22',
+                      }}
+                      title={`${day.date} — ${day.contributionCount} contributions`}
+                    />
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="font-tooltip bg-neutral-6/10 text-neutral-6 absolute right-0 -bottom-10 flex w-fit items-center justify-end-safe gap-2 rounded-md px-2 py-1.5 text-right text-xs">
+      {/* Legend */}
+      <div className="font-tooltip text-neutral-6 mt-4 flex items-center justify-end gap-2 text-xs">
         <p>Less</p>
         <div className="flex items-center gap-[2px]">
-          <div className="size-2.5 rounded-xs bg-[#216E39]"></div>
-          <div className="size-2.5 rounded-xs bg-[#30A14E]"></div>
-          <div className="size-2.5 rounded-xs bg-[#40C463]"></div>
-          <div className="size-2.5 rounded-xs bg-[#9BE9A8]"></div>
           <div className="size-2.5 rounded-xs bg-[#c9cccf]"></div>
+          <div className="size-2.5 rounded-xs bg-[#9BE9A8]"></div>
+          <div className="size-2.5 rounded-xs bg-[#40C463]"></div>
+          <div className="size-2.5 rounded-xs bg-[#30A14E]"></div>
+          <div className="size-2.5 rounded-xs bg-[#216E39]"></div>
         </div>
 
         <p>More</p>

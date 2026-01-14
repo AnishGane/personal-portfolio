@@ -6,18 +6,20 @@ const SocialLinks = ({ icon, label, href }: SocialLinkProp) => {
   const sizedIcon = cloneElement(icon, { size: 25 });
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group font-tooltip relative"
-    >
-      {/* Icon */}
-      <div className="text-neutral-6 hover:text-neutral-8 cursor-pointer">{sizedIcon}</div>
+    <>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group font-tooltip relative"
+      >
+        {/* Icon */}
+        <div className="text-neutral-6 hover:text-neutral-8 cursor-pointer">{sizedIcon}</div>
 
-      {/* Tooltip */}
-      <LinkToolTip label={label} />
-    </a>
+        {/* Tooltip */}
+        <LinkToolTip label={label} />
+      </a>
+    </>
   );
 };
 

@@ -102,39 +102,4 @@
   ul li {
     @apply text-neutral-6 text-sm leading-6 font-light md:text-[15px] md:leading-8;
   }
-
-  .github-grid {
-    display: grid;
-    grid-template-columns: repeat(53, minmax(12px, 1fr));
-    gap: 3px;
-    width: 100%;
-  }
-
-  /* Mobile only */
-  @media (max-width: 1023px) {
-    .github-grid {
-      grid-template-columns: repeat(53, 12px);
-      width: max-content;
-      /* this enables scrolling */
-    }
-  }
-
-  .month-cell {
-    grid-row: 1;
-    height: 16px;
-    font-size: 12px;
-    text-align: center;
-  }
-
-  /* First row: month labels */
-  .month-cell:nth-child(-n + 53) {
-    align-self: end;
-  }
-
-  .day-cell {
-    grid-row: auto;
-    width: 11px;
-    height: 11px;
-    border-radius: 2px;
-  }
 }

@@ -1,4 +1,4 @@
-import { FileUser, Send } from 'lucide-react';
+import { FileUser, Mail, Send } from 'lucide-react';
 
 import ProfileImage from '@/components/Portfolio/ProfileImage';
 import MyDescription from '@/components/Portfolio/MyDescription';
@@ -12,6 +12,7 @@ import BookaCall from '@/components/Portfolio/BookaCall';
 import Quote from '@/components/Quote';
 import { SocialLinkItem } from '@/components/constant/Data';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const pageTransition = {
   initial: { opacity: 0, y: 25 },
@@ -67,8 +68,17 @@ const Portfolio = () => {
         {/* Social Links with tooltip */}
         <div className="mt-8 flex items-center gap-3">
           {SocialLinkItem.map((item) => (
-            <SocialLinks key={item.id} id={item.id} icon={item.icon} label={item.label} href={item.href} />
+            <SocialLinks
+              key={item.id}
+              id={item.id}
+              icon={item.icon}
+              label={item.label}
+              href={item.href}
+            />
           ))}
+          <Link to={'/contact-me'}>
+            <Mail size={25} className="text-neutral-6 hover:text-neutral-8 cursor-pointer" />
+          </Link>
         </div>
 
         {/* Projects */}

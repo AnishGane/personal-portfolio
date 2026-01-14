@@ -20,8 +20,6 @@ import NuqsLogo from '../icons/NuqsLogo';
 import BetterAuthLogo from '../icons/BetterAuth';
 import ZodLogo from '../icons/ZodLogo';
 import ResendLogo from '../icons/ResendLogo';
-import { SiTypescript } from 'react-icons/si';
-import TypeScriptLogo from '../icons/TypeScript';
 
 export const navList: NavItem[] = [
   { id: 1, label: 'Portfolio', path: '/' },
@@ -86,12 +84,6 @@ export const SocialLinkItem: SocialLinkProp[] = [
     label: 'Linkedin',
     href: 'https://www.linkedin.com/in/anish-gane-1b5644253/',
   },
-  {
-    id: 5,
-    icon: <Mail />,
-    label: 'Email',
-    href: 'mailto:anishgane10@gmail.com',
-  },
 ];
 
 export const ProjectItem: ProjectItemProps[] = [
@@ -118,7 +110,7 @@ export const ProjectItem: ProjectItemProps[] = [
             label: 'Next.js',
           },
           {
-            icon: <TypeScriptLogo />,
+            icon: <TSLogo />,
             label: 'TypeScript',
           },
           {

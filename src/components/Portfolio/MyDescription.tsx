@@ -22,7 +22,7 @@ const MyDescription = () => {
         <strong>UI</strong>
         <span>design, <strong>clean</strong> and <strong>modern</strong> looking website</span>
         <span>, driven by a</span>
-        <span>eye for design.</span>
+        <span>thrive of creating innovative and user-friendly web apps.</span>
       </div>
     </div>
   );

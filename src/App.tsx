@@ -7,6 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
 import ProjectDetails from './pages/ProjectDetails';
+import Contact from './pages/Contact';
 
 const App = () => {
   const location = useLocation();
@@ -20,6 +21,8 @@ const App = () => {
             <Route path="/" element={<Portfolio />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:name" element={<ProjectDetails />} />
+            <Route path="/contact-me" element={<Contact />} />
+            
 
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
