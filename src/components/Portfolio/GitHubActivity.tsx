@@ -1,4 +1,4 @@
-import type { GitHubResponse, MonthLabel, Week } from '@/types';
+import type { GitHubResponse, Week } from '@/types';
 import { formatTime } from '@/utils/helper';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -33,7 +33,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const res = await axios.get('http://localhost:4000/status');
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/status`);
         setCursorStatus(res.data.online ? 'online' : 'offline');
         setTotalTimeToday(res.data.todayWorked);
         setTotalTimeYesterday(res.data.yesterdayWorked);
@@ -51,7 +51,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
     setLoading(true);
     setError(null);
     axios
-      .get(`http://localhost:4000/github-activity?username=${username}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/github-activity?username=${username}`)
       .then((res) => {
         const data: GitHubResponse = res.data;
         if (!data?.user) {

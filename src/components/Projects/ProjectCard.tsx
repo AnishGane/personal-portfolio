@@ -1,12 +1,12 @@
 import type { ProjectItemProps } from '@/types';
 
 import { FiGithub } from 'react-icons/fi';
-import WebsiteDemo from '../icons/WebsiteDemo';
 import LinkToolTip from '../ToolTips/LinkToolTip';
 import { ArrowRight } from 'lucide-react';
 import TechnologyList from '../TechnologyList';
 import { Link } from 'react-router-dom';
 import { slugify } from '@/utils/helper';
+import { WebsiteDemo } from '../icons/all-icons';
 
 const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
   const nameSlug = slugify(item.name);
@@ -15,7 +15,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       key={item.id}
       className="ring-neutral-6/15 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
-      <img src="/Images/demo3.png" alt={item.name} className="w-full rounded-t-xl" />
+      <img src="/Images/First.jpg" alt={item.name} className="w-full rounded-t-xl" />
 
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between gap-3">

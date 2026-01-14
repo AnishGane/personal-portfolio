@@ -1,25 +1,27 @@
 import type { LanguageType, NavItem, ProjectItemProps, Skills, SocialLinkProp } from '@/types';
-import ReactLogo from '../icons/ReactLogo';
-import MongoDB from '../icons/MongoDB';
-import Vercel from '../icons/Vercel';
-import NodeJS from '../icons/NodeJS';
-import TailwindCSS from '../icons/TaiwindCSS';
-import ExpessJS from '../icons/ExpressJS';
-import MotionLogo from '../icons/MotionLogo';
-import ReactRouter from '../icons/ReactRouter';
-import JavaScript from '../icons/JavaScript';
-import TSLogo from '@/components/icons/TSLogo';
-import { Github, Instagram, Mail } from 'lucide-react';
+import { Github, Instagram } from 'lucide-react';
 
 // react-icons
 import { RiTwitterXFill } from 'react-icons/ri';
 import { PiLinkedinLogo } from 'react-icons/pi';
-import NextLogo from '../icons/NextLogo';
-import ShadcnLogo from '../icons/Shadcn';
-import NuqsLogo from '../icons/NuqsLogo';
-import BetterAuthLogo from '../icons/BetterAuth';
-import ZodLogo from '../icons/ZodLogo';
-import ResendLogo from '../icons/ResendLogo';
+import {
+  BetterAuthLogo,
+  ExpessJS,
+  JavaScript,
+  MongoDB,
+  MotionLogo,
+  NextLogo,
+  NodeJS,
+  NuqsLogo,
+  ReactLogo,
+  ReactRouter,
+  ResendLogo,
+  ShadcnLogo,
+  TSLogo,
+  TailwindCSS,
+  Vercel,
+  ZodLogo,
+} from '../icons/all-icons';
 
 export const navList: NavItem[] = [
   { id: 1, label: 'Portfolio', path: '/' },

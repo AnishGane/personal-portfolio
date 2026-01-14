@@ -11,7 +11,7 @@ const ProfileImage = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const res = await axios.get('http://localhost:4000/status');
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/status`);
         setCursorStatus(res.data.online ? 'online' : 'offline');
         setTotalTimeToday(res.data.todayWorked);
         setTotalTimeYesterday(res.data.yesterdayWorked);

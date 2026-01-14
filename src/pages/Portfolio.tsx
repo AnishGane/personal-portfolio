@@ -13,6 +13,8 @@ import Quote from '@/components/Quote';
 import { SocialLinkItem } from '@/components/constant/Data';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const pageTransition = {
   initial: { opacity: 0, y: 25 },
@@ -20,6 +22,23 @@ const pageTransition = {
   exit: { opacity: 0, y: -25 },
 };
 const Portfolio = () => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      axios.post(`${import.meta.env.VITE_BACKEND_URL}/heartbeat`);
+    }, 5000);
+
+    const goOffline = () => {
+      navigator.sendBeacon(`${import.meta.env.VITE_BACKEND_URL}/offline`);
+    };
+
+    window.addEventListener('beforeunload', goOffline);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('beforeunload', goOffline);
+    };
+  }, []);
+
   return (
     <motion.div
       initial={pageTransition.initial}

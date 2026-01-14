@@ -84,5 +84,3 @@ export type GitHubResponse = {
     };
   };
 };
-
-export type MonthLabel = { month: number; label: string; date: string } | null;
