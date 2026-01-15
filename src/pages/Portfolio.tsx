@@ -78,7 +78,7 @@ const Portfolio = () => {
               />
             }
             text="Get in touch"
-            href="/contact"
+            href="/contact-me"
             variant="primary"
             className="group"
           />

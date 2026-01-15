@@ -47,7 +47,7 @@ export default function Contact() {
         Contact Me
       </h2>
 
-      <div className="w-full max-w-md rounded-xl bg-black/5 p-6 shadow-md dark:bg-white/5">
+      <div className="ring-neutral-8/20 w-full max-w-md rounded-xl bg-black/5 p-6 shadow-md ring-1 dark:bg-white/5">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="text-neutral-6 mb-1.5 block text-sm font-medium">Your Name</label>
