@@ -31,6 +31,7 @@ const ProfileImage = () => {
         alt="My Image"
         className="h-full w-full rounded-full object-cover"
         title="Anish Gane"
+        loading="lazy"
       />
 
       <div className="group transition-scale absolute right-[3px] bottom-px z-90 flex size-5 items-center justify-center rounded-full bg-white shadow-md drop-shadow-neutral-100 duration-200 hover:scale-105 dark:bg-black dark:ring-1 dark:ring-neutral-500">

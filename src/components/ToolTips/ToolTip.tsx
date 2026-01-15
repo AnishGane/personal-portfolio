@@ -14,7 +14,7 @@ const ToolTip = ({ status, totalTimeToday, totalTimeYesterday }: ToolTipProps) =
       <p className="flex items-center gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300">
         ● {status === 'online' ? 'Online' : 'Offline'} in{' '}
         <span className="flex items-center gap-2">
-          <img src="/Images/cursor.png" alt="cursor image" className="size-[1.22rem]" /> Cursor
+          <img src="/Images/cursor.png" alt="cursor image" loading='lazy' className="size-[1.22rem]" /> Cursor
         </span>
       </p>
 

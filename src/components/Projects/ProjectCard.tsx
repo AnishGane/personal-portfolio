@@ -15,7 +15,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       key={item.id}
       className="ring-neutral-6/15 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
-      <img src="/Images/First.jpg" alt={item.name} className="w-full rounded-t-xl" />
+      <img src="/Images/First.jpg" alt={item.name} loading='lazy' className="w-full rounded-t-xl" />
 
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between gap-3">

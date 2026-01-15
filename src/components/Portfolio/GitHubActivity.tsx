@@ -114,7 +114,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
             {cursorStatus}
           </span>
           <span>
-            <img src="/Images/cursor.png" alt="cursor image" className="size-5" />
+            <img src="/Images/cursor.png" alt="cursor image" className="size-5" loading='lazy' />
           </span>
           {cursorStatus === 'online' ? (
             <span>Today Worked {formatTime(totalTimeToday)}</span>

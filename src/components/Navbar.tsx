@@ -15,6 +15,7 @@ const Navbar = () => {
               src="/Images/AG_white.svg"
               alt="svg Logo"
               className="h-8 cursor-pointer transition-transform duration-200 hover:scale-95"
+              loading='lazy'
             />
           </Link>
         ) : (

@@ -15,6 +15,7 @@ const BookaCall = () => {
           src={theme === 'dark' ? '/Images/AG_white.svg' : '/Images/AG.svg'}
           alt="main logo"
           className="h-3"
+          loading='lazy'
         />
         <span className="font-tooltip text-[13px] font-semibold tracking-wide">
           Book a Free Call

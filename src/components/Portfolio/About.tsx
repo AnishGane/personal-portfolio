@@ -5,7 +5,9 @@ const About = () => {
   return (
     <div className="font-tooltip mt-3 mb-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
       <div className="size-52 shrink-0 overflow-hidden rounded-xl">
-        <img src="/Images/GhibliImage.png" alt="My Image" className="h-full w-full object-cover" />
+        <img src="/Images/GhibliImage.png" alt="My Image"
+        loading='lazy'
+        className="h-full w-full object-cover" />
       </div>
 
       <div>
