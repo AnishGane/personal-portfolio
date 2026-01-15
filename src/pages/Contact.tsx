@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
+    from_name: '',
+    reply_to: '',
     subject: '',
     message: '',
   });
@@ -15,40 +17,71 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.subject || !formData.message) {
-      alert('All fields are required');
-      return;
+    // Map your form data to the template variables
+    const templateParams = {
+      full_name: formData.from_name, // matches your template
+      from_name: formData.from_name,
+      reply_to: formData.reply_to,
+      subject: formData.subject,
+      message: formData.message,
+      title: 'Contact Me', // static value
+      name: 'Portfolio', // static value
+    };
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      alert('Message sent!');
+      setFormData({
+        from_name: '',
+        reply_to: '',
+        subject: '',
+        message: '',
+      });
+    } catch (err) {
+      console.error(err);
+      alert('Failed to send message');
     }
-
-    console.log(formData);
-
-    setFormData({
-      name: '',
-      subject: '',
-      message: '',
-    });
-
-    alert('Message sent!');
   };
 
   return (
-    <div className="my-8 flex flex-col items-center justify-center px-4 py-10 md:my-20">
+    <div className="my-8 flex flex-col items-center justify-center px-4 py-10 md:my-10">
       <h2 className="font-tooltip text-neutral-8 mb-10 text-center text-4xl font-medium">
         Contact Me
       </h2>
+
       <div className="w-full max-w-md rounded-xl bg-black/5 p-6 shadow-md dark:bg-white/5">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="text-neutral-6 mb-1.5 block text-sm font-medium">Your Name</label>
             <input
               type="text"
-              name="name"
-              value={formData.name}
-              onChange={(e) => handleChange(e)}
+              name="from_name"
+              value={formData.from_name}
+              onChange={handleChange}
               placeholder="Name here"
+              required
+              className="border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="text-neutral-6 mb-1.5 block text-sm font-medium">Your Email</label>
+            <input
+              type="email"
+              name="reply_to"
+              value={formData.reply_to}
+              onChange={handleChange}
+              placeholder="you@example.com"
+              required
               className="border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
             />
           </div>
@@ -59,8 +92,9 @@ export default function Contact() {
               type="text"
               name="subject"
               value={formData.subject}
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
               placeholder="Regarding collaboration"
+              required
               className="border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
             />
           </div>
@@ -70,9 +104,10 @@ export default function Contact() {
             <textarea
               name="message"
               value={formData.message}
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
               placeholder="Write your message here..."
               rows={4}
+              required
               className="border-neutral-6/50 placeholder:text-neutral-6/60 text-neutral-6 focus:ring-neutral-6 w-full resize-none rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
             />
           </div>
