@@ -20,22 +20,11 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Map your form data to the template variables
-    const templateParams = {
-      full_name: formData.from_name, // matches your template
-      from_name: formData.from_name,
-      reply_to: formData.reply_to,
-      subject: formData.subject,
-      message: formData.message,
-      title: 'Contact Me', // static value
-      name: 'Portfolio', // static value
-    };
-
     try {
-      await emailjs.send(
+      await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams,
+        e.target as HTMLFormElement,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
