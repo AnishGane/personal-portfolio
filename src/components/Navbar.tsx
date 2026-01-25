@@ -8,25 +8,15 @@ const Navbar = () => {
 
   return (
     <header className="font-own sticky top-0 z-50 mt-4 px-3 py-4 backdrop-blur-sm transition-colors duration-300">
-      <nav className="flex gap-4 flex-row sm:items-center justify-between">
-        {theme === 'dark' ? (
-          <Link to="/">
-            <img
-              src="/Images/AG_white.svg"
-              alt="svg Logo"
-              className="h-8 cursor-pointer transition-transform duration-200 hover:scale-95"
-              loading='lazy'
-            />
-          </Link>
-        ) : (
-          <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-            <img
-              src="/Images/AG.svg"
-              alt="svg white Logo"
-              className="h-8 cursor-pointer transition-transform duration-200 hover:scale-95"
-            />
-          </Link>
-        )}
+      <nav className="flex items-center justify-between">
+        <Link to={'/'}>
+          <img
+            src={theme === 'dark' ? '/Images/AG_white.svg' : '/Images/AG.svg'}
+            alt="svg Logo"
+            className="h-8 cursor-pointer transition-transform duration-200 hover:scale-95"
+            loading="lazy"
+          />
+        </Link>
 
         <ul className="flex flex-wrap items-center gap-4 text-[15px] font-semibold tracking-wide capitalize">
           {navList.map((item) => (
@@ -49,7 +39,7 @@ const Navbar = () => {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="group cursor-pointer rounded-lg border-none p-2 transition-all outline-none"
+            className="group cursor-pointer rounded-lg border-none transition-all outline-none"
           >
             {theme === 'dark' ? (
               <Sun

@@ -9,32 +9,32 @@ const MyDescription = () => {
         <span className="block text-neutral-400/80 sm:inline">A MERN Stack Developer.</span>
       </h1>
 
-      <div className="mt-3 text-neutral-6 text-sm sm:text-base leading-relaxed">
-        <span>I build interactive web apps using </span>
+      <div className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
+  <span>I build interactive web apps using </span>
 
-        {LanguageItem.map((item, idx) => (
-          <LanguageSpanItem
-            key={item.id + item.languageName}
-            item={item}
-            idx={idx}
-            totalCount={LanguageItem.length}
-          />
-        ))}
+  {LanguageItem.map((item, idx) => (
+    <LanguageSpanItem
+      key={item.id + item.languageName}
+      item={item}
+      idx={idx}
+      totalCount={LanguageItem.length}
+    />
+  ))}
 
-        <span> . With a focus on </span>
-        <strong>UI</strong>
-        <span> design, </span>
-        <strong>clean</strong>
-        <span> and </span>
-        <strong>modern</strong>
-        <span>
-          {" "}
-          looking websites, driven by a drive to create innovative and user-friendly
-          web apps.
-        </span>
-      </div>
+  <span>. With a focus on </span>
+  <strong>UI</strong>
+  <span> design, </span>
+  <strong>clean</strong>
+  <span> and </span>
+  <strong>modern</strong>
+  <span>
+    {" "}
+    looking websites, driven by a drive to create innovative and user-friendly
+    web apps.
+  </span>
+</div>
 
-    </div >
+    </div>
   );
 };
 
