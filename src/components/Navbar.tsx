@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <header className="font-own sticky top-0 z-50 mt-4 px-3 py-4 backdrop-blur-sm transition-colors duration-300">
-      <nav className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <nav className="flex gap-4 flex-row sm:items-center justify-between">
         {theme === 'dark' ? (
           <Link to="/">
             <img
@@ -35,10 +35,9 @@ const Navbar = () => {
                 to={item.path}
                 onClick={() => window.scrollTo(0, 0)}
                 className={({ isActive }) =>
-                  `${
-                    isActive
-                      ? 'font-ownBold text-neutral-900 dark:text-white'
-                      : 'text-neutral-500 dark:text-neutral-400'
+                  `${isActive
+                    ? 'font-ownBold text-neutral-900 dark:text-white'
+                    : 'text-neutral-500 dark:text-neutral-400'
                   } transition-colors duration-300`
                 }
               >

@@ -13,7 +13,7 @@ const App = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <main className="font-own main-container">
+      <main className="font-own main-container overflow-x-hidden">
         <div className="mx-auto w-full max-w-212 px-6">
           <Navbar />
 
@@ -22,7 +22,7 @@ const App = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:name" element={<ProjectDetails />} />
             <Route path="/contact-me" element={<Contact />} />
-            
+
 
             <Route path="*" element={<NotFound />}></Route>
           </Routes>

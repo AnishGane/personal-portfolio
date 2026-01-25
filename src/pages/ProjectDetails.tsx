@@ -154,7 +154,7 @@ const ProjectDetails = () => {
             </AppendHashtag>
 
             {Array.isArray(projectContent.itemData.ProblemStatement) &&
-            projectContent.itemData.ProblemStatement.length > 1 ? (
+              projectContent.itemData.ProblemStatement.length > 1 ? (
               <ul className="mx-10 list-disc">
                 {projectContent.itemData.ProblemStatement.map((item, index) => (
                   <li key={index}>{item}</li>
@@ -302,7 +302,7 @@ const AppendHashtag = ({
       <span
         aria-hidden="true"
         style={{ left: `-${leftOffset ?? 40}px` }}
-        className={`absolute font-bold text-neutral-400 opacity-0 transition-all duration-200 ease-in-out select-none group-focus-within:opacity-100 group-hover:opacity-100`}
+        className={`absolute hidden sm:block font-bold text-neutral-400 opacity-0 transition-all duration-200 ease-in-out select-none group-focus-within:opacity-100 group-hover:opacity-100`}
       >
         {'#'.repeat(NoOfHash)}
       </span>

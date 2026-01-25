@@ -1,5 +1,4 @@
 import type { GitHubResponse, Week } from '@/types';
-import { formatTime } from '@/utils/helper';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -25,27 +24,6 @@ const GitHubActivity = ({ username }: { username: string }) => {
   const [totalContributions, setTotalContributions] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const [cursorStatus, setCursorStatus] = useState<string>('offline');
-  const [totalTimeToday, setTotalTimeToday] = useState<number>(0);
-  const [totalTimeYesterday, setTotalTimeYesterday] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/status`);
-        setCursorStatus(res.data.online ? 'online' : 'offline');
-        setTotalTimeToday(res.data.todayWorked);
-        setTotalTimeYesterday(res.data.yesterdayWorked);
-      } catch {
-        setCursorStatus('offline');
-        setTotalTimeToday(0);
-        setTotalTimeYesterday(0);
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -107,20 +85,8 @@ const GitHubActivity = ({ username }: { username: string }) => {
         <p>
           <strong className="font-bold">{totalContributions}</strong> Contributions till now
         </p>
-        <p className="flex gap-1 font-normal capitalize">
-          <span
-            className={`font-semibold ${cursorStatus === 'online' ? 'text-green-400' : 'text-gray-700'}`}
-          >
-            {cursorStatus}
-          </span>
-          <span>
-            <img src="/Images/cursor.png" alt="cursor image" className="size-5" loading='lazy' />
-          </span>
-          {cursorStatus === 'online' ? (
-            <span>Today Worked {formatTime(totalTimeToday)}</span>
-          ) : (
-            <span>Yesterday Worked {formatTime(totalTimeYesterday)}</span>
-          )}
+        <p className="hidden text-neutral-6/90 sm:flex gap-1 text-xs font-normal capitalize italic">
+          `Trying to be more active in Github`
         </p>
       </div>
 
@@ -136,7 +102,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
               {dayLabels.map((day, index) => (
                 <span
                   key={index}
-                  className="text-xs text-neutral-500"
+                  className="text-xs mt-3.5 text-neutral-500"
                   style={{ lineHeight: `${cellSize}px` }}
                 >
                   {day}

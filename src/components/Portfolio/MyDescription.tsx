@@ -3,28 +3,38 @@ import { LanguageItem } from '../constant/Data';
 
 const MyDescription = () => {
   return (
-    <div className="font-tooltip mt-6 flex flex-col gap-3 font-medium tracking-wider">
-      <h1 className="bg-linear-to-b from-gray-600 via-gray-700 to-gray-800 bg-clip-text text-3xl font-medium text-transparent sm:text-4xl dark:from-gray-300 dark:via-gray-200 dark:to-gray-100">
-        Hi, I'm Anish —<span className="text-neutral-400/80"> A MERN Stack Developer.</span>
+    <div className="font-tooltip mt-6 flex flex-col gap-4 font-medium tracking-wider">
+      <h1 className="bg-linear-to-b text-nowrap from-gray-600 via-gray-700 to-gray-800 bg-clip-text text-3xl font-medium text-transparent sm:text-4xl dark:from-gray-300 dark:via-gray-200 dark:to-gray-100">
+        Hi, I'm Anish —{' '}
+        <span className="block text-neutral-400/80 sm:inline">A MERN Stack Developer.</span>
       </h1>
 
-      <div className="text-neutral-6 mt-2 flex flex-wrap items-center gap-1 whitespace-pre-wrap">
-        <span>I build interactive web apps using</span>
+      <div className="mt-3 text-neutral-6 text-sm sm:text-base leading-relaxed">
+        <span>I build interactive web apps using </span>
+
         {LanguageItem.map((item, idx) => (
           <LanguageSpanItem
             key={item.id + item.languageName}
             item={item}
             idx={idx}
             totalCount={LanguageItem.length}
-        />
+          />
         ))}
-        <span>. With a focus on</span>
+
+        <span> . With a focus on </span>
         <strong>UI</strong>
-        <span>design, <strong>clean</strong> and <strong>modern</strong> looking website</span>
-        <span>, driven by a</span>
-        <span>thrive of creating innovative and user-friendly web apps.</span>
+        <span> design, </span>
+        <strong>clean</strong>
+        <span> and </span>
+        <strong>modern</strong>
+        <span>
+          {" "}
+          looking websites, driven by a drive to create innovative and user-friendly
+          web apps.
+        </span>
       </div>
-    </div>
+
+    </div >
   );
 };
 
