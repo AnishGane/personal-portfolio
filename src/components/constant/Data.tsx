@@ -43,21 +43,21 @@ export const LanguageItem: LanguageType[] = [
   },
   {
     id: 3,
+    icon: <NextLogo />,
+    languageName: 'Next.js',
+    href: 'https://nextjs.org/',
+  },
+  {
+    id: 4,
     icon: <TailwindCSS />,
     languageName: 'Tailwind CSS',
     href: 'https://tailwindcss.com/',
   },
   {
-    id: 4,
+    id: 5,
     icon: <MongoDB />,
     languageName: 'MongoDB',
     href: 'https://www.mongodb.com/',
-  },
-  {
-    id: 5,
-    icon: <NextLogo />,
-    languageName: 'Next.js',
-    href: 'https://nextjs.org/',
   },
 ];
 
