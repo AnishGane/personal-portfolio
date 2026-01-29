@@ -12,6 +12,7 @@ import {
   JavaScript,
   MongoDB,
   MotionLogo,
+  NeonDB,
   NextLogo,
   NodeJS,
   NuqsLogo,
@@ -316,6 +317,10 @@ export const ProjectItem: ProjectItemProps[] = [
           {
             icon: <Drizzle />,
             label: 'drizzle ORM',
+          },
+          {
+            icon: <NeonDB />,
+            label: 'NeonDB',
           }
         ]
       },
