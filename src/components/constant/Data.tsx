@@ -6,6 +6,8 @@ import { RiTwitterXFill } from 'react-icons/ri';
 import { PiLinkedinLogo } from 'react-icons/pi';
 import {
   BetterAuthLogo,
+  Clerk,
+  Drizzle,
   ExpessJS,
   JavaScript,
   MongoDB,
@@ -282,41 +284,49 @@ export const ProjectItem: ProjectItemProps[] = [
   },
   {
     id: 3,
-    name: 'Himalayan Institute Website',
-    subName: 'Himalayan Institute Website: Himalayan Educational Group Service Pvt. Ltd.',
+    name: 'LaunchShare',
+    subName: 'LaunchShare: Your One-Stop platform for Launches',
     image: '/Images/Project1_Image.png',
-    url: 'https://himalayan-edu-pvt-ltd.vercel.app/',
-    repoLink: 'https://github.com/AnishGane/Himalayan-Edu-Pvt.-Ltd',
+    url: 'https://launch-share.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/LaunchShare',
     description:
-      'Himalayan Educational Group Service Pvt. Ltd. is a premier Japanese language learning institute based in Nepal, dedicated to providing high-quality education, cultural exchange, and skill development for students aspiring to study, work, or build their careers in Japan.',
+      'LaunchShare is a community platform for creators to showcase their apps, AI tools, SaaS products, and creative projects. Authentic launches, real builders, genuine feedback.',
     status: 'Working',
     technologies: [
       {
         category: 'Frontend',
         stack: [
           {
-            icon: <ReactLogo />,
-            label: 'React',
+            icon: <NextLogo />,
+            label: 'Next.js',
           },
           {
             icon: <TailwindCSS />,
             label: 'Tailwind CSS',
           },
           {
-            icon: <MotionLogo />,
-            label: 'Motion',
-          },
-          {
-            icon: <ReactRouter />,
-            label: 'React Router',
-          },
-          {
-            label: 'Imgix',
-          },
-          {
-            label: 'EmailJS',
-          },
+            icon: <TSLogo />,
+            label: 'TypeScript',
+          }
         ],
+      },
+      {
+        category: "Database",
+        stack: [
+          {
+            icon: <Drizzle />,
+            label: 'drizzle ORM',
+          }
+        ]
+      },
+      {
+        category: "Authentication",
+        stack: [
+          {
+            icon: <Clerk />,
+            label: 'Clerk',
+          }
+        ]
       },
       {
         category: 'Deployment',
@@ -328,18 +338,17 @@ export const ProjectItem: ProjectItemProps[] = [
         ],
       },
     ],
-    timeline: '2 months',
-    Role: 'Frontend',
+    timeline: '4 days',
+    Role: 'Full Stack',
     Team: 'Solo',
     itemData: {
       Overview:
-        'Himalayan Educational Group Service Pvt. Ltd. is a leading Japanese language and training institute in Nepal, committed to preparing students for academic and professional opportunities in Japan. This website is built for visibility and user-friendliness for all the japanese learners that want an interactive learning experience',
+        'A community platform for creators to showcase their apps, AI tools, SaaS products, and creative projects. Authentic launches, real builders, genuine feedback with proper user authentication & managementsupported by clerk with their own organization feature.',
       ProblemStatement:
-        'This website is built for visibility and user-friendliness for all the japanese learners that want an interactive learning experience',
-
+        'To provide a platform for developers and startups to showcase their work and receive feedback from a community of like-minded individuals.',
       FuturePlan: [
-        'Expand Course Offerings and Certifications',
-        'Enhance Digital & Blended Learning Platforms',
+        'Expand the LaunchShare community',
+        'Add new features',
         'Improve Marketing and Brand Visibility',
       ],
     },
@@ -447,66 +456,6 @@ export const ProjectItem: ProjectItemProps[] = [
   },
   {
     id: 5,
-    name: 'AI Background Removal',
-    subName: 'AI Background Removal: Remove Background from Image using AI',
-    image: '/Images/Project1_Image.png',
-    url: 'https://ai-background-removal.onrender.com/',
-    repoLink: 'https://github.com/AnishGane/AI-Background-Removal',
-    description:
-      'This web application allows users to easily remove backgrounds from images using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for background removal tasks.',
-    status: 'Working',
-    technologies: [
-      {
-        category: 'Frontend',
-        stack: [
-          {
-            icon: <ReactLogo />,
-            label: 'React',
-          },
-          {
-            icon: <TailwindCSS />,
-            label: 'Tailwind CSS',
-          },
-          {
-            label: 'Axios',
-          },
-          {
-            label: 'PicWish API',
-          },
-        ],
-      },
-      {
-        category: 'Deployment',
-        stack: [
-          {
-            label: 'Render',
-          },
-        ],
-      },
-    ],
-    timeline: '4 days',
-    Role: 'Frontend',
-    Team: 'Solo',
-    itemData: {
-      Overview:
-        'A web application allows users to easily remove backgrounds from images using AI technology.',
-      Features: [
-        'Simple Upload Interface: Drag and drop or click to upload images',
-        'Real-time Processing: See the original and processed images side by side',
-        'AI-Powered: Leverages advanced AI segmentation for accurate background removal',
-      ],
-      ProblemStatement: [
-        'I want my own web application that allows users to easily remove backgrounds from images using AI technology & also learn how to use PicWish API.',
-      ],
-      FuturePlan: [
-        'Make it more user-friendly',
-        'Add more features',
-        'Scale it to enterprise level',
-      ],
-    },
-  },
-  {
-    id: 6,
     name: 'Smart Inventory & Sales Management System',
     subName: 'SISMS: Manage Inventory and Sales',
     image: '/Images/Project1_Image.png',

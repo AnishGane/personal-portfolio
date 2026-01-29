@@ -9,7 +9,7 @@ const MyDescription = () => {
         <span className="block text-neutral-400/80 sm:inline text-[28px] sm:text-4xl">A MERN Stack Developer.</span>
       </h1>
 
-      <div className="mt-3 text-neutral-6 text-sm sm:text-base leading-relaxed">
+      <div className="mt-3 font-normal text-neutral-6 text-sm sm:text-base leading-relaxed">
         <span>I build interactive web apps using </span>
 
         {LanguageItem.map((item, idx) => (
@@ -21,7 +21,7 @@ const MyDescription = () => {
           />
         ))}
 
-        <span>. With a focus on </span>
+        <span> . With a focus on </span>
         <strong>UI</strong>
         <span> design, </span>
         <strong>clean</strong>

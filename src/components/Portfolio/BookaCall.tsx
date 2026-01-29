@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const BookaCall = () => {
   const { theme } = useTheme();
   return (
-    <div className="border-neutral-6/50 text-neutral-8 px-6 sm:p-0 mt-16 mb-8 flex flex-col items-center justify-center gap-4 rounded-xl border border-dashed py-16 text-sm text-center sm:text-lg tracking-tighter transition-colors duration-200">
+    <div className="border-neutral-6/50 text-neutral-8 px-6 mt-16 mb-8 flex flex-col items-center justify-center gap-4 rounded-xl border border-dashed py-16 text-sm text-center sm:text-lg tracking-tighter transition-colors duration-200">
       <p>Since, You have scrolled up to here, let's talk.</p>
       <Link
         to={'/contact-me'}
