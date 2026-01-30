@@ -49,9 +49,10 @@ const ProjectDetails = () => {
 
       <div className="text-neutral-8 font-tooltip mt-8 md:mt-14">
         <img
-          src="/Images/First.jpg"
+          // src={projectContent.image}
+          src="/Images/Demo.jpg"
           alt={projectContent.name}
-          className="h-[460px] w-full rounded-lg object-cover"
+          className="min-h-[300px] sm:h-[540px] w-full rounded-lg object-cover"
           loading='lazy'
         />
 

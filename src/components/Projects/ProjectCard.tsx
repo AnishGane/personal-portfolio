@@ -15,7 +15,12 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       key={item.id}
       className="ring-neutral-6/15 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
-      <img src="/Images/First.jpg" alt={item.name} loading='lazy' className="w-full rounded-t-xl" />
+      <img
+        // src="/Images/First.jpg"
+        src={item.image}
+        alt={item.name}
+        loading='lazy'
+        className="w-full rounded-t-xl" />
 
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between gap-3">
@@ -75,16 +80,14 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
 
         <div className="mt-4 mb-2 flex items-center justify-between tracking-tight">
           <div
-            className={`${
-              item.status === 'Building'
+            className={`${item.status === 'Building'
                 ? 'bg-[#FEE9EA] dark:bg-[#2E191A]'
                 : 'bg-[#E5FAEE] dark:bg-[#15291D]'
-            } text-neutral-8 font-tooltip flex items-center justify-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold`}
+              } text-neutral-8 font-tooltip flex items-center justify-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold`}
           >
             <span
-              className={`size-[7px] rounded-full ${
-                item.status === 'Building' ? 'bg-red-700' : 'bg-green-700'
-              }`}
+              className={`size-[7px] rounded-full ${item.status === 'Building' ? 'bg-red-700' : 'bg-green-700'
+                }`}
             ></span>
             <p>{item.status === 'Building' ? 'Building' : 'Fully Functional'}</p>
           </div>

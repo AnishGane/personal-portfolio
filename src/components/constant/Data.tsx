@@ -96,7 +96,7 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 1,
     name: 'NoteForge',
     subName: 'NoteForge: Your Personal Notebook App',
-    image: '/Images/Project1_Image.png',
+    image: '/Images/NoteForge.jpg',
     url: 'https://noteforge-chi.vercel.app/',
     repoLink: 'https://github.com/AnishGane/Noteforge',
     description:
@@ -198,7 +198,7 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 2,
     name: 'Expense Tracker',
     subName: 'Expense Tracker: Track Your Expenses Effortlessly',
-    image: '/Images/Project1_Image.png',
+    image: '/Images/ExpenseTracker.jpg',
     url: 'https://expense-tracker-frontend-sigma-eight.vercel.app/login',
     repoLink: 'https://github.com/AnishGane/expense-tracker',
     description:
@@ -287,7 +287,7 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 3,
     name: 'LaunchShare',
     subName: 'LaunchShare: Your One-Stop platform for Launches',
-    image: '/Images/Project1_Image.png',
+    image: '/Images/LaunchShare.jpg',
     url: 'https://launch-share.vercel.app/',
     repoLink: 'https://github.com/AnishGane/LaunchShare',
     description:
@@ -362,7 +362,7 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 4,
     name: 'SoftStitch Ecommerce',
     subName: 'SoftStitch Ecommerce: A full-stack e-commerce platform',
-    image: '/Images/Project1_Image.png',
+    image: '/Images/SoftStitch.jpg',
     url: 'https://soft-stitch-ecommerce.vercel.app/',
     repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
     description:
