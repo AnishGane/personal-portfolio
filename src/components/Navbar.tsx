@@ -1,7 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
-import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun } from 'lucide-react';
 import { navList } from './constant/Data';
+import { useTheme } from '@/context/ThemeContext';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();

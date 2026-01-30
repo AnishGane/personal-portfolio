@@ -13,6 +13,8 @@ type ButtonProps = {
 
   className?: string;
   label?: string;
+
+  onClick?: () => void;
 };
 
 const Button = ({
@@ -27,6 +29,7 @@ const Button = ({
 
   className = '',
   label,
+  onClick
 }: ButtonProps) => {
   const base =
     'px-4 py-[8px] rounded-lg flex items-center gap-2 text-[13px] font-medium font-tooltip tracking-wide transition-colors duration-200 shadow-sm border';
@@ -69,7 +72,7 @@ const Button = ({
   // -------- INTERNAL NAVIGATION --------
   if (href) {
     return (
-      <Link to={href} target={target} className={classes}>
+      <Link onClick={onClick} to={href} target={target} className={classes}>
         {content}
       </Link>
     );

@@ -97,6 +97,7 @@ export const ProjectItem: ProjectItemProps[] = [
     name: 'NoteForge',
     subName: 'NoteForge: Your Personal Notebook App',
     image: '/Images/NoteForge.jpg',
+    mobile_image: '/Images/NoteForge_mobile.jpg',
     url: 'https://noteforge-chi.vercel.app/',
     repoLink: 'https://github.com/AnishGane/Noteforge',
     description:
@@ -199,6 +200,7 @@ export const ProjectItem: ProjectItemProps[] = [
     name: 'Expense Tracker',
     subName: 'Expense Tracker: Track Your Expenses Effortlessly',
     image: '/Images/ExpenseTracker.jpg',
+    mobile_image: '/Images/ExpenseTracker_mobile.jpg',
     url: 'https://expense-tracker-frontend-sigma-eight.vercel.app/login',
     repoLink: 'https://github.com/AnishGane/expense-tracker',
     description:
@@ -288,6 +290,7 @@ export const ProjectItem: ProjectItemProps[] = [
     name: 'LaunchShare',
     subName: 'LaunchShare: Your One-Stop platform for Launches',
     image: '/Images/LaunchShare.jpg',
+    mobile_image: '/Images/LaunchShare_mobile.jpg',
     url: 'https://launch-share.vercel.app/',
     repoLink: 'https://github.com/AnishGane/LaunchShare',
     description:
@@ -363,6 +366,7 @@ export const ProjectItem: ProjectItemProps[] = [
     name: 'SoftStitch Ecommerce',
     subName: 'SoftStitch Ecommerce: A full-stack e-commerce platform',
     image: '/Images/SoftStitch.jpg',
+    mobile_image: '/Images/SoftStitch_mobile.jpg',
     url: 'https://soft-stitch-ecommerce.vercel.app/',
     repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
     description:
@@ -463,7 +467,6 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 5,
     name: 'Smart Inventory & Sales Management System',
     subName: 'SISMS: Manage Inventory and Sales',
-    image: '/Images/Project1_Image.png',
     url: 'https://ai-image-enhancer-1oli.onrender.com/',
     repoLink: 'https://github.com/AnishGane/AI-Image-Enhancer',
     description:

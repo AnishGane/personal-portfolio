@@ -31,7 +31,7 @@ type TechnologyStackItem = {
 };
 
 type TechnologyCategory = {
-  category: 'Frontend' | 'Backend' | 'Deployment' | "Database" | "Authentication";
+  category: 'Frontend' | 'Backend' | 'Deployment' | 'Database' | 'Authentication';
   stack: TechnologyStackItem[];
 };
 
@@ -44,7 +44,8 @@ type ProjectItemData = {
 
 export type ProjectItemProps = {
   id: number;
-  image: string;
+  image?: string;
+  mobile_image?: string;
   name: string;
   url: string;
   subName: string;

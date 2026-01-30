@@ -2,7 +2,7 @@ import type { ProjectItemProps } from '@/types';
 
 import { FiGithub } from 'react-icons/fi';
 import LinkToolTip from '../ToolTips/LinkToolTip';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ImageOff } from 'lucide-react';
 import TechnologyList from '../TechnologyList';
 import { Link } from 'react-router-dom';
 import { slugify } from '@/utils/helper';
@@ -15,12 +15,20 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       key={item.id}
       className="ring-neutral-6/15 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
-      <img
-        // src="/Images/First.jpg"
-        src={item.image}
-        alt={item.name}
-        loading='lazy'
-        className="w-full rounded-t-xl" />
+      {item?.image ? (
+        <img
+          src={item.image}
+          alt={item.name}
+          loading='lazy'
+          className="w-full rounded-t-xl" />
+      ) : (
+        <div className="h-65 flex items-center justify-center flex-col rounded-t-xl bg-neutral-200 dark:bg-neutral-700">
+          <ImageOff className="size-10 text-neutral-400 dark:text-neutral-500" />
+          <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+            {item.status === 'Building' ? 'Image coming soon' : 'No image available'}
+          </p>
+        </div>
+      )}
 
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between gap-3">
@@ -81,8 +89,8 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
         <div className="mt-4 mb-2 flex items-center justify-between tracking-tight">
           <div
             className={`${item.status === 'Building'
-                ? 'bg-[#FEE9EA] dark:bg-[#2E191A]'
-                : 'bg-[#E5FAEE] dark:bg-[#15291D]'
+              ? 'bg-[#FEE9EA] dark:bg-[#2E191A]'
+              : 'bg-[#E5FAEE] dark:bg-[#15291D]'
               } text-neutral-8 font-tooltip flex items-center justify-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold`}
           >
             <span

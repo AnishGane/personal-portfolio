@@ -3,14 +3,21 @@ import { ProjectItem } from '@/components/constant/Data';
 import { WebsiteDemo } from '@/components/icons/all-icons';
 import type { ProjectItemProps } from '@/types';
 import { slugify } from '@/utils/helper';
-import { Github, Undo2 } from 'lucide-react';
+import { Github, ImageOff, Undo2 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive'
+
+
 
 const ProjectDetails = () => {
   const { name } = useParams<{ name: string }>();
   const [projectContent, setProjectContent] = useState<ProjectItemProps | null>(null);
   const [relatedProjects, setRelatedProjects] = useState<ProjectItemProps[]>([]);
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 768px)'
+  })
 
   useEffect(() => {
     if (!name) return;
@@ -48,13 +55,22 @@ const ProjectDetails = () => {
       />
 
       <div className="text-neutral-8 font-tooltip mt-8 md:mt-14">
-        <img
-          // src={projectContent.image}
-          src="/Images/Demo.jpg"
-          alt={projectContent.name}
-          className="min-h-[300px] sm:h-[540px] w-full rounded-lg object-cover"
-          loading='lazy'
-        />
+        {projectContent?.image || projectContent?.mobile_image ? (
+          <img
+            src={isMobile && projectContent.mobile_image
+              ? projectContent.mobile_image
+              : projectContent.image ?? projectContent.mobile_image}
+            alt={projectContent.name}
+            className="min-h-[300px] sm:h-[540px] w-full rounded-lg object-cover"
+            loading='lazy'
+          />
+        ) : (
+          <div className='min-h-[300px] sm:h-[440px] flex items-center flex-col justify-center w-full rounded-lg object-cover bg-neutral-200'>
+            {/* <h1>No Image</h1> */}
+            <ImageOff className='size-20 text-neutral-400' />
+            <p className='text-sm mt-2 text-neutral-500 pl-3'>Project not built yet.</p>
+          </div>
+        )}
 
         <div className="mt-4 flex items-center gap-4 md:mt-8">
           <span className="rounded-md bg-black px-1.5 py-[3px] text-xs font-medium text-white md:text-sm dark:bg-white dark:text-black">
@@ -213,6 +229,7 @@ const ProjectDetails = () => {
                 href={`/projects/${slugify(prevProject.name)}`}
                 className="justify-start"
                 label="Previous Project"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
             ) : (
               <span />
@@ -226,6 +243,7 @@ const ProjectDetails = () => {
                 href={`/projects/${slugify(nextProject.name)}`}
                 className="justify-end text-right"
                 label="Next Project"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
             )}
           </div>
