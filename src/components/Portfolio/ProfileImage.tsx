@@ -4,7 +4,7 @@ const ProfileImage = () => {
   return (
     <div className="relative size-24 rounded-full p-[1.5px]">
       <img
-        src="/Images/GhibliImage.png"
+        src="/Images/GhibliImage.webp"
         alt="My Image"
         className="h-full w-full rounded-full object-cover"
         title="Anish Gane"
