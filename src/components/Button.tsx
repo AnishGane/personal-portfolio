@@ -30,6 +30,7 @@ const Button = ({
   className = '',
   label,
   onClick
+
 }: ButtonProps) => {
   const base =
     'px-4 py-[8px] rounded-lg flex items-center gap-2 text-[13px] font-medium font-tooltip tracking-wide transition-colors duration-200 shadow-sm border';

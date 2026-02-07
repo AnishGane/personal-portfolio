@@ -8,6 +8,7 @@ const BookaCall = () => {
       <p>Since, You have scrolled up to here, let's talk.</p>
       <Link
         to={'/contact-me'}
+
         className="border-neutral-6/50 text-neutral-8 flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed bg-neutral-400/35 px-3.5 py-0.5 shadow-sm"
       >
         <img
@@ -17,7 +18,7 @@ const BookaCall = () => {
           className="h-3"
           loading='lazy'
         />
-        <span className="font-tooltip text-[13px] font-semibold tracking-wide">
+        <span onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-tooltip text-[13px] font-semibold tracking-wide">
           Book a Free Call
         </span>
       </Link>

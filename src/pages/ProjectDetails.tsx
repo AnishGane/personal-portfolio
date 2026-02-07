@@ -299,7 +299,7 @@ const ProjectDetails = () => {
 };
 const TechSpan = ({ item }: { item: string }) => {
   return (
-    <span className="ring-neutral-6/40 rounded-md px-1.5 py-0.5 text-[10px] tracking-wide ring-1 md:text-xs">
+    <span className="ring-neutral-6/40 line-clamp-1 text-center rounded-md px-1 py-0.5 text-[10px] tracking-wide ring-1 md:text-xs">
       {item}
     </span>
   );
