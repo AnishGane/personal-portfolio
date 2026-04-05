@@ -60,8 +60,11 @@ app.get('/github-activity', async (req, res) => {
 
     res.json(data.data);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to fetch GitHub data', details: err.message });
+    console.error('GitHub API ERROR:', err.response?.data || err.message);
+    res.status(500).json({
+      error: 'Failed to fetch GitHub data',
+      details: err.response?.data || err.message,
+    });
   }
 });
 

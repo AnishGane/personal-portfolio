@@ -21,10 +21,10 @@ const ProfileImage = () => {
         </div>
       </div>
 
-      <div className='flex-1 shrink-0 sm:ml-10'>
-        <h1 className="font-ownBold text-neutral-8 bg-clip-text text-3xl sm:text-4xl">
+      <div className='flex-1 sm:ml-10'>
+        <h1 className="font-ownBold text-neutral-8 bg-clip-text text-2xl sm:text-3xl">
           Hi, I'm Anish —{' '}
-          <span className=" text-neutral-6  text-[28px] sm:text-4xl">
+          <span className=" text-neutral-6 text-2xl sm:text-3xl">
             A{" "}
             <motion.span
               initial="rest"
@@ -32,12 +32,12 @@ const ProfileImage = () => {
               animate="rest"
               className="relative inline-block cursor-default">
               <span className='text-black dark:text-white'>MERN</span>
-              <span className="absolute -bottom-0.5 sm:-bottom-2 left-0 sm:left-0">
+              <span className="absolute -bottom-1 left-0">
                 <motion.svg
                   viewBox="0 0 427 47"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-16 sm:w-20 md:w-22 h-auto"
+                  className="w-14 md:w-18 h-auto"
                   variants={{
                     rest: { x: 0 },
                     hover: { x: -7 }

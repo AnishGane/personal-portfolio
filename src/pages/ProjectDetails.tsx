@@ -67,13 +67,12 @@ const ProjectDetails = () => {
           />
         ) : (
           <div className='min-h-[300px] sm:h-[440px] flex items-center flex-col justify-center w-full rounded-lg object-cover bg-neutral-200'>
-            {/* <h1>No Image</h1> */}
             <ImageOff className='size-20 text-neutral-400' />
             <p className='text-sm mt-2 text-neutral-500 pl-3'>Project not built yet.</p>
           </div>
         )}
 
-        <div className="mt-4 flex items-center gap-4 md:mt-8">
+        <div className="mt-4 flex items-center gap-2 md:mt-8">
           <span className="rounded-md bg-black px-1.5 py-[3px] text-xs font-medium text-white md:text-sm dark:bg-white dark:text-black">
             {projectContent.status === 'Working' ? 'Completed' : projectContent.status}
           </span>
@@ -301,7 +300,7 @@ const ProjectDetails = () => {
 };
 const TechSpan = ({ item }: { item: string }) => {
   return (
-    <span className="ring-neutral-6/40 line-clamp-1 text-center rounded-md px-1 py-0.5 text-[10px] tracking-wide ring-1 md:text-xs">
+    <span className="ring-neutral-6/40 line-clamp-1 text-center rounded-md p-0.5 text-[10px] tracking-wide ring-1 md:text-xs">
       {item}
     </span>
   );

@@ -34,27 +34,27 @@ export const navList: NavItem[] = [
 export const LanguageItem: LanguageType[] = [
   {
     id: 1,
-    icon: <TSLogo />,
-    languageName: 'TypeScript',
-    href: 'https://www.typescriptlang.org/',
-  },
-  {
-    id: 2,
     icon: <ReactLogo />,
     languageName: 'React',
     href: 'https://react.dev/',
   },
   {
-    id: 3,
-    icon: <NextLogo />,
-    languageName: 'Nextjs',
-    href: 'https://nextjs.org/',
+    id: 2,
+    icon: <TSLogo />,
+    languageName: 'TypeScript',
+    href: 'https://www.typescriptlang.org/',
   },
   {
-    id: 4,
+    id: 3,
     icon: <TailwindCSS />,
     languageName: 'Tailwind CSS',
     href: 'https://tailwindcss.com/',
+  },
+  {
+    id: 4,
+    icon: <NextLogo />,
+    languageName: 'Nextjs',
+    href: 'https://nextjs.org/',
   },
   {
     id: 5,
