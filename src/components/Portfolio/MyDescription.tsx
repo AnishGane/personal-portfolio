@@ -4,11 +4,7 @@ import { LanguageItem } from '../constant/Data';
 const MyDescription = () => {
   return (
     <div className="font-tooltip mt-6 flex flex-col gap-4 font-medium tracking-wider">
-      <h1 className="bg-linear-to-b text-nowrap from-gray-600 via-gray-700 to-gray-800 bg-clip-text text-3xl font-medium text-transparent sm:text-4xl dark:from-gray-300 dark:via-gray-200 dark:to-gray-100">
-        Hi, I'm Anish —{' '}
-        <span className="block text-neutral-400/80 sm:inline text-[28px] sm:text-4xl">A MERN Stack Developer.</span>
-      </h1>
-
+      
       <div className="mt-3 font-normal text-neutral-6 text-sm sm:text-base leading-relaxed">
         <span>I build interactive web apps using </span>
 
@@ -21,7 +17,7 @@ const MyDescription = () => {
           />
         ))}
 
-        <span> . With a focus on </span>
+        <span> & more . With a focus on </span>
         <strong>UI</strong>
         <span> design, </span>
         <strong>clean</strong>

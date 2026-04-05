@@ -47,7 +47,7 @@ export const LanguageItem: LanguageType[] = [
   {
     id: 3,
     icon: <NextLogo />,
-    languageName: 'Next.js',
+    languageName: 'Nextjs',
     href: 'https://nextjs.org/',
   },
   {
@@ -559,7 +559,11 @@ export const ProjectItem: ProjectItemProps[] = [
 ];
 
 export const MySkills: Skills[] = [
-  { id: 1, icon: <ReactLogo />, label: 'react' },
+  {
+    id: 1,
+    icon: <ReactLogo />,
+    label: 'React'
+  },
   {
     id: 2,
     icon: <TailwindCSS />,
@@ -568,31 +572,31 @@ export const MySkills: Skills[] = [
   {
     id: 3,
     icon: <JavaScript />,
-    label: 'javascript',
+    label: 'JavaScript',
   },
   {
     id: 4,
     icon: <TSLogo />,
-    label: 'typescript',
+    label: 'Typescript',
   },
   {
     id: 5,
     icon: <NextLogo />,
-    label: 'next.js',
+    label: 'Nextjs',
   },
   {
     id: 6,
     icon: <MongoDB />,
-    label: 'mongodb',
+    label: 'Mongodb',
   },
   {
     id: 7,
     icon: <NodeJS />,
-    label: 'nodejs',
+    label: 'Nodejs',
   },
   {
     id: 8,
     icon: <ExpessJS />,
-    label: 'express.js',
+    label: 'Express',
   },
 ];

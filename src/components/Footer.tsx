@@ -7,7 +7,7 @@ const Footer = () => {
       </p>
       <div className="flex items-center justify-center gap-2 ml-8 -mt-2">
         <p>&copy;{new Date().getFullYear()}. Let&apos;s work together. </p>
-        <img src="/Images/arrow.svg" alt="arrow" className="size-10 transition-transform duration-200" />
+        <img src="/Images/arrow.svg" alt="arrow" className="size-10 rotate-20 -ml-2 transition-transform duration-200" />
       </div>
     </div>
   );

@@ -102,4 +102,16 @@
   ul li {
     @apply text-neutral-6 text-sm leading-6 font-light md:text-[15px] md:leading-8;
   }
+
+  .contact-input {
+    @apply border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none;
+  }
+
+  .contact-btn {
+    @apply bg-neutral-8 w-full cursor-pointer rounded-lg py-3 text-white dark:text-black;
+  }
+
+  .input-error {
+    @apply mt-1 text-sm text-red-500;
+  }
 }

@@ -9,7 +9,7 @@ const BookaCall = () => {
       <Link
         to={'/contact-me'}
 
-        className="border-neutral-6/50 text-neutral-8 flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed bg-neutral-400/35 px-3.5 py-0.5 shadow-sm"
+        className="border-neutral-6/50 text-neutral-8 flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed bg-neutral-400/35 px-3.5 py-1.5 shadow-sm"
       >
         <img
           key={theme}

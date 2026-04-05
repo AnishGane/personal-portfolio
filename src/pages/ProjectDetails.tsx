@@ -7,6 +7,7 @@ import { Github, ImageOff, Undo2 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
+import ScrollToTop from '@/components/ScrollToTop';
 
 
 
@@ -54,7 +55,7 @@ const ProjectDetails = () => {
         variant="secondary"
       />
 
-      <div className="text-neutral-8 font-tooltip mt-8 md:mt-14">
+      <div className="text-neutral-8 font-tooltip mt-6 md:mt-8">
         {projectContent?.image || projectContent?.mobile_image ? (
           <img
             src={isMobile && projectContent.mobile_image
@@ -91,13 +92,13 @@ const ProjectDetails = () => {
           {projectContent.description}
         </p>
 
-        <div className="ring-neutral-6/30 my-4 grid w-full grid-cols-4 justify-items-start rounded-xl bg-neutral-300/10 p-4 text-left text-sm shadow-md ring-1">
+        <div className="ring-neutral-6/30 my-4 grid w-full grid-cols-4 md:justify-items-center rounded-xl bg-neutral-300/10 py-4 px-1 text-left text-sm shadow-md ring-1">
           <div className="flex flex-col items-center md:items-start">
             <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Timeline</h5>
             <p className="text-neutral-8">{projectContent.timeline}</p>
           </div>
-          <div className="flex flex-col items-center md:items-start">
-            <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Role</h5>
+          <div className="flex flex-col items-center">
+            <h5 className="font-medium text-neutral-500 text-center dark:text-neutral-400">Role</h5>
             <p className="text-neutral-8">{projectContent.Role}</p>
           </div>
           <div className="flex flex-col items-center md:items-start">
@@ -112,7 +113,7 @@ const ProjectDetails = () => {
           </div>
         </div>
 
-        <div className="my-5 flex items-center gap-4">
+        <div className="my-5 flex items-center gap-2">
           <Button
             icon={<WebsiteDemo className="size-[18px] text-white/80 dark:text-black/80" />}
             text="Live Demo"
@@ -133,7 +134,7 @@ const ProjectDetails = () => {
 
         <div className="tracking-wide">
           <div className="mb-6 text-[26px] leading-8.5 font-semibold md:mb-8 md:text-[34px] md:leading-10">
-            <AppendHashtag leftOffset={24}>
+            <AppendHashtag leftOffset={26}>
               <h2>{projectContent.subName}</h2>
             </AppendHashtag>
           </div>
@@ -219,7 +220,7 @@ const ProjectDetails = () => {
             </ul>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-6">
+          <div className="mt-10 grid grid-cols-2 gap-4">
             {/* Previous Project */}
             {prevProject ? (
               <Button
@@ -252,7 +253,7 @@ const ProjectDetails = () => {
 
           <div>
             <h2 className="mb-1.5 text-xl font-medium md:mb-5 md:text-2xl">Related Projects</h2>
-            <div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
               {relatedProjects.length > 0 ? (
                 relatedProjects.slice(0, 2).map((item) => (
                   <Link
@@ -294,6 +295,7 @@ const ProjectDetails = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 };
@@ -320,7 +322,7 @@ const AppendHashtag = ({
     <div className={`group relative flex w-fit items-start focus-within:outline-none ${className}`}>
       <span
         aria-hidden="true"
-        style={{ left: `-${leftOffset ?? 40}px` }}
+        style={{ left: `-${leftOffset ?? 42}px` }}
         className={`absolute hidden sm:block font-bold text-neutral-400 opacity-0 transition-all duration-200 ease-in-out select-none group-focus-within:opacity-100 group-hover:opacity-100`}
       >
         {'#'.repeat(NoOfHash)}

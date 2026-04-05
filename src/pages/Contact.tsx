@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { z } from 'zod';
 import { toast } from 'sonner';
+import { Loader2 } from 'lucide-react';
 
 // Initialize EmailJS with your public key
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -25,6 +26,7 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,7 +46,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    /* --------- Validate using Zod --------- */
+    // Validate using Zod
     const result = contactSchema.safeParse(formData);
 
     if (!result.success) {
@@ -63,9 +65,7 @@ export default function Contact() {
       return;
     }
 
-    // Log validated data after success
-    // console.log("Validated data:", result.data);
-
+    setIsLoading(true);
     try {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -90,11 +90,13 @@ export default function Contact() {
     } catch (err) {
       console.error(err);
       alert('Failed to send message');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="my-8 flex flex-col items-center justify-center px-4 py-10 md:my-10">
+    <div className="flex flex-col items-center justify-center pt-10 pb-4  md:my-10">
       <h2 className="font-tooltip text-neutral-8 mb-10 text-center text-4xl font-medium">
         Contact Me
       </h2>
@@ -111,9 +113,9 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="Name here"
               required
-              className="border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
+              className="contact-input"
             />
-            {errors.from_name && <p className="mt-1 text-xs text-red-500">{errors.from_name}</p>}
+            {errors.from_name && <p className="input-error">{errors.from_name}</p>}
           </div>
 
           {/* Email */}
@@ -124,9 +126,10 @@ export default function Contact() {
               name="reply_to"
               value={formData.reply_to}
               onChange={handleChange}
-              className="border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
+              className="contact-input"
+              placeholder='emaihere@mail.com'
             />
-            {errors.reply_to && <p className="mt-1 text-xs text-red-500">{errors.reply_to}</p>}
+            {errors.reply_to && <p className="input-error">{errors.reply_to}</p>}
           </div>
 
           {/* Subject */}
@@ -137,9 +140,10 @@ export default function Contact() {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none"
+              className="contact-input"
+              placeholder='Want to collaborate?'
             />
-            {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
+            {errors.subject && <p className="input-error">{errors.subject}</p>}
           </div>
 
           {/* Message */}
@@ -150,12 +154,24 @@ export default function Contact() {
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              className="border-neutral-6/50 placeholder:text-neutral-6/60 focus:ring-neutral-6 text-neutral-6 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus:outline-none resize-none"
+              className="contact-input resize-none"
+              placeholder='I want to work with you...'
             />
-            {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
+            {errors.message && <p className="input-error ">{errors.message}</p>}
           </div>
 
-          <button type="submit" className="bg-neutral-8 font-tooltip w-full rounded-md py-2 text-sm font-medium text-white transition focus:outline-none dark:text-black"> Send a Message </button>
+          <button type="submit" disabled={isLoading} className="contact-btn font-tooltip font-medium">
+            {isLoading ? (
+              <>
+                <Loader2 className='mr-2 animate-spin' />
+              </>
+            ) : (
+              <span>
+                Send a Message
+              </span>
+            )}
+
+          </button>
         </form>
       </div>
     </div>

@@ -21,11 +21,10 @@ const App = () => {
             <Navbar />
 
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Portfolio />} />
+              <Route index element={<Portfolio />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:name" element={<ProjectDetails />} />
               <Route path="/contact-me" element={<Contact />} />
-
 
               <Route path="*" element={<NotFound />}></Route>
             </Routes>

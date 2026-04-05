@@ -12,7 +12,6 @@ const LanguageSpanItem = ({
   totalCount: number;
 }) => {
   const isLast = idx === totalCount - 1;
-  const isSecondLast = idx === totalCount - 2;
 
   return (
     <Link
@@ -40,8 +39,7 @@ const LanguageSpanItem = ({
         </span>
       </span>
 
-      {!isLast && !isSecondLast && <span className="pr-1">, </span>}
-      {isSecondLast && <span className="px-1"> and  </span>}
+      {!isLast && <span className="pr-1">, </span>}
     </Link>
 
   );

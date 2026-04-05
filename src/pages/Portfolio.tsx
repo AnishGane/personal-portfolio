@@ -6,19 +6,21 @@ import Button from '@/components/Button';
 import SocialLinks from '@/components/Portfolio/SocialLinks';
 import Heading from '@/components/Portfolio/Heading';
 import Project from '@/components/Projects/Project';
-import About from '@/components/Portfolio/About';
 import GitHubActivity from '@/components/Portfolio/GitHubActivity';
 import BookaCall from '@/components/Portfolio/BookaCall';
 import Quote from '@/components/Quote';
 import { SocialLinkItem } from '@/components/constant/Data';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import About from '@/components/Portfolio/About';
+import ScrollToTop from '@/components/ScrollToTop';
 
 const pageTransition = {
   initial: { opacity: 0, y: 25 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -25 },
 };
+
 const Portfolio = () => {
   return (
     <motion.div
@@ -29,9 +31,9 @@ const Portfolio = () => {
       className="min-h-screen"
     >
       <section className="mt-10">
+
         {/* Profile Image */}
         <ProfileImage />
-
         {/* Description about me */}
         <MyDescription />
 
@@ -105,6 +107,8 @@ const Portfolio = () => {
           source="Harold Abelson"
         />
       </section>
+
+      <ScrollToTop />
     </motion.div>
   );
 };

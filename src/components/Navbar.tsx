@@ -6,6 +6,9 @@ import { useTheme } from '@/context/ThemeContext';
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
+  const md = window.scrollY
+  console.log(md);
+
   return (
     <header className="font-own sticky top-0 z-50 mt-4 px-3 py-4 backdrop-blur-sm transition-colors duration-300">
       <nav className="flex items-center justify-between">
