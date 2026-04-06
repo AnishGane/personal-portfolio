@@ -16,6 +16,7 @@ import {
   NextLogo,
   NodeJS,
   NuqsLogo,
+  Postgresql,
   ReactLogo,
   ReactRouter,
   ResendLogo,
@@ -24,6 +25,7 @@ import {
   TailwindCSS,
   Vercel,
   ZodLogo,
+  Zustand,
 } from '../icons/all-icons';
 
 export const navList: NavItem[] = [
@@ -113,7 +115,7 @@ export const ProjectItem: ProjectItemProps[] = [
           },
           {
             icon: <NextLogo />,
-            label: 'Next.js',
+            label: 'Nextjs',
           },
           {
             icon: <TSLogo />,
@@ -187,7 +189,7 @@ export const ProjectItem: ProjectItemProps[] = [
         'Search the Notebook and Notes with the help of Nuqs',
       ],
       ProblemStatement:
-        'As a desired of learning Next.js 16 and Better Auth, I have created this project for better implementation of Better Auth Session and email verification and much more features with the help of Next.js 16.',
+        'As a desired of learning Nextjs 16 and Better Auth, I have created this project for better implementation of Better Auth Session and email verification and much more features with the help of Nextjs 16.',
       FuturePlan: [
         'Improve the UI/UX and add more features',
         'Add SSO and social login',
@@ -302,7 +304,7 @@ export const ProjectItem: ProjectItemProps[] = [
         stack: [
           {
             icon: <NextLogo />,
-            label: 'Next.js',
+            label: 'Nextjs',
           },
           {
             icon: <TailwindCSS />,
@@ -319,7 +321,7 @@ export const ProjectItem: ProjectItemProps[] = [
         stack: [
           {
             icon: <Drizzle />,
-            label: 'drizzle ORM',
+            label: 'Drizzle ORM',
           },
           {
             icon: <NeonDB />,
@@ -465,13 +467,14 @@ export const ProjectItem: ProjectItemProps[] = [
   },
   {
     id: 5,
-    name: 'Smart Inventory & Sales Management System',
-    subName: 'SISMS: Manage Inventory and Sales',
-    url: 'https://ai-image-enhancer-1oli.onrender.com/',
-    repoLink: 'https://github.com/AnishGane/AI-Image-Enhancer',
+    name: 'FitTrack',
+    subName: 'FitTrack: Track Your Fitness Effortlessly',
+    image: "/Images/LaunchShare.webp",
+    url: 'https://fit-track-tau-smoky.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/FitTrack',
     description:
-      'This web application allows users to easily enhance image using AI technology. Built with React and integrated with a powerful image processing API, this tool provides a simple and intuitive interface for enhancing images related tasks.',
-    status: 'Building',
+      'FitTrack is a full-stack application for tracking and measuring daily fitness that helps you to be in perfect shape, all fit and fine by putting out your weekly goals and help in achieving them.',
+    status: 'Working',
     technologies: [
       {
         category: 'Frontend',
@@ -481,38 +484,47 @@ export const ProjectItem: ProjectItemProps[] = [
             label: 'React',
           },
           {
+            icon: <ShadcnLogo />,
+            label: "Shadcn (UI Library)",
+          },
+          {
+            icon: <NextLogo />,
+            label: 'Nextjs 16',
+          },
+          {
             icon: <TailwindCSS />,
             label: 'Tailwind CSS',
           },
           {
-            label: 'React Hot Toast',
-          },
-          {
-            label: 'Recharts',
-          },
-          {
-            label: 'Emoji React Picker',
+            icon: <TSLogo />,
+            label: 'TypeScript',
           },
         ],
+      },
+      {
+        category: 'State Management',
+        stack: [
+          {
+            icon: <Zustand />,
+            label: 'Zustand',
+          }
+        ]
       },
       {
         category: 'Backend',
         stack: [
           {
-            icon: <NodeJS />,
-            label: 'Node.js',
+            icon: <NeonDB />,
+            label: 'NeonDB',
           },
           {
-            icon: <ExpessJS />,
-            label: 'Express.js',
+            icon: <Drizzle />,
+            label: 'Drizzle ORM',
           },
           {
-            icon: <MongoDB />,
-            label: 'MongoDB',
-          },
-          {
-            label: 'Cloudinary & Multer',
-          },
+            icon: <Postgresql />,
+            label: 'PostgreSQL',
+          }
         ],
       },
       {
@@ -530,29 +542,24 @@ export const ProjectItem: ProjectItemProps[] = [
     Team: 'Solo',
     itemData: {
       Overview:
-        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+        'FitTrack is a comprehensive full-stack application designed to help users track and measure their daily fitness activities. It enables users to set personalized weekly fitness goals, monitor their progress, and stay motivated throughout their journey. The intuitive interface allows for input and visualization of workouts, habits, and metrics, ensuring users have actionable insights to stay in perfect shape. FitTrack’s goal is to provide an all-in-one fitness companion to support users in achieving a healthy and well-balanced lifestyle.',
       Features: [
-        'Search and access notes by year or semester (1st–4th year)',
-        'Share notes and study resources with friends',
-        'Practice with interactive flashcards for active recall',
-        'Attempt quizzes to test conceptual understanding',
-        'Access previous year questions (PYQs) with answers',
-        'One-shot revision material for last-minute preparation',
-        'Handwritten topper notes from high-performing students',
-        'AI-powered study assistant (coming soon)',
-        'Video-based learning materials for better clarity',
+        'User authentication (Email/Password + Google sign-in)',
+        'Secure login using OAuth 2.0',
+        'Streak and workout recommendation based on muscle groups',
+        'Dark/Light mode',
+        'Save Workout that is your favorite',
+        'Edit, Delete, View your workout details, & Create your own workout',
       ],
       ProblemStatement: [
-        'Professors often do not share structured notes with students',
-        'Topper notes are usually inaccessible to the majority of students',
-        'Study materials are scattered across multiple platforms and formats',
-        'Switching between different notes breaks consistency in examples and explanations',
-        'PDF-based notes limit customization and reading comfort',
+        'Tracking fitness progress manually is cumbersome and often inaccurate.',
+        'Users struggle to maintain consistency and motivation without actionable insights.',
+        'Difficulty in setting, monitoring, and achieving personalized fitness goals.',
       ],
       FuturePlan: [
-        ' Improve the CMS system to make it more efficient and scalable.',
-        'Add AI Study Assistant',
-        'Scale it to enterprise level.',
+        'Introduce real-time fitness tracking features.',
+        'Integrate personalized analytics and recommendations.',
+        'Expand platform for group and community challenges.',
       ],
     },
   },
@@ -577,7 +584,7 @@ export const MySkills: Skills[] = [
   {
     id: 4,
     icon: <TSLogo />,
-    label: 'Typescript',
+    label: 'TypeScript',
   },
   {
     id: 5,

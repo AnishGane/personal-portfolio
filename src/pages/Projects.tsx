@@ -84,15 +84,17 @@ const Projects = () => {
             </button>
 
             {/* Building */}
-            <button
-              onClick={() => showProjects('Building')}
-              className={`border-neutral-6 cursor-pointer rounded-sm border px-1.5 py-0.5 text-[10px] ${activeStatus === 'Building'
-                ? 'bg-black text-white dark:bg-white dark:text-black'
-                : 'text-neutral-8 bg-white dark:bg-black'
-                } `}
-            >
-              Building ({buildingCount})
-            </button>
+            {buildingCount > 0 && (
+              <button
+                onClick={() => showProjects('Building')}
+                className={`border-neutral-6 cursor-pointer rounded-sm border px-1.5 py-0.5 text-[10px] ${activeStatus === 'Building'
+                  ? 'bg-black text-white dark:bg-white dark:text-black'
+                  : 'text-neutral-8 bg-white dark:bg-black'
+                  } `}
+              >
+                Building ({buildingCount})
+              </button>
+            )}
           </div>
 
           <h1 className="text-neutral-8 text-[1.28rem] font-semibold">

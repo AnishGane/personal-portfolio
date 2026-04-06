@@ -31,7 +31,13 @@ type TechnologyStackItem = {
 };
 
 type TechnologyCategory = {
-  category: 'Frontend' | 'Backend' | 'Deployment' | 'Database' | 'Authentication';
+  category:
+    | 'Frontend'
+    | 'Backend'
+    | 'Deployment'
+    | 'Database'
+    | 'Authentication'
+    | 'State Management';
   stack: TechnologyStackItem[];
 };
 
