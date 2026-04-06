@@ -160,7 +160,7 @@ export default function Contact() {
             {errors.message && <p className="input-error ">{errors.message}</p>}
           </div>
 
-          <button type="submit" disabled={isLoading} className="contact-btn font-tooltip font-medium">
+          <button type="submit" disabled={isLoading} className="contact-btn flex items-center justify-center font-tooltip font-medium">
             {isLoading ? (
               <>
                 <Loader2 className='mr-2 animate-spin' />

@@ -53,7 +53,7 @@ const Button = ({
       {label ? (
         <div className="flex flex-col gap-[2px]">
           <span className='text-neutral-6 text-[10px] tracking-wider md:text-[11px] '>{label}</span>
-          <span className='font-medium text-sm md:text-base'>{text}</span>
+          <span className='font-medium text-sm md:text-base line-clamp-1'>{text}</span>
         </div>
       ) : (
         <span className="font-normal">{text}</span>

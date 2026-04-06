@@ -9,8 +9,6 @@ import { Link, useParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
 import ScrollToTop from '@/components/ScrollToTop';
 
-
-
 const ProjectDetails = () => {
   const { name } = useParams<{ name: string }>();
   const [projectContent, setProjectContent] = useState<ProjectItemProps | null>(null);
@@ -300,7 +298,7 @@ const ProjectDetails = () => {
 };
 const TechSpan = ({ item }: { item: string }) => {
   return (
-    <span className="ring-neutral-6/40 line-clamp-1 text-center rounded-md p-0.5 text-[10px] tracking-wide ring-1 md:text-xs">
+    <span className="ring-neutral-6/40 line-clamp-1 text-center rounded-md p-0.5 px-[3px] text-[10px] tracking-wide ring-1 md:text-xs">
       {item}
     </span>
   );
