@@ -22,7 +22,7 @@ const dayLabels = ['Mon', 'Wed', 'Fri'];
 const GitHubActivity = ({ username }: { username: string }) => {
   const [weeks, setWeeks] = useState<Week[]>([]);
   const [totalContributions, setTotalContributions] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -73,7 +73,9 @@ const GitHubActivity = ({ username }: { username: string }) => {
 
   const monthLabels = getMonthLabels();
 
-  if (loading) return <p className="text-neutral-500">Loading GitHub activity…</p>;
+  if (loading) return (
+    <div className='w-full rounded-md h-48 mt-4 flex animate-pulse items-center justify-center bg-neutral-6/10' />
+  );
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
   const cellSize = 11; // Size of each square
