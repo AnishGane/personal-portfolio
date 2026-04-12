@@ -22,7 +22,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
           loading='lazy'
           className="w-full rounded-t-xl" />
       ) : (
-        <div className="h-65 flex items-center justify-center flex-col rounded-t-xl bg-neutral-200 dark:bg-neutral-700">
+        <div className="h-69.5 flex items-center justify-center flex-col rounded-t-xl bg-neutral-200 dark:bg-neutral-700">
           <ImageOff className="size-10 text-neutral-400 dark:text-neutral-500" />
           <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
             {item.status === 'Building' ? 'Image coming soon' : 'No image available'}

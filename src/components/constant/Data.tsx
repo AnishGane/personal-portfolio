@@ -289,6 +289,205 @@ export const ProjectItem: ProjectItemProps[] = [
   },
   {
     id: 3,
+    name: 'FitTrack',
+    subName: 'FitTrack: Track Your Fitness Effortlessly',
+    image: "/Images/LaunchShare.webp",
+    url: 'https://fit-track-tau-smoky.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/FitTrack',
+    description:
+      'FitTrack is a full-stack application for tracking and measuring daily fitness that helps you to be in perfect shape, all fit and fine by putting out your weekly goals and help in achieving them.',
+    status: 'Working',
+    technologies: [
+      {
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+          },
+          {
+            icon: <ShadcnLogo />,
+            label: "Shadcn (UI Library)",
+          },
+          {
+            icon: <NextLogo />,
+            label: 'Nextjs 16',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+          },
+          {
+            icon: <TSLogo />,
+            label: 'TypeScript',
+          },
+        ],
+      },
+      {
+        category: 'State Management',
+        stack: [
+          {
+            icon: <Zustand />,
+            label: 'Zustand',
+          }
+        ]
+      },
+      {
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NeonDB />,
+            label: 'NeonDB',
+          },
+          {
+            icon: <Drizzle />,
+            label: 'Drizzle ORM',
+          },
+          {
+            icon: <Postgresql />,
+            label: 'PostgreSQL',
+          }
+        ],
+      },
+      {
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+          },
+        ],
+      },
+    ],
+    timeline: '2 months',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'FitTrack is a comprehensive full-stack application designed to help users track and measure their daily fitness activities. It enables users to set personalized weekly fitness goals, monitor their progress, and stay motivated throughout their journey. The intuitive interface allows for input and visualization of workouts, habits, and metrics, ensuring users have actionable insights to stay in perfect shape. FitTrack’s goal is to provide an all-in-one fitness companion to support users in achieving a healthy and well-balanced lifestyle.',
+      Features: [
+        'User authentication (Email/Password + Google sign-in)',
+        'Secure login using OAuth 2.0',
+        'Streak and workout recommendation based on muscle groups',
+        'Dark/Light mode',
+        'Save Workout that is your favorite',
+        'Edit, Delete, View your workout details, & Create your own workout',
+      ],
+      ProblemStatement: [
+        'Tracking fitness progress manually is cumbersome and often inaccurate.',
+        'Users struggle to maintain consistency and motivation without actionable insights.',
+        'Difficulty in setting, monitoring, and achieving personalized fitness goals.',
+      ],
+      FuturePlan: [
+        'Introduce real-time fitness tracking features.',
+        'Integrate personalized analytics and recommendations.',
+        'Expand platform for group and community challenges.',
+      ],
+    },
+  },
+  {
+    id: 4,
+    name: 'URL Shortner',
+    subName: 'SoftStitch Ecommerce: A full-stack e-commerce platform',
+    mobile_image: '/Images/SoftStitch_mobile.webp',
+    url: 'https://soft-stitch-ecommerce.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
+    description:
+      'A full-stack e-commerce platform built with React, Node.js,express, and MongoDB, featuring user authentication, product management, shopping cart functionality, and integrated payment gateways.',
+    status: 'Building',
+    technologies: [
+      {
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+          },
+          {
+            label: 'React Hot Toast',
+          },
+          {
+            icon: <ReactRouter />,
+            label: 'React Router',
+          },
+          {
+            label: 'Motion',
+          },
+          {
+            label: 'Axios',
+          },
+        ],
+      },
+      {
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+          },
+          {
+            label: 'Cloudinary & Multer',
+          },
+          {
+            label: 'Bcrypt',
+          },
+        ],
+      },
+      {
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+          },
+        ],
+      },
+    ],
+    timeline: '36 days',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      Overview:
+        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'User Authentication, secure login/signup with JWT',
+        'Browse products with search and filtering',
+        'Shopping Cart, add/remove items with size selection',
+        'Order Management, place orders and track order history',
+        'Payment Integration, COD & eSewa(now in localhost only)',
+        '(Admin) Product Management, add, edit, and delete products',
+        '(Admin) Order Management, view and update order status',
+        '(Admin) User Management, Monitor user activities',
+        '(Admin) Image Upload, Cloudinary integration for product images',
+      ],
+      ProblemStatement: [
+        'Learn and demonstrate real-world full-stack skills using a modern JavaScript stack',
+        'Implement essential e-commerce features end-to-end',
+        'To learn how to deploy full-stack apps on Vercel',
+      ],
+      FuturePlan: [
+        'Advanced product filtering & search',
+        'Product reviews & ratings',
+        'Multiple payment gateway support',
+        'Invoice & receipt generation',
+        'Enhanced authentication & security',
+      ],
+    },
+  },
+  {
+    id: 5,
     name: 'LaunchShare',
     subName: 'LaunchShare: Your One-Stop platform for Launches',
     image: '/Images/LaunchShare.webp',
@@ -364,7 +563,7 @@ export const ProjectItem: ProjectItemProps[] = [
     },
   },
   {
-    id: 4,
+    id: 6,
     name: 'SoftStitch Ecommerce',
     subName: 'SoftStitch Ecommerce: A full-stack e-commerce platform',
     image: '/Images/SoftStitch.webp',
@@ -465,104 +664,8 @@ export const ProjectItem: ProjectItemProps[] = [
       ],
     },
   },
-  {
-    id: 5,
-    name: 'FitTrack',
-    subName: 'FitTrack: Track Your Fitness Effortlessly',
-    image: "/Images/LaunchShare.webp",
-    url: 'https://fit-track-tau-smoky.vercel.app/',
-    repoLink: 'https://github.com/AnishGane/FitTrack',
-    description:
-      'FitTrack is a full-stack application for tracking and measuring daily fitness that helps you to be in perfect shape, all fit and fine by putting out your weekly goals and help in achieving them.',
-    status: 'Working',
-    technologies: [
-      {
-        category: 'Frontend',
-        stack: [
-          {
-            icon: <ReactLogo />,
-            label: 'React',
-          },
-          {
-            icon: <ShadcnLogo />,
-            label: "Shadcn (UI Library)",
-          },
-          {
-            icon: <NextLogo />,
-            label: 'Nextjs 16',
-          },
-          {
-            icon: <TailwindCSS />,
-            label: 'Tailwind CSS',
-          },
-          {
-            icon: <TSLogo />,
-            label: 'TypeScript',
-          },
-        ],
-      },
-      {
-        category: 'State Management',
-        stack: [
-          {
-            icon: <Zustand />,
-            label: 'Zustand',
-          }
-        ]
-      },
-      {
-        category: 'Backend',
-        stack: [
-          {
-            icon: <NeonDB />,
-            label: 'NeonDB',
-          },
-          {
-            icon: <Drizzle />,
-            label: 'Drizzle ORM',
-          },
-          {
-            icon: <Postgresql />,
-            label: 'PostgreSQL',
-          }
-        ],
-      },
-      {
-        category: 'Deployment',
-        stack: [
-          {
-            icon: <Vercel />,
-            label: 'Vercel',
-          },
-        ],
-      },
-    ],
-    timeline: '2 months',
-    Role: 'Full Stack',
-    Team: 'Solo',
-    itemData: {
-      Overview:
-        'FitTrack is a comprehensive full-stack application designed to help users track and measure their daily fitness activities. It enables users to set personalized weekly fitness goals, monitor their progress, and stay motivated throughout their journey. The intuitive interface allows for input and visualization of workouts, habits, and metrics, ensuring users have actionable insights to stay in perfect shape. FitTrack’s goal is to provide an all-in-one fitness companion to support users in achieving a healthy and well-balanced lifestyle.',
-      Features: [
-        'User authentication (Email/Password + Google sign-in)',
-        'Secure login using OAuth 2.0',
-        'Streak and workout recommendation based on muscle groups',
-        'Dark/Light mode',
-        'Save Workout that is your favorite',
-        'Edit, Delete, View your workout details, & Create your own workout',
-      ],
-      ProblemStatement: [
-        'Tracking fitness progress manually is cumbersome and often inaccurate.',
-        'Users struggle to maintain consistency and motivation without actionable insights.',
-        'Difficulty in setting, monitoring, and achieving personalized fitness goals.',
-      ],
-      FuturePlan: [
-        'Introduce real-time fitness tracking features.',
-        'Integrate personalized analytics and recommendations.',
-        'Expand platform for group and community challenges.',
-      ],
-    },
-  },
+
+
 ];
 
 export const MySkills: Skills[] = [
