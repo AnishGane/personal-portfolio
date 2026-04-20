@@ -293,7 +293,8 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 3,
     name: 'FitTrack',
     subName: 'FitTrack: Track Your Fitness Effortlessly',
-    image: "/Images/LaunchShare.webp",
+    image: "/Images/FitTrack.webp",
+    mobile_image: "/Images/FitTrack_mobile.webp",
     url: 'https://fit-track-tau-smoky.vercel.app/',
     repoLink: 'https://github.com/AnishGane/FitTrack',
     description:
@@ -391,8 +392,8 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 4,
     name: 'URL Shortner',
     subName: 'Snip - A URL shortner application for shortening long urls.',
-    image: "/Images/ExpenseTracker.webp ",
-    mobile_image: '/Images/SoftStitch_mobile.webp',
+    image: "/Images/URLShortner.webp ",
+    mobile_image: '/Images/URLShortner_mobile.webp',
     url: 'https://urlshortner-lzyy.onrender.com/',
     repoLink: 'https://github.com/AnishGane/URLShortner.git',
     description:
@@ -654,8 +655,6 @@ export const ProjectItem: ProjectItemProps[] = [
       ],
     },
   },
-
-
 ];
 
 export const MySkills: Skills[] = [
