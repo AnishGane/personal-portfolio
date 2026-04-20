@@ -67,6 +67,7 @@
   src: url('./assets/fonts/03fc1b4a8d284b5e-s.p.af4fcd24.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -74,6 +75,7 @@
   src: url('./assets/fonts/99e609270109b47d-s.p.64b9304e.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -81,6 +83,7 @@
   src: url('./assets/fonts/effe91970fc4db64-s.p.19510058.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @layer utilities {
