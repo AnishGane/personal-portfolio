@@ -36,25 +36,27 @@ const Navbar = () => {
             </li>
           ))}
 
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="group cursor-pointer rounded-lg border-none transition-all outline-none"
-          >
-            {theme === 'dark' ? (
-              <Sun
-                color="#ffffff"
-                size={18}
-                className="transition-transform duration-300 group-hover:rotate-8"
-              />
-            ) : (
-              <Moon
-                color="#000000"
-                size={18}
-                className="transition-transform duration-300 group-hover:rotate-8"
-              />
-            )}
-          </button>
+          <li className='h-6'>
+            <button
+              aria-label='Toggle theme'
+              onClick={toggleTheme}
+              className="group cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2 rounded-lg border-none transition-all outline-none"
+            >
+              {theme === 'dark' ? (
+                <Sun
+                  color="#ffffff"
+                  size={18}
+                  className="transition-transform duration-300 group-hover:rotate-8"
+                />
+              ) : (
+                <Moon
+                  color="#000000"
+                  size={18}
+                  className="transition-transform duration-300 group-hover:rotate-8"
+                />
+              )}
+            </button>
+          </li>
         </ul>
       </nav>
     </header>

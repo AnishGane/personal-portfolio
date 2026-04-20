@@ -44,6 +44,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pointer-events-auto"
+                  aria-label='Live Demo Link'
                 >
                   <span>
                     <WebsiteDemo className="text-neutral-6 size-6" />
@@ -61,6 +62,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pointer-events-auto"
+                aria-label='GitHub Repository Link'
               >
                 <FiGithub className="text-neutral-6 size-5" />
               </a>

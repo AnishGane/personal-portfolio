@@ -1,3 +1,4 @@
+import GitHubActivitySkeleton from '@/skeletons/github-activity-skeleton';
 import type { GitHubResponse, Week } from '@/types';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -73,9 +74,8 @@ const GitHubActivity = ({ username }: { username: string }) => {
 
   const monthLabels = getMonthLabels();
 
-  if (loading) return (
-    <div className='w-full rounded-md h-48 mt-4 flex animate-pulse items-center justify-center bg-neutral-6/10' />
-  );
+  if (loading) return <GitHubActivitySkeleton />
+
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
   const cellSize = 11; // Size of each square
@@ -87,7 +87,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
         <p>
           <strong className="font-bold">{totalContributions}</strong> Contributions till now
         </p>
-        <p className="hidden text-neutral-6/90 sm:flex gap-1 text-xs font-normal capitalize italic">
+        <p className="hidden text-neutral-6 sm:flex gap-1 text-xs font-normal capitalize italic">
           `Trying to be more active in Github`
         </p>
       </div>
@@ -104,7 +104,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
               {dayLabels.map((day, index) => (
                 <span
                   key={index}
-                  className="text-xs mt-3.5 text-neutral-500"
+                  className="text-xs mt-3.5 text-neutral-6"
                   style={{ lineHeight: `${cellSize}px` }}
                 >
                   {day}
@@ -119,7 +119,7 @@ const GitHubActivity = ({ username }: { username: string }) => {
                 {monthLabels.map((label, index) => (
                   <span
                     key={index}
-                    className="absolute text-xs text-neutral-400"
+                    className="absolute text-xs text-neutral-6"
                     style={{
                       left: `${label.weekIndex * (cellSize + cellGap)}px`,
                     }}

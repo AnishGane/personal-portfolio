@@ -1,6 +1,6 @@
 // contexts/ThemeContext.tsx
 import { createContext, useContext, useEffect, useState, useRef } from 'react';
-import ClickAudio from '@/assets/audio/click.wav';
+import ClickAudio from '@/assets/audio/click.mp3';
 
 type Theme = 'light' | 'dark';
 

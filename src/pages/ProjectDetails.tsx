@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
 import ScrollToTop from '@/components/ScrollToTop';
+import SEO from '@/components/SEO';
 
 const ProjectDetails = () => {
   const { name } = useParams<{ name: string }>();
@@ -45,255 +46,258 @@ const ProjectDetails = () => {
   const nextProject = currentIndex < ProjectItem.length - 1 ? ProjectItem[currentIndex + 1] : null;
 
   return (
-    <div className="mt-4 md:mt-10">
-      <Button
-        text="Back to Projects"
-        icon={<Undo2 size={18} />}
-        href="/projects"
-        variant="secondary"
-      />
+    <>
+      <SEO title={`${projectContent.name} | Anish Gane`} description={`${projectContent.description}`} />
+      <div className="mt-4 md:mt-10">
+        <Button
+          text="Back to Projects"
+          icon={<Undo2 size={18} />}
+          href="/projects"
+          variant="secondary"
+        />
 
-      <div className="text-neutral-8 font-tooltip mt-6 md:mt-8">
-        {projectContent?.image || projectContent?.mobile_image ? (
-          <img
-            src={isMobile && projectContent.mobile_image
-              ? projectContent.mobile_image
-              : projectContent.image ?? projectContent.mobile_image}
-            alt={projectContent.name}
-            className="min-h-[300px] sm:h-[540px] w-full rounded-lg object-cover"
-            loading='lazy'
-          />
-        ) : (
-          <div className='min-h-[300px] sm:h-[440px] flex items-center flex-col justify-center w-full rounded-lg object-cover bg-neutral-200'>
-            <ImageOff className='size-20 text-neutral-400' />
-            <p className='text-sm mt-2 text-neutral-500 pl-3'>Project not built yet.</p>
-          </div>
-        )}
+        <div className="text-neutral-8 font-tooltip mt-6 md:mt-8">
+          {projectContent?.image || projectContent?.mobile_image ? (
+            <img
+              src={isMobile && projectContent.mobile_image
+                ? projectContent.mobile_image
+                : projectContent.image ?? projectContent.mobile_image}
+              alt={projectContent.name}
+              className="min-h-[300px] sm:h-[540px] w-full rounded-lg object-cover"
+              loading='lazy'
+            />
+          ) : (
+            <div className='min-h-[300px] sm:h-[440px] flex items-center flex-col justify-center w-full rounded-lg object-cover bg-neutral-200'>
+              <ImageOff className='size-20 text-neutral-400' />
+              <p className='text-sm mt-2 text-neutral-500 pl-3'>Project not built yet.</p>
+            </div>
+          )}
 
-        <div className="mt-4 flex items-center gap-2 md:mt-8">
-          <span className="rounded-md bg-black px-1.5 py-[3px] text-xs font-medium text-white md:text-sm dark:bg-white dark:text-black">
-            {projectContent.status === 'Working' ? 'Completed' : projectContent.status}
-          </span>
-
-          <div className="flex items-center gap-2">
-            {visibleTech.map((tech, index) => (
-              <TechSpan key={index + 1} item={tech.label} />
-            ))}
-
-            {remainingTechCount > 0 && <TechSpan item={`+${remainingTechCount} more`} />}
-          </div>
-        </div>
-
-        <h1 className="my-4 text-3xl font-medium md:text-5xl">{projectContent.name}</h1>
-        <p className="text-neutral-6 text-sm leading-[23px] tracking-wide md:text-base md:leading-6.5">
-          {projectContent.description}
-        </p>
-
-        <div className="ring-neutral-6/30 my-4 grid w-full grid-cols-4 md:justify-items-center rounded-xl bg-neutral-300/10 py-4 px-1 text-left text-sm shadow-md ring-1">
-          <div className="flex flex-col items-center md:items-start">
-            <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Timeline</h5>
-            <p className="text-neutral-8">{projectContent.timeline}</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <h5 className="font-medium text-neutral-500 text-center dark:text-neutral-400">Role</h5>
-            <p className="text-neutral-8">{projectContent.Role}</p>
-          </div>
-          <div className="flex flex-col items-center md:items-start">
-            <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Team</h5>
-            <p className="text-neutral-8">{projectContent.Team}</p>
-          </div>
-          <div className="flex flex-col items-center md:items-start">
-            <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Status</h5>
-            <p className="mt-px rounded-md bg-black px-1.5 py-[3px] text-xs font-medium text-white dark:bg-white dark:text-black">
+          <div className="mt-4 flex items-center gap-2 md:mt-8">
+            <span className="rounded-md bg-black px-1.5 py-[3px] text-xs font-medium text-white md:text-sm dark:bg-white dark:text-black">
               {projectContent.status === 'Working' ? 'Completed' : projectContent.status}
-            </p>
-          </div>
-        </div>
+            </span>
 
-        <div className="my-5 flex items-center gap-2">
-          <Button
-            icon={<WebsiteDemo className="size-[18px] text-white/80 dark:text-black/80" />}
-            text="Live Demo"
-            variant="primary"
-            target="_blank"
-            href={projectContent.url}
-          />
-          <Button
-            icon={<Github className="size-[18px] text-black/80 dark:text-white/80" />}
-            text="Source Code"
-            variant="secondary"
-            target="_blank"
-            href={projectContent.repoLink}
-          />
-        </div>
+            <div className="flex items-center gap-2">
+              {visibleTech.map((tech, index) => (
+                <TechSpan key={index + 1} item={tech.label} />
+              ))}
 
-        <hr className="border-px border-neutral-6/40 my-7 w-full" />
-
-        <div className="tracking-wide">
-          <div className="mb-6 text-[26px] leading-8.5 font-semibold md:mb-8 md:text-[34px] md:leading-10">
-            <AppendHashtag leftOffset={26}>
-              <h2>{projectContent.subName}</h2>
-            </AppendHashtag>
+              {remainingTechCount > 0 && <TechSpan item={`+${remainingTechCount} more`} />}
+            </div>
           </div>
 
-          <div className="mb-8">
-            <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
-              <h3>Overview</h3>
-            </AppendHashtag>
-            <p className="text-neutral-6 text-sm leading-6 font-light md:text-[15px]">
-              {projectContent.itemData.Overview}
-            </p>
+          <h1 className="my-4 text-3xl font-medium md:text-5xl">{projectContent.name}</h1>
+          <p className="text-neutral-6 text-sm leading-[23px] tracking-wide md:text-base md:leading-6.5">
+            {projectContent.description}
+          </p>
+
+          <div className="ring-neutral-6/30 my-4 grid w-full grid-cols-4 md:justify-items-center rounded-xl bg-neutral-300/10 py-4 px-1 text-left text-sm shadow-md ring-1">
+            <div className="flex flex-col items-center md:items-start">
+              <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Timeline</h5>
+              <p className="text-neutral-8">{projectContent.timeline}</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <h5 className="font-medium text-neutral-500 text-center dark:text-neutral-400">Role</h5>
+              <p className="text-neutral-8">{projectContent.Role}</p>
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Team</h5>
+              <p className="text-neutral-8">{projectContent.Team}</p>
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Status</h5>
+              <p className="mt-px rounded-md bg-black px-1.5 py-[3px] text-xs font-medium text-white dark:bg-white dark:text-black">
+                {projectContent.status === 'Working' ? 'Completed' : projectContent.status}
+              </p>
+            </div>
           </div>
 
-          {projectContent.itemData.Features && projectContent?.itemData?.Features.length > 0 && (
-            <>
-              <div className="mb-8">
-                <AppendHashtag
-                  NoOfHash={2}
-                  className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl"
-                >
-                  <h3>Features</h3>
-                </AppendHashtag>
+          <div className="my-5 flex items-center gap-2">
+            <Button
+              icon={<WebsiteDemo className="size-[18px] text-white/80 dark:text-black/80" />}
+              text="Live Demo"
+              variant="primary"
+              target="_blank"
+              href={projectContent.url}
+            />
+            <Button
+              icon={<Github className="size-[18px] text-black/80 dark:text-white/80" />}
+              text="Source Code"
+              variant="secondary"
+              target="_blank"
+              href={projectContent.repoLink}
+            />
+          </div>
+
+          <hr className="border-px border-neutral-6/40 my-7 w-full" />
+
+          <div className="tracking-wide">
+            <div className="mb-6 text-[26px] leading-8.5 font-semibold md:mb-8 md:text-[34px] md:leading-10">
+              <AppendHashtag leftOffset={26}>
+                <h2>{projectContent.subName}</h2>
+              </AppendHashtag>
+            </div>
+
+            <div className="mb-8">
+              <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
+                <h3>Overview</h3>
+              </AppendHashtag>
+              <p className="text-neutral-6 text-sm leading-6 font-light md:text-[15px]">
+                {projectContent.itemData.Overview}
+              </p>
+            </div>
+
+            {projectContent.itemData.Features && projectContent?.itemData?.Features.length > 0 && (
+              <>
+                <div className="mb-8">
+                  <AppendHashtag
+                    NoOfHash={2}
+                    className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl"
+                  >
+                    <h3>Features</h3>
+                  </AppendHashtag>
+                  <ul className="mx-10 list-disc">
+                    {projectContent.itemData.Features.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+
+            <div className="mb-8">
+              <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
+                <h3>Why I Built This</h3>
+              </AppendHashtag>
+
+              {Array.isArray(projectContent.itemData.ProblemStatement) &&
+                projectContent.itemData.ProblemStatement.length > 1 ? (
                 <ul className="mx-10 list-disc">
-                  {projectContent.itemData.Features.map((item, index) => (
+                  {projectContent.itemData.ProblemStatement.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
-              </div>
-            </>
-          )}
+              ) : (
+                <p className="text-neutral-6 text-[15px] leading-6 font-light">
+                  {projectContent.itemData.ProblemStatement}
+                </p>
+              )}
+            </div>
 
-          <div className="mb-8">
-            <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
-              <h3>Why I Built This</h3>
-            </AppendHashtag>
+            <div className="mb-8">
+              <AppendHashtag NoOfHash={2} className="mb-1 text-2xl font-medium md:mb-3 md:text-3xl">
+                <h3>Tech Stack</h3>
+              </AppendHashtag>
 
-            {Array.isArray(projectContent.itemData.ProblemStatement) &&
-              projectContent.itemData.ProblemStatement.length > 1 ? (
+              {projectContent.technologies.map((category, index) => (
+                <div key={index} className="mb-4 ml-4">
+                  {/* Category title */}
+                  <AppendHashtag NoOfHash={3} leftOffset={34}>
+                    <h4 className="text-lg font-medium">{category.category}</h4>
+                  </AppendHashtag>
+
+                  {/* Stack items */}
+                  <ul className="mx-10 list-inside list-disc">
+                    {category.stack.map((tech, techIndex) => (
+                      <li key={techIndex}>
+                        <span>{tech.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mb-8">
+              <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
+                <h3>Future Plans</h3>
+              </AppendHashtag>
               <ul className="mx-10 list-disc">
-                {projectContent.itemData.ProblemStatement.map((item, index) => (
+                {projectContent.itemData.FuturePlan.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-            ) : (
-              <p className="text-neutral-6 text-[15px] leading-6 font-light">
-                {projectContent.itemData.ProblemStatement}
-              </p>
-            )}
-          </div>
+            </div>
 
-          <div className="mb-8">
-            <AppendHashtag NoOfHash={2} className="mb-1 text-2xl font-medium md:mb-3 md:text-3xl">
-              <h3>Tech Stack</h3>
-            </AppendHashtag>
-
-            {projectContent.technologies.map((category, index) => (
-              <div key={index} className="mb-4 ml-4">
-                {/* Category title */}
-                <AppendHashtag NoOfHash={3} leftOffset={34}>
-                  <h4 className="text-lg font-medium">{category.category}</h4>
-                </AppendHashtag>
-
-                {/* Stack items */}
-                <ul className="mx-10 list-inside list-disc">
-                  {category.stack.map((tech, techIndex) => (
-                    <li key={techIndex}>
-                      <span>{tech.label}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="mb-8">
-            <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
-              <h3>Future Plans</h3>
-            </AppendHashtag>
-            <ul className="mx-10 list-disc">
-              {projectContent.itemData.FuturePlan.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-10 grid grid-cols-2 gap-4">
-            {/* Previous Project */}
-            {prevProject ? (
-              <Button
-                fullWidth
-                variant="secondary"
-                text={` ${prevProject.name}`}
-                href={`/projects/${slugify(prevProject.name)}`}
-                className="justify-start"
-                label="Previous Project"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              />
-            ) : (
-              <span />
-            )}
-
-            {/* Next Project */}
-            {nextProject && (
-              <Button
-                variant="secondary"
-                text={`${nextProject.name}`}
-                href={`/projects/${slugify(nextProject.name)}`}
-                className="justify-end text-right"
-                label="Next Project"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              />
-            )}
-          </div>
-
-          <hr className="border-px border-neutral-6/40 my-10 w-full" />
-
-          <div>
-            <h2 className="mb-1.5 text-xl font-medium md:mb-5 md:text-2xl">Related Projects</h2>
-            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {relatedProjects.length > 0 ? (
-                relatedProjects.slice(0, 2).map((item) => (
-                  <Link
-                    onClick={() =>
-                      window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth',
-                      })
-                    }
-                    to={`/projects/${slugify(item.name)}`}
-                    key={item.id}
-                    className="rounded-xl border border-neutral-400/40 p-4"
-                  >
-                    <div className="mb-4 flex flex-col items-start justify-between gap-1.5 md:flex-row md:items-center">
-                      <h4 className="text-xl leading-6.5 font-medium">{item.name}</h4>
-                      <span
-                        className={`${item.status === 'Working' ? 'bg-[#E5FAEE] dark:bg-[#15291D]' : 'bg-[#FEE9EA] dark:bg-[#2E191A]'} rounded-md px-1.5 py-1 text-[11px]`}
-                      >
-                        {item.status === 'Working' ? 'Completed' : item.status}
-                      </span>
-                    </div>
-                    <p className="text-neutral-6 line-clamp-3 text-xs leading-4.5">
-                      {item.description}
-                    </p>
-                    <div className="mt-4 flex items-center gap-2">
-                      {visibleTech.map((item) => (
-                        <TechSpan key={item.label} item={item.label} />
-                      ))}
-                      {remainingTechCount > 0 && (
-                        <TechSpan key={remainingTechCount} item={`+${remainingTechCount} more`} />
-                      )}
-                    </div>
-                  </Link>
-                ))
+            <div className="mt-10 grid grid-cols-2 gap-4">
+              {/* Previous Project */}
+              {prevProject ? (
+                <Button
+                  fullWidth
+                  variant="secondary"
+                  text={` ${prevProject.name}`}
+                  href={`/projects/${slugify(prevProject.name)}`}
+                  className="justify-start"
+                  label="Previous Project"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                />
               ) : (
-                <div className="text-neutral-6 col-span-3">No related projects</div>
+                <span />
               )}
+
+              {/* Next Project */}
+              {nextProject && (
+                <Button
+                  variant="secondary"
+                  text={`${nextProject.name}`}
+                  href={`/projects/${slugify(nextProject.name)}`}
+                  className="justify-end text-right"
+                  label="Next Project"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                />
+              )}
+            </div>
+
+            <hr className="border-px border-neutral-6/40 my-10 w-full" />
+
+            <div>
+              <h2 className="mb-1.5 text-xl font-medium md:mb-5 md:text-2xl">Related Projects</h2>
+              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                {relatedProjects.length > 0 ? (
+                  relatedProjects.slice(0, 2).map((item) => (
+                    <Link
+                      onClick={() =>
+                        window.scrollTo({
+                          top: 0,
+                          behavior: 'smooth',
+                        })
+                      }
+                      to={`/projects/${slugify(item.name)}`}
+                      key={item.id}
+                      className="rounded-xl border border-neutral-400/40 p-4"
+                    >
+                      <div className="mb-4 flex flex-col items-start justify-between gap-1.5 md:flex-row md:items-center">
+                        <h4 className="text-xl leading-6.5 font-medium">{item.name}</h4>
+                        <span
+                          className={`${item.status === 'Working' ? 'bg-[#E5FAEE] dark:bg-[#15291D]' : 'bg-[#FEE9EA] dark:bg-[#2E191A]'} rounded-md px-1.5 py-1 text-[11px]`}
+                        >
+                          {item.status === 'Working' ? 'Completed' : item.status}
+                        </span>
+                      </div>
+                      <p className="text-neutral-6 line-clamp-3 text-xs leading-4.5">
+                        {item.description}
+                      </p>
+                      <div className="mt-4 flex items-center gap-2">
+                        {visibleTech.map((item) => (
+                          <TechSpan key={item.label} item={item.label} />
+                        ))}
+                        {remainingTechCount > 0 && (
+                          <TechSpan key={remainingTechCount} item={`+${remainingTechCount} more`} />
+                        )}
+                      </div>
+                    </Link>
+                  ))
+                ) : (
+                  <div className="text-neutral-6 col-span-3">No related projects</div>
+                )}
+              </div>
             </div>
           </div>
         </div>
+        <ScrollToTop />
       </div>
-      <ScrollToTop />
-    </div>
+    </>
   );
 };
 const TechSpan = ({ item }: { item: string }) => {

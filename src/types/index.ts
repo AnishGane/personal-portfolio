@@ -91,3 +91,8 @@ export type GitHubResponse = {
     };
   };
 };
+
+export type SEOProps = {
+  title: string;
+  description: string;
+};

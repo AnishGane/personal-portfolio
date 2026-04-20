@@ -14,7 +14,7 @@ const TechnologyList = ({ icon, label }: TechnologyListProps) => {
 
       {/* Icon */}
       {icon && (
-        <button className="cursor-pointer transition-transform duration-200 ease-out group-hover:scale-110">
+        <button aria-label={`technology list icon ${label}`} className="cursor-pointer transition-transform duration-200 ease-out group-hover:scale-110">
           {icon && cloneElement(icon, { width: 22, height: 22 })}
         </button>
       )}

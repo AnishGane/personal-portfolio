@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { z } from 'zod';
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 // Initialize EmailJS with your public key
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -96,84 +97,87 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-10 pb-4  md:my-10">
-      <h2 className="font-tooltip text-neutral-8 mb-10 text-center text-4xl font-medium">
-        Contact Me
-      </h2>
+    <>
+      <SEO title='Contact' description='Contact Anish Gane' />
+      <div className="flex flex-col items-center justify-center pt-10 pb-4  md:my-10">
+        <h2 className="font-tooltip text-neutral-8 mb-10 text-center text-4xl font-medium">
+          Contact Me
+        </h2>
 
-      <div className="ring-neutral-8/20 w-full max-w-md rounded-xl bg-neutral-50 p-6 shadow-md ring-1 dark:bg-white/5">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name */}
-          <div>
-            <label className="text-neutral-6 mb-1.5 block text-sm">Your Name</label>
-            <input
-              type="text"
-              name="from_name"
-              value={formData.from_name}
-              onChange={handleChange}
-              placeholder="Name here"
-              required
-              className="contact-input"
-            />
-            {errors.from_name && <p className="input-error">{errors.from_name}</p>}
-          </div>
+        <div className="ring-neutral-8/20 w-full max-w-md rounded-xl bg-neutral-50 p-6 shadow-md ring-1 dark:bg-white/5">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Name */}
+            <div>
+              <label className="text-neutral-6 mb-1.5 block text-sm">Your Name</label>
+              <input
+                type="text"
+                name="from_name"
+                value={formData.from_name}
+                onChange={handleChange}
+                placeholder="Name here"
+                required
+                className="contact-input"
+              />
+              {errors.from_name && <p className="input-error">{errors.from_name}</p>}
+            </div>
 
-          {/* Email */}
-          <div>
-            <label className="text-neutral-6 mb-1.5 block text-sm">Your Email</label>
-            <input
-              type="email"
-              name="reply_to"
-              value={formData.reply_to}
-              onChange={handleChange}
-              className="contact-input"
-              placeholder='emaihere@mail.com'
-            />
-            {errors.reply_to && <p className="input-error">{errors.reply_to}</p>}
-          </div>
+            {/* Email */}
+            <div>
+              <label className="text-neutral-6 mb-1.5 block text-sm">Your Email</label>
+              <input
+                type="email"
+                name="reply_to"
+                value={formData.reply_to}
+                onChange={handleChange}
+                className="contact-input"
+                placeholder='emaihere@mail.com'
+              />
+              {errors.reply_to && <p className="input-error">{errors.reply_to}</p>}
+            </div>
 
-          {/* Subject */}
-          <div>
-            <label className="text-neutral-6 mb-1.5 block text-sm">Subject</label>
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="contact-input"
-              placeholder='Want to collaborate?'
-            />
-            {errors.subject && <p className="input-error">{errors.subject}</p>}
-          </div>
+            {/* Subject */}
+            <div>
+              <label className="text-neutral-6 mb-1.5 block text-sm">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="contact-input"
+                placeholder='Want to collaborate?'
+              />
+              {errors.subject && <p className="input-error">{errors.subject}</p>}
+            </div>
 
-          {/* Message */}
-          <div>
-            <label className="text-neutral-6 mb-1.5 block text-sm">Message</label>
-            <textarea
-              name="message"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              className="contact-input resize-none"
-              placeholder='I want to work with you...'
-            />
-            {errors.message && <p className="input-error ">{errors.message}</p>}
-          </div>
+            {/* Message */}
+            <div>
+              <label className="text-neutral-6 mb-1.5 block text-sm">Message</label>
+              <textarea
+                name="message"
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                className="contact-input resize-none"
+                placeholder='I want to work with you...'
+              />
+              {errors.message && <p className="input-error ">{errors.message}</p>}
+            </div>
 
-          <button type="submit" disabled={isLoading} className="contact-btn flex items-center justify-center font-tooltip font-medium">
-            {isLoading ? (
-              <>
-                <Loader2 className='mr-2 animate-spin' />
-              </>
-            ) : (
-              <span>
-                Send a Message
-              </span>
-            )}
+            <button type="submit" disabled={isLoading} className="contact-btn flex items-center justify-center font-tooltip font-medium">
+              {isLoading ? (
+                <>
+                  <Loader2 className='mr-2 animate-spin' />
+                </>
+              ) : (
+                <span>
+                  Send a Message
+                </span>
+              )}
 
-          </button>
-        </form>
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
