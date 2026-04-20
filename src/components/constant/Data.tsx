@@ -19,8 +19,10 @@ import {
   Postgresql,
   ReactLogo,
   ReactRouter,
+  Render,
   ResendLogo,
   ShadcnLogo,
+  Supabase,
   TSLogo,
   TailwindCSS,
   Vercel,
@@ -388,13 +390,14 @@ export const ProjectItem: ProjectItemProps[] = [
   {
     id: 4,
     name: 'URL Shortner',
-    subName: 'SoftStitch Ecommerce: A full-stack e-commerce platform',
+    subName: 'Snip - A URL shortner application for shortening long urls.',
+    image: "/Images/ExpenseTracker.webp ",
     mobile_image: '/Images/SoftStitch_mobile.webp',
-    url: 'https://soft-stitch-ecommerce.vercel.app/',
-    repoLink: 'https://github.com/AnishGane/SoftStitch---Ecommerce',
+    url: 'https://urlshortner-lzyy.onrender.com/',
+    repoLink: 'https://github.com/AnishGane/URLShortner.git',
     description:
-      'A full-stack e-commerce platform built with React, Node.js,express, and MongoDB, featuring user authentication, product management, shopping cart functionality, and integrated payment gateways.',
-    status: 'Building',
+      'Snip is a simple and efficient URL shortener application that enables users to quickly convert long, cumbersome web addresses into easily shareable short links. The app features a clean and user-friendly interface for generating, managing, and tracking shortened URLs. Designed for convenience, Snip helps users keep their links tidy, improve sharing flexibility, and monitor basic usage analytics. Whether for personal or business use, Snip streamlines the process of URL sharing without hassle.',
+    status: 'Working',
     technologies: [
       {
         category: 'Frontend',
@@ -408,40 +411,29 @@ export const ProjectItem: ProjectItemProps[] = [
             label: 'Tailwind CSS',
           },
           {
-            label: 'React Hot Toast',
+            icon: <ShadcnLogo />,
+            label: 'Shadcn'
           },
           {
-            icon: <ReactRouter />,
-            label: 'React Router',
+            label: 'Sonner'
           },
           {
-            label: 'Motion',
+            label: 'React Hook Form'
           },
           {
-            label: 'Axios',
+            label: 'Tanstack React Query'
           },
+          {
+            label: 'Zod'
+          }
         ],
       },
       {
         category: 'Backend',
         stack: [
           {
-            icon: <NodeJS />,
-            label: 'Node.js',
-          },
-          {
-            icon: <ExpessJS />,
-            label: 'Express.js',
-          },
-          {
-            icon: <MongoDB />,
-            label: 'MongoDB',
-          },
-          {
-            label: 'Cloudinary & Multer',
-          },
-          {
-            label: 'Bcrypt',
+            icon: <Supabase />,
+            label: 'Supabase',
           },
         ],
       },
@@ -449,40 +441,38 @@ export const ProjectItem: ProjectItemProps[] = [
         category: 'Deployment',
         stack: [
           {
-            icon: <Vercel />,
-            label: 'Vercel',
+            icon: <Render />,
+            label: 'Render',
           },
         ],
       },
     ],
-    timeline: '36 days',
+    timeline: '2 weeks',
     Role: 'Full Stack',
     Team: 'Solo',
     itemData: {
       Overview:
-        'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+        'URL Shortner is a user-friendly web application that allows users to easily create and manage shortened URLs, making it convenient to share and track links for personal or business use.',
       Features: [
-        'User Authentication, secure login/signup with JWT',
-        'Browse products with search and filtering',
-        'Shopping Cart, add/remove items with size selection',
-        'Order Management, place orders and track order history',
-        'Payment Integration, COD & eSewa(now in localhost only)',
-        '(Admin) Product Management, add, edit, and delete products',
-        '(Admin) Order Management, view and update order status',
-        '(Admin) User Management, Monitor user activities',
-        '(Admin) Image Upload, Cloudinary integration for product images',
+        'User Authentication powered by Supabase Auth',
+        'Instantly shorten any valid URL',
+        'Real-time preview of the shortened URL as you type',
+        'QR code generated for each url',
+        'Create, Edit, Delete, Download the QR code',
+        'One-click copy for any short URL',
+        'Track the clicks per url & Location and Devices of clicked url',
+        'Mobile-first, works on all screen sizes'
       ],
       ProblemStatement: [
-        'Learn and demonstrate real-world full-stack skills using a modern JavaScript stack',
-        'Implement essential e-commerce features end-to-end',
-        'To learn how to deploy full-stack apps on Vercel',
+        'To get Good knowledge about Supabase, Supabase auth & Supabase storage',
+        'To know how the Supabase Real-time subscription works',
+        'To learn how to deploy full-stack apps on Render',
       ],
       FuturePlan: [
-        'Advanced product filtering & search',
-        'Product reviews & ratings',
-        'Multiple payment gateway support',
-        'Invoice & receipt generation',
-        'Enhanced authentication & security',
+        'Add support for bulk URL shortening and management',
+        'Enable users to customize the slug/alias of their shortened URLs',
+        'Enhance security with phishing & spam detection on submitted URLs',
+        'Add social sharing options and integrations',
       ],
     },
   },

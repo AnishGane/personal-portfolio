@@ -6,9 +6,6 @@ import { useTheme } from '@/context/ThemeContext';
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
-  const md = window.scrollY
-  console.log(md);
-
   return (
     <header className="font-own sticky top-0 z-50 mt-4 px-3 py-4 backdrop-blur-sm transition-colors duration-300">
       <nav className="flex items-center justify-between">
@@ -30,7 +27,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `${isActive
                     ? 'font-ownBold text-neutral-900 dark:text-white'
-                    : 'text-neutral-500 dark:text-neutral-400'
+                    : 'text-neutral-500 dark:text-neutral-300'
                   } transition-colors duration-300`
                 }
               >

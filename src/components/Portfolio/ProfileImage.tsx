@@ -9,7 +9,7 @@ const ProfileImage = () => {
         <img
           src="/Images/GhibliImage.webp"
           alt="My Image"
-          className="h-full w-full rounded-full object-cover"
+          className="size-full rounded-full object-cover"
           title="Anish Gane"
           loading="lazy"
         />

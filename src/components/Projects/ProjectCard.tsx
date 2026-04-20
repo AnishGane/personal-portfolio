@@ -23,8 +23,8 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
           className="w-full rounded-t-xl" />
       ) : (
         <div className="h-69.5 flex items-center justify-center flex-col rounded-t-xl bg-neutral-200 dark:bg-neutral-700">
-          <ImageOff className="size-10 text-neutral-400 dark:text-neutral-500" />
-          <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+          <ImageOff className="size-10 text-neutral-600 dark:text-neutral-300" />
+          <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
             {item.status === 'Building' ? 'Image coming soon' : 'No image available'}
           </p>
         </div>
@@ -91,7 +91,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
             className={`${item.status === 'Building'
               ? 'bg-[#FEE9EA] dark:bg-[#2E191A]'
               : 'bg-[#E5FAEE] dark:bg-[#15291D]'
-              } text-neutral-8 font-tooltip flex items-center justify-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold`}
+              } text-neutral-8 font-tooltip flex items-center justify-center gap-1.5 rounded-full px-2.5 py-1 text-xs tracking-wide`}
           >
             <span
               className={`size-[7px] rounded-full ${item.status === 'Building' ? 'bg-red-700' : 'bg-green-700'

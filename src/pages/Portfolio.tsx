@@ -46,7 +46,7 @@ const Portfolio = () => {
                 className="transform-all rotate-15 duration-200 group-hover:rotate-0"
               />
             }
-            href="/resume.pdf"
+            href="/resume_anish.pdf"
             text="Resume / CV"
             variant="secondary"
             download={true}

@@ -6,8 +6,8 @@ const ToolTip = () => {
 
       <div className="font-ownBold flex flex-col items-start gap-1 font-medium text-neutral-700 dark:text-neutral-300">
 
-        <span className="text-neutral-6/80 ml-1 text-xs tracking-wide">
-          Glad you have found me.
+        <span className="text-neutral-6 ml-1 text-xs tracking-wide">
+          Glad you found me.
         </span>
       </div>
     </div>
