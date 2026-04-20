@@ -101,7 +101,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
             ></span>
             <p>{item.status === 'Building' ? 'Building' : 'Fully Functional'}</p>
           </div>
-          <p className="group hover:text-neutral-6 flex cursor-pointer items-center justify-center gap-1 text-[13px] font-semibold text-neutral-400">
+          <p className="group hover:text-neutral-6 flex cursor-pointer items-center justify-center gap-1 text-[13px] font-semibold text-neutral-6">
             <Link to={`/projects/${nameSlug}`}>
               View Details
               <hr className="h-px w-0 transition-all duration-200 ease-in-out group-hover:w-full" />
