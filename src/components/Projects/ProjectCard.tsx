@@ -72,8 +72,8 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
           </div>
         </div>
         <p className="text-neutral-6 mt-3 line-clamp-3 text-sm text-balance">{item.description}</p>
-        <p className="text-neutral-6 mt-3 text-sm font-medium tracking-[0.01em]">Technologies</p>
-        <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+        <p className="text-neutral-6 mt-3 text-sm font-medium tracking-[0.01em]">Technology Used</p>
+        <div className="mt-2 flex flex-wrap items-center gap-1.5">
           {item.technologies.map((category) =>
             category.stack
               .filter((tech) => tech.icon)

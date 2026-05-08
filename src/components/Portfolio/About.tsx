@@ -17,7 +17,7 @@ const About = () => {
           building projects to sharpen my skills. I'm specialized in building responsive and
           user-friendly web apps.
         </p>
-        <span className="mt-8 mb-2 inline-block font-semibold text-gray-600 dark:text-gray-300">Skills</span>
+        <span className="mt-8 mb-2 inline-block font-semibold text-gray-600 dark:text-gray-300">My Skills</span>
         <div className="flex flex-wrap gap-2">
           {MySkills.map((item) => (
             <TechnologyList key={item.id} icon={item.icon} label={item.label} />

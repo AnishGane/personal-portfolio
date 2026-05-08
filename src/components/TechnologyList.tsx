@@ -10,7 +10,7 @@ const TechnologyList = ({ icon, label }: TechnologyListProps) => {
   return (
     <div key={label} className="group relative flex size-6 items-center justify-center">
       {/* Tooltip */}
-      <LinkToolTip label={label} />
+      <LinkToolTip label={label} position="bottom" />
 
       {/* Icon */}
       {icon && (

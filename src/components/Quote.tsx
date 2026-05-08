@@ -10,15 +10,15 @@ const Quote = ({ quote, source }: { quote: string; source: string }) => {
       initial="rest"
       whileHover='move'
       animate="rest"
-      className="relative mt-14 mb-8 overflow-hidden rounded-xl bg-white/3 border border-neutral-300 px-2 py-14 text-2xl font-semibold text-neutral-900 dark:border-neutral-900 dark:text-neutral-100">
+      className="relative sm:mt-14 sm:mb-8 overflow-hidden rounded-xl bg-white/3 border border-neutral-300 px-2 py-10 sm:py-14 text-2xl font-semibold text-neutral-900 dark:border-neutral-900 dark:text-neutral-100">
       {/* SVG Background */}
       <div
-        className="absolute top-2 left-5 size-10 -translate-x-1/2 opacity-25">
+        className="absolute sm:top-2 left-5 size-10 -translate-x-1/2 opacity-25">
         <motion.svg
           aria-hidden="true"
           width="105"
           height="78"
-          className="absolute top-6 left-6 fill-zinc-500 dark:fill-white/20"
+          className="absolute -top-4 sm:top-6 left-6 fill-zinc-500 dark:fill-white/20"
           variants={{
             rest: { y: 0 },
             move: { y: -10 },
@@ -32,7 +32,7 @@ const Quote = ({ quote, source }: { quote: string; source: string }) => {
 
       {/* Text Content */}
       <div className="relative z-10 bg-transparent px-4 text-sm italic">
-        <p className="text-neutral-6 w-full  md:max-w-2xl tracking-tight">{quote}</p>
+        <p className="text-neutral-6 w-full font-normal tracking-tight mb-1">{quote}</p>
         <p className="text-neutral-8 font-tooltip text-right font-semibold">— {source}</p>
       </div>
     </motion.div>

@@ -9,6 +9,7 @@ import {
   Clerk,
   Drizzle,
   ExpessJS,
+  Git,
   JavaScript,
   MongoDB,
   MotionLogo,
@@ -19,6 +20,7 @@ import {
   Postgresql,
   ReactLogo,
   ReactRouter,
+  Redux,
   Render,
   ResendLogo,
   ShadcnLogo,
@@ -462,7 +464,10 @@ export const ProjectItem: ProjectItemProps[] = [
         'Create, Edit, Delete, Download the QR code',
         'One-click copy for any short URL',
         'Track the clicks per url & Location and Devices of clicked url',
-        'Mobile-first, works on all screen sizes'
+        'Mobile-first, works on all screen sizes',
+        'Dark/Light mode support',
+        'All shortened URLs are checked for safety, with clear warnings for potentially unsafe links',
+        ' Share the url links to others'
       ],
       ProblemStatement: [
         'To get Good knowledge about Supabase, Supabase auth & Supabase storage',
@@ -698,4 +703,16 @@ export const MySkills: Skills[] = [
     icon: <ExpessJS />,
     label: 'Express',
   },
+  {
+    id: 9,
+    icon: <Redux />,
+    label: 'Redux'
+  },
+  {
+    id: 10,
+    icon: <Git />,
+    label: "Git"
+  }
 ];
+
+
