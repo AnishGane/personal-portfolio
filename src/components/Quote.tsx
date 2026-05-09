@@ -10,7 +10,7 @@ const Quote = ({ quote, source }: { quote: string; source: string }) => {
       initial="rest"
       whileHover='move'
       animate="rest"
-      className="relative sm:mt-14 sm:mb-8 overflow-hidden rounded-xl bg-white/3 border border-neutral-300 px-2 py-10 sm:py-14 text-2xl font-semibold text-neutral-900 dark:border-neutral-900 dark:text-neutral-100">
+      className="relative sm:mt-4 sm:mb-8 overflow-hidden rounded-xl bg-white/3 border border-neutral-300 px-2 py-10 sm:py-14 text-2xl font-semibold text-neutral-900 dark:border-neutral-900 dark:text-neutral-100">
       {/* SVG Background */}
       <div
         className="absolute sm:top-2 left-5 size-10 -translate-x-1/2 opacity-25">
