@@ -2,6 +2,7 @@ import ProjectCard from './ProjectCard';
 import { ProjectItem } from '../constant/Data';
 import Button from '../Button';
 import ScrollToTop from '../ScrollToTop';
+import { FolderKanban } from 'lucide-react';
 
 const Project = () => {
   return (
@@ -14,7 +15,7 @@ const Project = () => {
           ))}
         </div>
         <div className="mt-8 flex w-full items-center justify-center">
-          <Button text="See More Projects" href="/projects" variant="secondary" />
+          <Button icon={<FolderKanban size={19} />} text="See More Projects" href="/projects" variant="secondary" />
         </div>
       </div>
     </>

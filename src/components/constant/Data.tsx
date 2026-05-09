@@ -371,12 +371,15 @@ export const ProjectItem: ProjectItemProps[] = [
       Overview:
         'FitTrack is a comprehensive full-stack application designed to help users track and measure their daily fitness activities. It enables users to set personalized weekly fitness goals, monitor their progress, and stay motivated throughout their journey. The intuitive interface allows for input and visualization of workouts, habits, and metrics, ensuring users have actionable insights to stay in perfect shape. FitTrack’s goal is to provide an all-in-one fitness companion to support users in achieving a healthy and well-balanced lifestyle.',
       Features: [
-        'User authentication (Email/Password + Google sign-in)',
+        'User authentication (Email/Password + Google SSO)',
         'Secure login using OAuth 2.0',
         'Streak and workout recommendation based on muscle groups',
+        "Set and update the goals per week for workouts and habits",
         'Dark/Light mode',
-        'Save Workout that is your favorite',
+        'Save and Unsave workouts',
         'Edit, Delete, View your workout details, & Create your own workout',
+        "Fitness Tracking with KPIs of your workouts, Weekly volume(last 12 weeks) charts, Muscle Balance(by workout count) indicator, Activity heatmap of last 365 days, Personal Bests workouts per exercise, and a Exercise Progress line chart of your workouts",
+
       ],
       ProblemStatement: [
         'Tracking fitness progress manually is cumbersome and often inaccurate.',
@@ -394,8 +397,8 @@ export const ProjectItem: ProjectItemProps[] = [
     id: 4,
     name: 'URL Shortner',
     subName: 'Snip - A URL shortner application for shortening long urls.',
-    image: "/Images/URLShortner.webp ",
-    mobile_image: '/Images/URLShortner_mobile.webp',
+    image: "/Images/Snip.webp ",
+    mobile_image: '/Images/Snip_mobile.webp',
     url: 'https://urlshortner-lzyy.onrender.com/',
     repoLink: 'https://github.com/AnishGane/URLShortner.git',
     description:

@@ -1,6 +1,7 @@
 import type { JSX } from 'react/jsx-dev-runtime';
 import LinkToolTip from './ToolTips/LinkToolTip';
 import { cloneElement } from 'react';
+
 type TechnologyListProps = {
   label: string;
   icon?: JSX.Element;
@@ -10,7 +11,7 @@ const TechnologyList = ({ icon, label }: TechnologyListProps) => {
   return (
     <div key={label} className="group relative flex size-6 items-center justify-center">
       {/* Tooltip */}
-      <LinkToolTip label={label} position="bottom" />
+      <LinkToolTip label={label} />
 
       {/* Icon */}
       {icon && (
