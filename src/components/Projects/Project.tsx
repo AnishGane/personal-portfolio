@@ -15,7 +15,7 @@ const Project = () => {
           ))}
         </div>
         <div className="mt-8 flex w-full items-center justify-center">
-          <Button icon={<FolderKanban size={19} />} text="See More Projects" href="/projects" variant="secondary" />
+          <Button icon={<FolderKanban size={19} />} text="See More" href="/projects" variant="secondary" />
         </div>
       </div>
     </>

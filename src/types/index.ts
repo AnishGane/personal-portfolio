@@ -42,10 +42,10 @@ type TechnologyCategory = {
 };
 
 type ProjectItemData = {
-  Overview: string;
+  Overview?: string;
   Features?: string[];
   ProblemStatement: string | string[];
-  FuturePlan: string[];
+  FuturePlan?: string[];
 };
 
 export type ProjectItemProps = {
@@ -53,13 +53,13 @@ export type ProjectItemProps = {
   image?: string;
   mobile_image?: string;
   name: string;
-  url: string;
+  url?: string;
   subName: string;
   repoLink: string;
   description: string;
   status: string;
   technologies: TechnologyCategory[];
-  timeline: string;
+  timeline?: string;
   Role: string;
   Team: string;
   itemData: ProjectItemData;

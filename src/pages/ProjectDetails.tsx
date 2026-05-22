@@ -65,6 +65,7 @@ const ProjectDetails = () => {
               alt={projectContent.name}
               className="min-h-[300px] sm:h-[540px] w-full rounded-lg object-cover"
               loading='lazy'
+              draggable="false"
             />
           ) : (
             <div className='min-h-[300px] sm:h-[440px] flex items-center flex-col justify-center w-full rounded-lg object-cover bg-neutral-200'>
@@ -93,9 +94,9 @@ const ProjectDetails = () => {
           </p>
 
           <div className="ring-neutral-6/30 my-4 grid w-full grid-cols-4 md:justify-items-center rounded-xl bg-neutral-300/10 py-4 px-1 text-left text-sm shadow-md ring-1">
-            <div className="flex flex-col items-center md:items-start">
+            <div className="flex flex-col items-center justify-center md:items-start">
               <h5 className="font-medium text-neutral-500 dark:text-neutral-400">Timeline</h5>
-              <p className="text-neutral-8">{projectContent.timeline}</p>
+              <p className="text-neutral-8 text-center w-full">{projectContent.timeline ?? "--"}</p>
             </div>
             <div className="flex flex-col items-center">
               <h5 className="font-medium text-neutral-500 text-center dark:text-neutral-400">Role</h5>
@@ -144,7 +145,7 @@ const ProjectDetails = () => {
                 <h3>Overview</h3>
               </AppendHashtag>
               <p className="text-neutral-6 text-sm leading-6 font-light md:text-[15px]">
-                {projectContent.itemData.Overview}
+                {projectContent.itemData.Overview ?? "No Overview till now"}
               </p>
             </div>
 
@@ -213,11 +214,16 @@ const ProjectDetails = () => {
               <AppendHashtag NoOfHash={2} className="mb-1.5 text-2xl font-medium md:mb-5 md:text-3xl">
                 <h3>Future Plans</h3>
               </AppendHashtag>
-              <ul className="mx-10 list-disc">
-                {projectContent.itemData.FuturePlan.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
+              {projectContent?.itemData?.FuturePlan && projectContent?.itemData?.FuturePlan.length > 0 ?
+                <ul className="mx-10 list-disc">
+                  {projectContent?.itemData?.FuturePlan.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul> :
+                <p className="text-neutral-6 text-[15px] leading-6 font-light">
+                  No Future Plan yet to be added
+                </p>
+              }
             </div>
 
             <div className="mt-10 grid grid-cols-2 gap-4">

@@ -12,6 +12,7 @@ const ProfileImage = () => {
           className="size-full rounded-full object-cover"
           title="Anish Gane"
           loading="lazy"
+          draggable="false"
         />
 
         <div className="group transition-scale absolute right-[5px] bottom-2 z-90 flex size-5 items-center justify-center rounded-full bg-white shadow-md drop-shadow-neutral-100 duration-200 hover:scale-105 dark:bg-black dark:ring-1 dark:ring-neutral-500">

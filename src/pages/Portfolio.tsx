@@ -53,7 +53,7 @@ const Portfolio = () => {
                   className="transform-all rotate-15 duration-200 group-hover:rotate-0"
                 />
               }
-              href="/resume_anish.pdf"
+              href="/Resume_AnishGane.pdf"
               text="Resume / CV"
               variant="secondary"
               download={true}
@@ -92,7 +92,7 @@ const Portfolio = () => {
 
           {/* Projects */}
           <div className="mt-14">
-            <Heading subHeading="Featured" heading="Projects" />
+            <Heading subHeading="Some of my" heading="Projects" />
             <Suspense fallback={<PortfolioProjectSkeleton />}>
               <Project />
             </Suspense>

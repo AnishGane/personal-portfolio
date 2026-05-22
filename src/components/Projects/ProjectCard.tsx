@@ -16,11 +16,15 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
       className="ring-neutral-6/15 font-tooltip rounded-xl bg-white shadow-md ring-1 dark:bg-neutral-800"
     >
       {item?.image ? (
-        <img
-          src={item.image}
-          alt={item.name}
-          loading='lazy'
-          className="w-full rounded-t-xl" />
+        <div className='w-full rounded-t-xl overflow-hidden'>
+          <img
+            src={item.image}
+            alt={item.name}
+            loading='lazy'
+            className="w-full rounded-t-xl hover:scale-105 transition-all duration-350"
+            draggable="false"
+          />
+        </div>
       ) : (
         <div className="h-69.5 flex items-center justify-center flex-col rounded-t-xl bg-neutral-200 dark:bg-neutral-700">
           <ImageOff className="size-10 text-neutral-600 dark:text-neutral-300" />
@@ -32,7 +36,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
 
       <div className="project_content rounded-b-xl p-[17px] pt-6 hover:bg-neutral-200/30 dark:hover:bg-neutral-900/40">
         <div className="flex items-center justify-between gap-3">
-          <h3 className="font-tooltip line-clamp-1 text-lg font-bold text-neutral-900 dark:text-neutral-100">
+          <h3 className="font-tooltip line-clamp-1 text-lg font-bold text-neutral-900 tracking-wide dark:text-neutral-100">
             {item.name}
           </h3>
           <div className="flex items-center gap-2.5">
@@ -71,7 +75,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
             </div>
           </div>
         </div>
-        <p className="text-neutral-6 mt-3 line-clamp-3 text-sm text-balance">{item.description}</p>
+        <p className="text-neutral-6 mt-3 line-clamp-3 text-sm">{item.description}</p>
         <p className="text-neutral-6 mt-3 text-sm font-medium tracking-[0.01em]">Technology Used</p>
         <div className="mt-2 flex flex-wrap items-center gap-1.5">
           {item.technologies.map((category) =>
@@ -96,7 +100,7 @@ const ProjectCard = ({ item }: { item: ProjectItemProps }) => {
               } text-neutral-8 font-tooltip flex items-center justify-center gap-1.5 rounded-full px-2.5 py-1 text-xs tracking-wide`}
           >
             <span
-              className={`size-[7px] rounded-full ${item.status === 'Building' ? 'bg-red-700' : 'bg-green-700'
+              className={`size-[7px] rounded-full animate-pulse ${item.status === 'Building' ? 'bg-red-700' : 'bg-green-700'
                 }`}
             ></span>
             <p>{item.status === 'Building' ? 'Building' : 'Fully Functional'}</p>

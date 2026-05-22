@@ -1,7 +1,5 @@
 import type { LanguageType, NavItem, ProjectItemProps, Skills, SocialLinkProp } from '@/types';
 import { Github, Instagram } from 'lucide-react';
-
-// react-icons
 import { RiTwitterXFill } from 'react-icons/ri';
 import { PiLinkedinLogo } from 'react-icons/pi';
 import {
@@ -661,6 +659,105 @@ export const ProjectItem: ProjectItemProps[] = [
         'Invoice & receipt generation',
         'Enhanced authentication & security',
       ],
+    },
+  },
+  {
+    id: 7,
+    name: 'SocialFeed',
+    subName: 'SocialFeed: A full-stack social media platform',
+    // image: '/Images/SoftStitch.webp',
+    // mobile_image: '/Images/SoftStitch_mobile.webp',
+    // url: 'https://soft-stitch-ecommerce.vercel.app/',
+    repoLink: 'https://github.com/AnishGane/Social-Feed-App',
+    description:
+      'A full-stack social media platform built with React, Node.js,express, and MongoDB, featuring user authentication, post management, comment functionality, and integrated payment gateways.',
+    status: 'Building',
+    technologies: [
+      {
+        category: 'Frontend',
+        stack: [
+          {
+            icon: <ReactLogo />,
+            label: 'React',
+          },
+          {
+            icon: <TailwindCSS />,
+            label: 'Tailwind CSS',
+          },
+          {
+            label: 'React Hot Toast',
+          },
+          {
+            icon: <ReactRouter />,
+            label: 'React Router',
+          },
+          {
+            label: 'Motion',
+          },
+          {
+            label: 'Axios',
+          },
+        ],
+      },
+      {
+        category: 'Backend',
+        stack: [
+          {
+            icon: <NodeJS />,
+            label: 'Node.js',
+          },
+          {
+            icon: <ExpessJS />,
+            label: 'Express.js',
+          },
+          {
+            icon: <MongoDB />,
+            label: 'MongoDB',
+          },
+          {
+            label: 'Cloudinary & Multer',
+          },
+          {
+            label: 'Bcrypt',
+          },
+        ],
+      },
+      {
+        category: 'Deployment',
+        stack: [
+          {
+            icon: <Vercel />,
+            label: 'Vercel',
+          },
+        ],
+      },
+    ],
+    // timeline: '36 days',
+    Role: 'Full Stack',
+    Team: 'Solo',
+    itemData: {
+      // Overview:
+      //   'Expense Tracker is a modern React-powered web application designed to help you manage your personal finances effortlessly. It allows you to record, analyze, and visualize your expenses and income through clean, interactive charts and an intuitive user interface.',
+      Features: [
+        'User Authentication, secure login/signup with JWT',
+        'Home page with all the latest posts feed',
+        'Bookmark a post',
+        'Upvote/Downvote a post of a user that you like/dislike',
+        'View profiles of other users as well as your own',
+      ],
+      ProblemStatement: [
+        'Learn in depth about the real-world problems and production ready full-stack skills using a modern JavaScript stack',
+        'Implement the knowledge that I gained about React-redux and Redux-toolkit in this project',
+        'To learn how backend architecture is set up and how to deploy full-stack apps on Vercel',
+        'To learn about the code modularity and resuability, and also to know about modules, repository and services file and folder structure',
+      ],
+      // FuturePlan: [
+      //   'Advanced product filtering & search',
+      //   'Product reviews & ratings',
+      //   'Multiple payment gateway support',
+      //   'Invoice & receipt generation',
+      //   'Enhanced authentication & security',
+      // ],
     },
   },
 ];

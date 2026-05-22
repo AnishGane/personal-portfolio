@@ -15,6 +15,7 @@ const Navbar = () => {
             alt="svg Logo"
             className="h-8 cursor-pointer transition-transform duration-200 hover:scale-95"
             loading="lazy"
+            draggable="false"
           />
         </Link>
 
