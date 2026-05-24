@@ -50,15 +50,15 @@ export const LanguageItem: LanguageType[] = [
   },
   {
     id: 3,
-    icon: <TailwindCSS />,
-    languageName: 'Tailwind CSS',
-    href: 'https://tailwindcss.com/',
-  },
-  {
-    id: 4,
     icon: <NextLogo />,
     languageName: 'Nextjs',
     href: 'https://nextjs.org/',
+  },
+  {
+    id: 4,
+    icon: <TailwindCSS />,
+    languageName: 'Tailwind CSS',
+    href: 'https://tailwindcss.com/',
   },
   {
     id: 5,

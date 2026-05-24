@@ -5,7 +5,7 @@ const MyDescription = () => {
   return (
     <div className="font-tooltip mt-2 sm:mt-6 flex flex-col gap-4 font-medium tracking-wider">
 
-      <div className="mt-3 font-normal text-neutral-6 text-sm sm:text-base text-justify leading-7 sm:leading-8">
+      <div className="mt-3 font-normal text-neutral-6 text-sm sm:text-base sm:text-justify leading-6.5 sm:leading-8">
         <span>I build interactive web applications using </span>
 
         {LanguageItem.map((item, idx) => (

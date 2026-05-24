@@ -17,7 +17,7 @@ const App = () => {
 
       <AnimatePresence mode="wait">
         <main className="font-own main-container overflow-x-hidden">
-          <div className="mx-auto w-full max-w-212 px-6">
+          <div className="mx-auto w-full max-w-212 px-4">
             <Navbar />
 
             <Routes location={location} key={location.pathname}>

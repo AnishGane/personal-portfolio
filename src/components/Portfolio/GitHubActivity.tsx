@@ -4,21 +4,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const monthNames = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
 ];
 
 const dayLabels = ['Mon', 'Wed', 'Fri'];
+
+// Simple in-memory cache: key → { data, timestamp }
+const cache = new Map<string, { data: GitHubResponse; ts: number }>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 const GitHubActivity = ({ username }: { username: string }) => {
   const [weeks, setWeeks] = useState<Week[]>([]);
@@ -27,8 +21,20 @@ const GitHubActivity = ({ username }: { username: string }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!username) return;
+
+    // Check cache first
+    const cached = cache.get(username);
+    if (cached && Date.now() - cached.ts < CACHE_TTL) {
+      const cal = cached.data.user.contributionsCollection.contributionCalendar;
+      setWeeks(cal.weeks);
+      setTotalContributions(cal.totalContributions);
+      return;
+    }
+
     setLoading(true);
     setError(null);
+
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/github-activity?username=${username}`)
       .then((res) => {
@@ -37,69 +43,82 @@ const GitHubActivity = ({ username }: { username: string }) => {
           setError('User data not found');
           return;
         }
-        setWeeks(data.user.contributionsCollection.contributionCalendar.weeks);
-        setTotalContributions(
-          data.user.contributionsCollection.contributionCalendar.totalContributions
-        );
+        // Store in cache
+        cache.set(username, { data, ts: Date.now() });
+
+        const cal = data.user.contributionsCollection.contributionCalendar;
+        setWeeks(cal.weeks);
+        setTotalContributions(cal.totalContributions);
       })
       .catch(() => setError('Failed to load GitHub data'))
       .finally(() => setLoading(false));
   }, [username]);
 
-  // Calculate month labels with proper positioning like GitHub
+  /**
+   * FIX: Month label alignment
+   *
+   * GitHub's heatmap shows a month label only when the FIRST day of that month
+   * falls within a week — and we skip the very first label if it would overlap
+   * with the second one (i.e. the first week is mid-month).
+   *
+   * We also skip a label if it is too close (< 2 week columns) to the previous
+   * one, which prevents the "MaJun" / "AprMay" overlap you saw.
+   */
   const getMonthLabels = () => {
     const labels: { month: string; weekIndex: number }[] = [];
-    let lastMonth = -1;
 
     weeks.forEach((week, weekIndex) => {
-      // Check the first day of the week
-      const firstDay = week.contributionDays[0];
-      if (firstDay) {
-        const date = new Date(firstDay.date);
-        const month = date.getMonth();
+      week.contributionDays.forEach((day) => {
+        const date = new Date(day.date);
+        // Only care about the 1st of the month
+        if (date.getDate() !== 1) return;
 
-        // Add label when month changes
-        if (month !== lastMonth) {
-          labels.push({
-            month: monthNames[month],
-            weekIndex: weekIndex,
-          });
-          lastMonth = month;
-        }
-      }
+        const month = monthNames[date.getMonth()];
+        const lastLabel = labels[labels.length - 1];
+
+        // Skip if too close to the previous label (< 2 columns gap)
+        if (lastLabel && weekIndex - lastLabel.weekIndex < 2) return;
+
+        labels.push({ month, weekIndex });
+      });
     });
+
+    // Drop the first label if it starts at week 0 AND the week doesn't actually
+    // begin on the 1st (i.e. the month started before the calendar window).
+    if (labels.length > 0 && labels[0].weekIndex === 0) {
+      const firstDay = weeks[0]?.contributionDays[0];
+      if (firstDay && new Date(firstDay.date).getDate() !== 1) {
+        labels.shift();
+      }
+    }
 
     return labels;
   };
 
   const monthLabels = getMonthLabels();
 
-  if (loading) return <GitHubActivitySkeleton />
-
+  if (loading) return <GitHubActivitySkeleton />;
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
-  const cellSize = 11; // Size of each square
-  const cellGap = 3; // Gap between squares
+  const cellSize = 11;
+  const cellGap = 3;
+  const step = cellSize + cellGap;
 
   return (
     <div className="relative mb-8">
-      <div className="font-tooltip text-neutral-8 mb-4 flex items-center justify-between text-sm">
+      <div className="font-tooltip text-neutral-8 mb-4 text-sm">
         <p>
           <strong className="font-bold">{totalContributions}</strong> Contributions till now
-        </p>
-        <p className="hidden text-neutral-6 sm:flex gap-1 text-xs font-normal capitalize italic">
-          `Trying to be more active in Github`
         </p>
       </div>
 
       <div className="overflow-x-auto overflow-y-hidden">
         <div className="inline-block" style={{ minWidth: 'fit-content' }}>
-          {/* Container with day labels and graph */}
           <div className="flex gap-2">
             {/* Day labels column */}
             <div
               className="flex flex-col justify-between pt-6"
-              style={{ height: `${7 * (cellSize + cellGap) - cellGap}px` }}
+              style={{ height: `${7 * step - cellGap}px` }}
             >
               {dayLabels.map((day, index) => (
                 <span
@@ -114,15 +133,13 @@ const GitHubActivity = ({ username }: { username: string }) => {
 
             {/* Graph section */}
             <div>
-              {/* Month labels row */}
+              {/* Month labels row — each label is absolutely positioned by weekIndex */}
               <div className="relative mb-1" style={{ height: '20px' }}>
                 {monthLabels.map((label, index) => (
                   <span
                     key={index}
                     className="absolute text-xs text-neutral-6"
-                    style={{
-                      left: `${label.weekIndex * (cellSize + cellGap)}px`,
-                    }}
+                    style={{ left: `${label.weekIndex * step}px` }}
                   >
                     {label.month}
                   </span>
@@ -162,13 +179,10 @@ const GitHubActivity = ({ username }: { username: string }) => {
       <div className="font-tooltip text-neutral-6 mt-4 flex items-center justify-end gap-2 text-xs">
         <p>Less</p>
         <div className="flex items-center gap-[2px]">
-          <div className="size-2.5 rounded-xs bg-[#c9cccf]"></div>
-          <div className="size-2.5 rounded-xs bg-[#9BE9A8]"></div>
-          <div className="size-2.5 rounded-xs bg-[#40C463]"></div>
-          <div className="size-2.5 rounded-xs bg-[#30A14E]"></div>
-          <div className="size-2.5 rounded-xs bg-[#216E39]"></div>
+          {['#c9cccf', '#9BE9A8', '#40C463', '#30A14E', '#216E39'].map((color) => (
+            <div key={color} className="size-2.5 rounded-xs" style={{ backgroundColor: color }} />
+          ))}
         </div>
-
         <p>More</p>
       </div>
     </div>

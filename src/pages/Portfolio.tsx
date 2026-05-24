@@ -17,6 +17,7 @@ import SEO from '@/components/SEO';
 import PortfolioProjectSkeleton from '@/skeletons/portfolio-project-skeleton';
 
 import { lazy, Suspense } from "react";
+import LinkToolTip from '@/components/ToolTips/LinkToolTip';
 
 const Project = lazy(() => import('@/components/Projects/Project'));
 
@@ -75,7 +76,7 @@ const Portfolio = () => {
           </div>
 
           {/* Social Links with tooltip */}
-          <div className="mt-8 flex items-center gap-3">
+          <div className="mt-8 flex items-center gap-2">
             {SocialLinkItem.map((item) => (
               <SocialLinks
                 key={item.id}
@@ -85,8 +86,10 @@ const Portfolio = () => {
                 href={item.href}
               />
             ))}
-            <Link to={'/contact-me'}>
-              <Mail size={25} className="text-neutral-6 hover:text-neutral-8 cursor-pointer" />
+            <Link to={'/contact-me'} className='group font-tooltip relative bg-black/90 dark:bg-white/90 rounded-lg p-1.5 ring-1 ring-neutral-400'>
+              <Mail size={25} className="text-white dark:text-black cursor-pointer" />
+              {/* Tooltip */}
+              <LinkToolTip label="Contact Me" />
             </Link>
           </div>
 
