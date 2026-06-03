@@ -7,7 +7,7 @@ const ProfileImage = () => {
 
       <div className="relative size-32 rounded-full p-[1.5px]">
         <img
-          src="/Images/GhibliImage.webp"
+          src="/Images/Profilepic.webp"
           alt="My Image"
           className="size-full rounded-full object-cover"
           title="Anish Gane"
