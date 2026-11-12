@@ -1,30 +1,32 @@
-import { useTheme } from '@/context/ThemeContext';
 import { Link } from 'react-router-dom';
 
 const BookaCall = () => {
-  const { theme } = useTheme();
 
   return (
-    <div
-      className="border-neutral-6/50 text-neutral-8 px-6 mt-16 mb-8 flex flex-col items-center justify-center gap-4 rounded-xl border border-dashed py-16 text-sm text-center sm:text-lg tracking-tighter transition-colors duration-200 relative overflow-hidden">
-      <p>Since, You have scrolled up to here, let's talk.</p>
+    <div className="relative my-12 flex h-56 flex-col items-center justify-center gap-4 overflow-hidden rounded-xl border border-black/20 dark:border-white/20 px-6 text-center text-sm text-neutral-8 transition-colors duration-200 sm:text-lg">
+      <img
+        src="/Images/sunset_wallpaper.jpg"
+        alt=""
+        className="absolute inset-0 size-full object-cover"
+        loading="lazy"
+        draggable="false"
+      />
+
+      <div className="absolute inset-0 dark:bg-black/30" />
+
+      <p className="relative z-10 tracking-tighter text-white">
+        Since you’ve scrolled this far, let’s talk.
+      </p>
+
       <Link
-        to={'/contact-me'}
-        className="border-neutral-6/50 text-neutral-8 flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed bg-neutral-400/35 px-3.5 py-1.5 shadow-sm"
+        to="/contact-me"
+        className="relative z-10 flex cursor-pointer items-center justify-center gap-2 rounded-md border border-white/40 bg-black/30 px-3.5 py-1.5 text-white shadow-sm backdrop-blur-sm"
       >
-        <img
-          key={theme}
-          src={theme === 'dark' ? '/Images/AG_white.svg' : '/Images/AG.svg'}
-          alt="main logo"
-          className="h-3"
-          loading='lazy'
-          draggable="false"
-        />
-        <span onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-tooltip text-[13px] font-semibold tracking-wide">
+        <span className="font-tooltip text-[14px] font-semibold tracking-wide">
           Book a Free Call
         </span>
       </Link>
-    </div >
+    </div>
   );
 };
 
